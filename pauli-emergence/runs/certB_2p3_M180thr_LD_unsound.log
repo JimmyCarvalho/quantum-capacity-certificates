@@ -1,0 +1,11 @@
+argv: certify_big.py 2pauli 2003/16000 runs/state_2p3_M180_thr.npy 180 3 0,1
+input sha256: 29f739e0098b53a871680a70519fb64d7ff66d16fe9ffa35a4b0e9afe091679e
+python-flint 0.9.0 prec 128 | extended-precision integration (CERT_LD): True
+  band 0: n=8281 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 5.38e-12 (342s)
+  band 1: n=8190 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 5.36e-12 (680s)
+  band 2: n=8100 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 5.33e-12 (1015s)
+  band 3: n=8010 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 5.27e-12 (1330s)
+  band 4: n=7921 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 5.19e-12 (1636s)
+  band 5: n=7832 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 5.10e-12 (1948s)
+  band 6: n=7744 |L|=125.0 mu=1.06e+01 dL=6.8e-18 err<= 4.99e-12 (2254s)
+  band 7: n=7656 |L|=124.9 mu=1.06e+01 dL=6.8e-18 err<= 4.86e-12 (2549s)

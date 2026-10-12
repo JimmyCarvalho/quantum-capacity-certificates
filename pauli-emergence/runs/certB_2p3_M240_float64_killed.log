@@ -1,0 +1,6 @@
+argv: certify_big.py 2pauli 251/2000 runs/state_2p3_M240_p0.1255.npy 240 3 0,1
+input sha256: 682e0a3d42e431d164614a7eadf73e18fe7572caf94702d6815a5505da281fb0
+python-flint 0.9.0 prec 128
+  band 0: n=14641 |L|=167.3 mu=1.43e+01 dL=1.9e-14 err<= 5.78e-07 (186s)
+  band 1: n=14520 |L|=167.3 mu=1.43e+01 dL=1.9e-14 err<= 5.77e-07 (382s)
+  band 2: n=14400 |L|=167.3 mu=1.43e+01 dL=1.9e-14 err<= 5.74e-07 (588s)

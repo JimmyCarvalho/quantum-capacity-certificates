@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use these certificates or code, please cite them as below."
+title: "Quantum capacity certificates: Pauli channels, additive Gaussian noise, thermal attenuators and amplifiers"
+authors:
+  - family-names: "Carvalho"
+    given-names: "Jimmy Kelvyn Estevam"
+    affiliation: "RCO Tecnologia Ltda."
+date-released: 2026-10-12
+license: MIT
+type: software
+repository-code: "https://github.com/JimmyCarvalho/quantum-capacity-certificates"

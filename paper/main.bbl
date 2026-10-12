@@ -1,0 +1,396 @@
+%apsrev4-2.bst 2019-01-14 (MD) hand-edited version of apsrev4-1.bst
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (0) allowed
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{31}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{https://doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Lloyd}(1997)}]{lloyd1997capacity}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Lloyd}},\ }\bibfield  {title} {\bibinfo {title} {Capacity of the noisy
+  quantum channel},\ }\href {https://doi.org/10.1103/PhysRevA.55.1613}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo
+  {volume} {55}},\ \bibinfo {pages} {1613} (\bibinfo {year} {1997})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/9604015} {arXiv:quant-ph/9604015}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Devetak}(2005)}]{devetak2005private}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.}~\bibnamefont
+  {Devetak}},\ }\bibfield  {title} {\bibinfo {title} {The private classical
+  capacity and quantum capacity of a quantum channel},\ }\href
+  {https://doi.org/10.1109/TIT.2004.839515} {\bibfield  {journal} {\bibinfo
+  {journal} {IEEE Trans. Inf. Theory}\ }\textbf {\bibinfo {volume} {51}},\
+  \bibinfo {pages} {44} (\bibinfo {year} {2005})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/0304127} {arXiv:quant-ph/0304127}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {DiVincenzo}\ \emph {et~al.}(1998)\citenamefont
+  {DiVincenzo}, \citenamefont {Shor},\ and\ \citenamefont
+  {Smolin}}]{divincenzo1998verynoisy}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
+  {DiVincenzo}}, \bibinfo {author} {\bibfnamefont {P.~W.}\ \bibnamefont
+  {Shor}},\ and\ \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
+  {Smolin}},\ }\bibfield  {title} {\bibinfo {title} {Quantum-channel capacity
+  of very noisy channels},\ }\href {https://doi.org/10.1103/PhysRevA.57.830}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo
+  {volume} {57}},\ \bibinfo {pages} {830} (\bibinfo {year} {1998})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/9706061} {arXiv:quant-ph/9706061}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bennett}\ \emph {et~al.}(1996)\citenamefont
+  {Bennett}, \citenamefont {DiVincenzo}, \citenamefont {Smolin},\ and\
+  \citenamefont {Wootters}}]{bennett1996mixed}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~H.}\ \bibnamefont
+  {Bennett}}, \bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
+  {DiVincenzo}}, \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
+  {Smolin}},\ and\ \bibinfo {author} {\bibfnamefont {W.~K.}\ \bibnamefont
+  {Wootters}},\ }\bibfield  {title} {\bibinfo {title} {Mixed-state entanglement
+  and quantum error correction},\ }\href
+  {https://doi.org/10.1103/PhysRevA.54.3824} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {54}},\ \bibinfo
+  {pages} {3824} (\bibinfo {year} {1996})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/9604024} {arXiv:quant-ph/9604024}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Smith}\ and\ \citenamefont
+  {Smolin}(2007)}]{smith2007degenerate}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Smith}}\ and\ \bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
+  {Smolin}},\ }\bibfield  {title} {\bibinfo {title} {Degenerate quantum codes
+  for {P}auli channels},\ }\href
+  {https://doi.org/10.1103/PhysRevLett.98.030501} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo {volume} {98}},\
+  \bibinfo {pages} {030501} (\bibinfo {year} {2007})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/0604107} {arXiv:quant-ph/0604107}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fern}\ and\ \citenamefont
+  {Whaley}(2008)}]{fern2008lower}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Fern}}\ and\ \bibinfo {author} {\bibfnamefont {K.~B.}\ \bibnamefont
+  {Whaley}},\ }\bibfield  {title} {\bibinfo {title} {Lower bounds on the
+  nonzero capacity of {P}auli channels},\ }\href
+  {https://doi.org/10.1103/PhysRevA.78.062335} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {78}},\ \bibinfo
+  {pages} {062335} (\bibinfo {year} {2008})},\ \Eprint
+  {https://arxiv.org/abs/0708.1597} {arXiv:0708.1597} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bausch}\ and\ \citenamefont
+  {Leditzky}(2021)}]{bausch2021pauli}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Bausch}}\ and\ \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Leditzky}},\ }\bibfield  {title} {\bibinfo {title} {Error thresholds for
+  arbitrary {P}auli noise},\ }\href {https://doi.org/10.1137/20M1337375}
+  {\bibfield  {journal} {\bibinfo  {journal} {SIAM J. Comput.}\ }\textbf
+  {\bibinfo {volume} {50}},\ \bibinfo {pages} {1410} (\bibinfo {year}
+  {2021})},\ \Eprint {https://arxiv.org/abs/1910.00471} {arXiv:1910.00471}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bhalerao}\ and\ \citenamefont
+  {Leditzky}(2025)}]{bhalerao2025permutation}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Bhalerao}}\ and\ \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Leditzky}},\ }\href@noop {} {\bibinfo {title} {Improving quantum
+  communication rates with permutation-invariant codes}} (\bibinfo {year}
+  {2025}),\ \Eprint {https://arxiv.org/abs/2508.09978} {arXiv:2508.09978
+  [quant-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Agarwal}\ \emph {et~al.}(2026)\citenamefont
+  {Agarwal}, \citenamefont {Kalra}, \citenamefont {Lee}, \citenamefont {Leung},
+  \citenamefont {Schaeffer}, \citenamefont {Sinha},\ and\ \citenamefont
+  {Smith}}]{agarwal2026symmetry}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Agarwal}}, \bibinfo {author} {\bibfnamefont {A.~R.}\ \bibnamefont {Kalra}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Lee}}, \bibinfo {author}
+  {\bibfnamefont {D.}~\bibnamefont {Leung}}, \bibinfo {author} {\bibfnamefont
+  {L.}~\bibnamefont {Schaeffer}}, \bibinfo {author} {\bibfnamefont
+  {P.}~\bibnamefont {Sinha}},\ and\ \bibinfo {author} {\bibfnamefont
+  {G.}~\bibnamefont {Smith}},\ }\href@noop {} {\bibinfo {title} {Enhanced
+  quantum capacity thresholds from symmetry}} (\bibinfo {year} {2026}),\
+  \Eprint {https://arxiv.org/abs/2605.09138} {arXiv:2605.09138 [quant-ph]}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Krohn-Grimberghe}(2026)}]{krohn2026certified}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Krohn-Grimberghe}},\ }\href@noop {} {\bibinfo {title} {A certified lower
+  bound on the quantum-capacity threshold of the depolarizing channel}}
+  (\bibinfo {year} {2026}),\ \Eprint {https://arxiv.org/abs/2608.15870}
+  {arXiv:2608.15870 [quant-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ahmed}\ \emph {et~al.}(2026)\citenamefont {Ahmed},
+  \citenamefont {Bhalerao}, \citenamefont {Lee}, \citenamefont {Leditzky},
+  \citenamefont {Leung}, \citenamefont {Schaeffer},\ and\ \citenamefont
+  {Smith}}]{ahmed2026choir}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~G.}\ \bibnamefont
+  {Ahmed}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Bhalerao}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Lee}}, \bibinfo {author}
+  {\bibfnamefont {F.}~\bibnamefont {Leditzky}}, \bibinfo {author}
+  {\bibfnamefont {D.}~\bibnamefont {Leung}}, \bibinfo {author} {\bibfnamefont
+  {L.}~\bibnamefont {Schaeffer}},\ and\ \bibinfo {author} {\bibfnamefont
+  {G.}~\bibnamefont {Smith}},\ }\href@noop {} {\bibinfo {title} {A depolarizing
+  choir sings in {G}aussian harmony}} (\bibinfo {year} {2026}),\ \Eprint
+  {https://arxiv.org/abs/2609.39747} {arXiv:2609.39747 [quant-ph]} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Holevo}\ and\ \citenamefont
+  {Werner}(2001)}]{holevo2001evaluating}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~S.}\ \bibnamefont
+  {Holevo}}\ and\ \bibinfo {author} {\bibfnamefont {R.~F.}\ \bibnamefont
+  {Werner}},\ }\bibfield  {title} {\bibinfo {title} {Evaluating capacities of
+  bosonic {G}aussian channels},\ }\href
+  {https://doi.org/10.1103/PhysRevA.63.032312} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {63}},\ \bibinfo
+  {pages} {032312} (\bibinfo {year} {2001})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/9912067} {arXiv:quant-ph/9912067}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Harrington}\ and\ \citenamefont
+  {Preskill}(2001)}]{harrington2001achievable}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Harrington}}\ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Preskill}},\ }\bibfield  {title} {\bibinfo {title} {Achievable rates for the
+  {G}aussian quantum channel},\ }\href
+  {https://doi.org/10.1103/PhysRevA.64.062301} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {64}},\ \bibinfo
+  {pages} {062301} (\bibinfo {year} {2001})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/0105058} {arXiv:quant-ph/0105058}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Caruso}\ and\ \citenamefont
+  {Giovannetti}(2006)}]{caruso2006degradability}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Caruso}}\ and\ \bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Giovannetti}},\ }\bibfield  {title} {\bibinfo {title} {Degradability of
+  bosonic {G}aussian channels},\ }\href
+  {https://doi.org/10.1103/PhysRevA.74.062307} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {74}},\ \bibinfo
+  {pages} {062307} (\bibinfo {year} {2006})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/0603257} {arXiv:quant-ph/0603257}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lami}\ \emph {et~al.}(2019)\citenamefont {Lami},
+  \citenamefont {Khatri}, \citenamefont {Adesso},\ and\ \citenamefont
+  {Wilde}}]{lami2019extendibility}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {L.}~\bibnamefont
+  {Lami}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Khatri}},
+  \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Adesso}},\ and\ \bibinfo
+  {author} {\bibfnamefont {M.~M.}\ \bibnamefont {Wilde}},\ }\bibfield  {title}
+  {\bibinfo {title} {Extendibility of bosonic {G}aussian states},\ }\href
+  {https://doi.org/10.1103/PhysRevLett.123.050501} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo {volume} {123}},\
+  \bibinfo {pages} {050501} (\bibinfo {year} {2019})},\ \Eprint
+  {https://arxiv.org/abs/1904.02692} {arXiv:1904.02692} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lin}\ and\ \citenamefont {Noh}(2025)}]{lin2025gkp}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Lin}}\ and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Noh}},\
+  }\bibfield  {title} {\bibinfo {title} {Exploring the quantum capacity of a
+  {G}aussian random displacement channel using {G}ottesman-{K}itaev-{P}reskill
+  codes and maximum likelihood decoding},\ }\href
+  {https://doi.org/10.1103/PhysRevA.111.052445} {\bibfield  {journal} {\bibinfo
+   {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {111}},\ \bibinfo
+  {pages} {052445} (\bibinfo {year} {2025})},\ \Eprint
+  {https://arxiv.org/abs/2411.04277} {arXiv:2411.04277} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Zhang}\ \emph {et~al.}(2023)\citenamefont {Zhang},
+  \citenamefont {Wu},\ and\ \citenamefont {Guo}}]{zhang2023xzzx}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Zhang}}, \bibinfo {author} {\bibfnamefont {Y.-C.}\ \bibnamefont {Wu}},\ and\
+  \bibinfo {author} {\bibfnamefont {G.-P.}\ \bibnamefont {Guo}},\ }\bibfield
+  {title} {\bibinfo {title} {Concatenation of the {Gottesman-Kitaev-Preskill}
+  code with the {XZZX} surface code},\ }\href
+  {https://doi.org/10.1103/PhysRevA.107.062408} {\bibfield  {journal} {\bibinfo
+   {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {107}},\ \bibinfo
+  {pages} {062408} (\bibinfo {year} {2023})},\ \Eprint
+  {https://arxiv.org/abs/2207.04383} {arXiv:2207.04383 [quant-ph]} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Mele}\ \emph {et~al.}(2026)\citenamefont {Mele},
+  \citenamefont {Catalano}, \citenamefont {Fanizza}, \citenamefont
+  {Giovannetti},\ and\ \citenamefont {Lami}}]{mele2026thermal}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.~A.}\ \bibnamefont
+  {Mele}}, \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Catalano}},
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Fanizza}}, \bibinfo
+  {author} {\bibfnamefont {V.}~\bibnamefont {Giovannetti}},\ and\ \bibinfo
+  {author} {\bibfnamefont {L.}~\bibnamefont {Lami}},\ }\href@noop {} {\bibinfo
+  {title} {Bosonic quantum communication beyond the thermal threshold}}
+  (\bibinfo {year} {2026}),\ \Eprint {https://arxiv.org/abs/2607.27449}
+  {arXiv:2607.27449 [quant-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Holstein}\ and\ \citenamefont
+  {Primakoff}(1940)}]{holstein1940}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Holstein}}\ and\ \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
+  {Primakoff}},\ }\bibfield  {title} {\bibinfo {title} {Field dependence of the
+  intrinsic domain magnetization of a ferromagnet},\ }\href
+  {https://doi.org/10.1103/PhysRev.58.1098} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev.}\ }\textbf {\bibinfo {volume} {58}},\ \bibinfo {pages}
+  {1098} (\bibinfo {year} {1940})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Holevo}(2007)}]{holevo2007onemode}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~S.}\ \bibnamefont
+  {Holevo}},\ }\bibfield  {title} {\bibinfo {title} {One-mode quantum
+  {G}aussian channels: Structure and quantum capacity},\ }\href
+  {https://doi.org/10.1134/S0032946007010012} {\bibfield  {journal} {\bibinfo
+  {journal} {Probl. Inf. Transm.}\ }\textbf {\bibinfo {volume} {43}},\ \bibinfo
+  {pages} {1} (\bibinfo {year} {2007})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/0607051} {arXiv:quant-ph/0607051}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bru{\ss}}\ \emph {et~al.}(2000)\citenamefont
+  {Bru{\ss}}, \citenamefont {Cinchetti}, \citenamefont {D'Ariano},\ and\
+  \citenamefont {Macchiavello}}]{bruss2000phasecovariant}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Bru{\ss}}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Cinchetti}},
+  \bibinfo {author} {\bibfnamefont {G.~M.}\ \bibnamefont {D'Ariano}},\ and\
+  \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Macchiavello}},\
+  }\bibfield  {title} {\bibinfo {title} {Phase-covariant quantum cloning},\
+  }\href {https://doi.org/10.1103/PhysRevA.62.012302} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {62}},\
+  \bibinfo {pages} {012302} (\bibinfo {year} {2000})},\ \Eprint
+  {https://arxiv.org/abs/quant-ph/9909046} {arXiv:quant-ph/9909046}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Shammah}\ \emph {et~al.}(2018)\citenamefont
+  {Shammah}, \citenamefont {Ahmed}, \citenamefont {Lambert}, \citenamefont
+  {De~Liberato},\ and\ \citenamefont {Nori}}]{shammah2018piqs}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Shammah}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Ahmed}},
+  \bibinfo {author} {\bibfnamefont {N.}~\bibnamefont {Lambert}}, \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {De~Liberato}},\ and\ \bibinfo
+  {author} {\bibfnamefont {F.}~\bibnamefont {Nori}},\ }\bibfield  {title}
+  {\bibinfo {title} {Open quantum systems with local and collective incoherent
+  processes: Efficient numerical simulations using permutational invariance},\
+  }\href {https://doi.org/10.1103/PhysRevA.98.063815} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume} {98}},\
+  \bibinfo {pages} {063815} (\bibinfo {year} {2018})},\ \Eprint
+  {https://arxiv.org/abs/1805.05129} {arXiv:1805.05129} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Johansson}\ \emph {et~al.}(2013)\citenamefont
+  {Johansson}, \citenamefont {Nation},\ and\ \citenamefont
+  {Nori}}]{johansson2013qutip}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~R.}\ \bibnamefont
+  {Johansson}}, \bibinfo {author} {\bibfnamefont {P.~D.}\ \bibnamefont
+  {Nation}},\ and\ \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Nori}},\
+  }\bibfield  {title} {\bibinfo {title} {{QuTiP} 2: A {P}ython framework for
+  the dynamics of open quantum systems},\ }\href
+  {https://doi.org/10.1016/j.cpc.2012.11.019} {\bibfield  {journal} {\bibinfo
+  {journal} {Comput. Phys. Commun.}\ }\textbf {\bibinfo {volume} {184}},\
+  \bibinfo {pages} {1234} (\bibinfo {year} {2013})},\ \Eprint
+  {https://arxiv.org/abs/1211.6518} {arXiv:1211.6518} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Johansson}(2017)}]{johansson2017arb}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Johansson}},\ }\bibfield  {title} {\bibinfo {title} {Arb: Efficient
+  arbitrary-precision midpoint-radius interval arithmetic},\ }\href
+  {https://doi.org/10.1109/TC.2017.2690633} {\bibfield  {journal} {\bibinfo
+  {journal} {IEEE Trans. Comput.}\ }\textbf {\bibinfo {volume} {66}},\ \bibinfo
+  {pages} {1281} (\bibinfo {year} {2017})},\ \Eprint
+  {https://arxiv.org/abs/1611.02831} {arXiv:1611.02831} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {{python-flint contributors}}(2026)}]{pythonflint}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {{python-flint
+  contributors}}},\ }\href@noop {} {\bibinfo {title} {python-flint: {P}ython
+  bindings for {FLINT}, version 0.9.0}},\ \bibinfo {howpublished}
+  {\url{https://pypi.org/project/python-flint/0.9.0/}} (\bibinfo {year}
+  {2026}),\ \bibinfo {note} {version used for all certificates}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Horn}\ and\ \citenamefont
+  {Johnson}(2012)}]{hornjohnson2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~A.}\ \bibnamefont
+  {Horn}}\ and\ \bibinfo {author} {\bibfnamefont {C.~R.}\ \bibnamefont
+  {Johnson}},\ }\href {https://doi.org/10.1017/CBO9781139020411} {\emph
+  {\bibinfo {title} {Matrix Analysis}}},\ \bibinfo {edition} {2nd}\ ed.\
+  (\bibinfo  {publisher} {Cambridge University Press},\ \bibinfo {address}
+  {Cambridge},\ \bibinfo {year} {2012})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {S{\"o}derlind}(2006)}]{soderlind2006lognorm}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {S{\"o}derlind}},\ }\bibfield  {title} {\bibinfo {title} {The logarithmic
+  norm. {H}istory and modern theory},\ }\href
+  {https://doi.org/10.1007/s10543-006-0069-9} {\bibfield  {journal} {\bibinfo
+  {journal} {BIT Numer. Math.}\ }\textbf {\bibinfo {volume} {46}},\ \bibinfo
+  {pages} {631} (\bibinfo {year} {2006})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Al-Mohy}\ and\ \citenamefont
+  {Higham}(2011)}]{almohy2011action}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~H.}\ \bibnamefont
+  {Al-Mohy}}\ and\ \bibinfo {author} {\bibfnamefont {N.~J.}\ \bibnamefont
+  {Higham}},\ }\bibfield  {title} {\bibinfo {title} {Computing the action of
+  the matrix exponential, with an application to exponential integrators},\
+  }\href {https://doi.org/10.1137/100788860} {\bibfield  {journal} {\bibinfo
+  {journal} {SIAM J. Sci. Comput.}\ }\textbf {\bibinfo {volume} {33}},\
+  \bibinfo {pages} {488} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Higham}(2002)}]{higham2002accuracy}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.~J.}\ \bibnamefont
+  {Higham}},\ }\href {https://doi.org/10.1137/1.9780898718027} {\emph {\bibinfo
+  {title} {Accuracy and Stability of Numerical Algorithms}}},\ \bibinfo
+  {edition} {2nd}\ ed.\ (\bibinfo  {publisher} {SIAM},\ \bibinfo {address}
+  {Philadelphia},\ \bibinfo {year} {2002})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fannes}(1973)}]{fannes1973continuity}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Fannes}},\ }\bibfield  {title} {\bibinfo {title} {A continuity property of
+  the entropy density for spin lattice systems},\ }\href
+  {https://doi.org/10.1007/BF01646490} {\bibfield  {journal} {\bibinfo
+  {journal} {Commun. Math. Phys.}\ }\textbf {\bibinfo {volume} {31}},\ \bibinfo
+  {pages} {291} (\bibinfo {year} {1973})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Carvalho}(2026)}]{repo}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~K.~E.}\
+  \bibnamefont {Carvalho}},\ }\href@noop {} {\bibinfo {title} {Quantum capacity
+  certificates: code, input states and certificate logs}},\ \bibinfo
+  {howpublished}
+  {\url{https://github.com/JimmyCarvalho/quantum-capacity-certificates}}
+  (\bibinfo {year} {2026}),\ \bibinfo {note} {directories
+  \texttt{pauli-emergence/} and \texttt{depolarizing-threshold/}}\BibitemShut
+  {NoStop}%
+\end{thebibliography}%
