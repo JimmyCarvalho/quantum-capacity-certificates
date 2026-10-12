@@ -45,7 +45,7 @@ depolarizing); residues mod 2 (parity) or mod 3 as listed, with exact zeros else
 | family r = 1/2 | 3359/16000 | 0.2099375 (total) | 60 | 60 | mod 3 {0,1} | `runs/state_pr0.5_k3b_M60_thr.npy` | 3a05874737beccad | big | [3.73849269e-6, 3.74092802e-6] |
 | family r = 3/4 | 16127/80000 | 0.2015875 (total) | 60 | 60 | mod 3 {0,1} | `runs/state_pr0.75_k3_M60_thr.npy` | 0ea6c8003a9478ba | big | [1.63392704e-6, 1.63632317e-6] |
 | depolarizing | 41207/625000 | 0.0659312 (3p = 0.1977936) | 240 | 110 | mod 3 {0,1} | `runs/state_dep_M240_thr.npy` | 9dffeb3cd424e413 | big | [1.32046252e-6, 1.33093482e-6] |
-| BB84 | 63/500 | 0.126 | 240 | 110 | mod 3 {0,1} | `runs/state_bb3_M240_q0.126.npy` | b947cad42e44ebca | big | [5.54571350e-6, 5.56189889e-6] |
+| BB84 | 63/500 | 0.126 | 240 | 110 | mod 3 {0,1} | `runs/state_bb3_M240_q0.126.npy` | b947cad42e44ebca | big | [5.54571320e-6, 5.56189919e-6] |
 | 2-Pauli | 2003/16000 | 0.1251875 | 180 | 90 | mod 3 {0,1} | `runs/state_2p3_M180_thr.npy` | 29f739e0098b53a8 | big, `CERT_LD=1` | [1.17881571e-6, 1.19653069e-6] |
 | 2-Pauli | 251/2000 | 0.1255 | 240 | 110 | mod 3 {0,1} | `runs/state_2p3_M240_p0.1255.npy` | 682e0a3d42e431d1 | big, `CERT_LD=1` | [1.88681426e-6, 2.70734623e-6] |
 
@@ -87,7 +87,10 @@ Commands:
 | thermal attenuator, ν = 2 | η = 8587/10000 (p = 1413/10000) | general rank 2 (k = 1) | `runs/th2_best.npy` | 413fcd7ec3489aac | 160, 360 | [1.14709176e-7, 1.14892934e-7] |
 | thermal attenuator, ν = 3 | η = 1791/2000 (p = 209/2000) | general rank 2 (k = 1) | `runs/th3_best.npy` | 6cd8d3af49f65888 | 160, 360 | [8.31897855e-8, 8.33853440e-8] |
 | thermal attenuator, ν = 5 | η = 7459/8000 (p = 541/8000; T = 7459/10705, G = 2141/1600) | mod 3 {0,1} | `runs/thnu_5_big_best.npy` | 2b85f0323ce13231 | 260, 520 | [1.17390097e-6, 1.17400578e-6] |
-| emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 3673/5000 (p = 1327/20000 per Pauli, 3p = 0.19905; T = 13490929/21682500, G = 8673/7346) | mod 3 {0,1}, mean 38.5 photons | `../depolarizing-threshold/runs/stretch2b_eta0.7346.npy` | 1b44cc551b74c8c1 | 240, 360 | [1.52256332e-8, 1.54665840e-8] |
+| emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 7341/10000 (p = 2659/40000 per Pauli, 3p = 0.199425; T = 53890281/86705000, G = 17341/14682) | mod 3 {0,1}, mean 38.5 photons | `../depolarizing-threshold/runs/hpcont38_eta0.7341000.npy` | f389ca632e62cd5f | 240, 360 | [4.69714037e-8, 4.72320460e-8] |
+| emergent depolarizing | η = 29369/40000 (p = 10631/160000, 3p = 0.19933125; T = 862538161/1387380000, G = 69369/58738) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont38_eta0.7342250.npy` | fda1524d3ff1acf3 | 240, 360 | [4.50609099e-8, 4.53214898e-8] |
+| emergent depolarizing | η = 14687/20000 (p = 5313/80000, 3p = 0.1992375; T = 215707969/346870000, G = 34687/29374) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont38_eta0.7343500.npy` | 98f3035d24d6a29f | 240, 360 | [2.36712801e-8, 2.40039012e-8] |
+| emergent depolarizing | η = 3673/5000 (p = 1327/20000 per Pauli, 3p = 0.19905; T = 13490929/21682500, G = 8673/7346) | mod 3 {0,1}, mean 38.5 photons | `../depolarizing-threshold/runs/stretch2b_eta0.7346.npy` | 1b44cc551b74c8c1 | 240, 360 | [1.52256332e-8, 1.54665840e-8] |
 | emergent depolarizing | η = 2351/3200 (p = 849/12800 per Pauli, 3p = 0.198984375; T = 5527201/8881600, G = 5551/4702) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont_eta0.7346875.npy` | c4f3ae62d4e8ce2b | 240, 360 | [1.82651528e-8, 1.85766717e-8] |
 | emergent depolarizing | η = 2939/4000 (p = 1061/16000, 3p = 0.1989375; T = 8637721/13878000, G = 6939/5878) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont_eta0.7347500.npy` | d01d54a7afcd92b9 | 240, 360 | [1.07683723e-7, 1.07994494e-7] |
 | thermal attenuator, ν = 5 (superseded) | η = 37307/40000 (p = 2693/40000) | mod 3 {0,1} | `runs/th5_best.npy` | 3a0ad4e6310ec0cf | 160, 360 | [2.50657502e-6, 2.50662460e-6] |
@@ -114,6 +117,9 @@ Commands:
     python3 certify_limit.py th3 209/2000 runs/th3_best.npy 0,0 1 160 360
     python3 certify_limit.py th5 2693/40000 runs/th5_best.npy 0,1 3 160 360
     python3 certify_limit.py th5 541/8000 runs/thnu_5_big_best.npy 0,1 3 260 520
+    python3 certify_limit.py depol 2659/40000 ../depolarizing-threshold/runs/hpcont38_eta0.7341000.npy 0,1 3 240 360
+    python3 certify_limit.py depol 10631/160000 ../depolarizing-threshold/runs/hpcont38_eta0.7342250.npy 0,1 3 240 360
+    python3 certify_limit.py depol 5313/80000 ../depolarizing-threshold/runs/hpcont38_eta0.7343500.npy 0,1 3 240 360
     python3 certify_limit.py depol 1327/20000 ../depolarizing-threshold/runs/stretch2b_eta0.7346.npy 0,1 3 240 360
     python3 certify_limit.py depol 849/12800 ../depolarizing-threshold/runs/hpcont_eta0.7346875.npy 0,1 3 240 360
     python3 certify_limit.py depol 1061/16000 ../depolarizing-threshold/runs/hpcont_eta0.7347500.npy 0,1 3 240 360
@@ -123,8 +129,8 @@ The AGN entry was checked by an independent agent with its own implementation (d
 repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (README §6.4). The emergent
 depolarizing entries and the ν = 5 entry (η = 7459/8000) were checked by another from-scratch
 implementation with three routes (pure loss then amplifier, thermal master equation, beam splitter with a
-Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 1.5376335×10⁻⁸ (η = 0.7346),
-1.8455798×10⁻⁸, 1.0787368×10⁻⁷ and 1.1739661×10⁻⁶ bits, routes agreeing to ≤ 7.5×10⁻¹⁴, all inside (README §7, §6.6). Intervals from the
+Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 4.7133075×10⁻⁸ (η = 0.7341), 4.5225625×10⁻⁸ (0.734225),
+2.3876871×10⁻⁸ (0.73435), 1.5376335×10⁻⁸ (0.7346), 1.8455798×10⁻⁸, 1.0787368×10⁻⁷ and 1.1739661×10⁻⁶ bits, routes agreeing to ≤ 7.5×10⁻¹⁴, all inside (README §7, §6.6). Intervals from the
 Weyl/Ostrowski enclosure depend on the float eigenbasis, so another LAPACK build can print slightly
 different (equally valid) endpoints.
 
@@ -158,9 +164,9 @@ budget would be 4–6× too small, demonstrated); an explicit error instead of a
 continuity-bound range; reject codes with weight off their residues or K > M (the lower bound survives
 such inputs by a twirling argument, the upper end of the interval does not); re-run every certificate with
 the final code so the manifest is reproducible bit for bit (`recertify_all.sh`, logs in `runs/certB_*.log`;
-status: all M = 60 and M = 120 entries, depolarizing M = 240 and 2-Pauli M = 240 (`CERT_LD=1`) are done, all
-still positive, intervals at most ~4×10⁻¹³ wider, and the table above carries the re-run intervals; BB84
-M = 240 and 2-Pauli M = 180 are still running).
+status: all M = 60 and M = 120 entries and all M = 240 entries (depolarizing, BB84, 2-Pauli with `CERT_LD=1`)
+are done, all still positive, intervals at most ~4×10⁻¹³ wider, and the table above carries the re-run
+intervals; 2-Pauli M = 180 is still running).
 
 Caveat (also from the review): BB84 and depolarizing channels are monotone in p by composition, so
 Q > 0 holds for every smaller p as well. For the 2-Pauli family no such composition exists, so

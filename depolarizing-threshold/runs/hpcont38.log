@@ -1,4 +1,8 @@
-Process ForkPoolWorker-1:
+{"tag": "hpcont38", "eta": "14687/20000", "eta_f": 0.73435, "Ic": 2.387686946614489e-08, "nbar": 38.53990229164867, "w": [0.4382, 0.5618], "sec": 1193}
+{"tag": "hpcont38", "eta": "7341/10000", "eta_f": 0.7341, "Ic": -2.4013485033993046e-09, "nbar": 38.54318540012846, "w": [0.4382, 0.5618], "sec": 2442}
+{"tag": "hpcont38", "eta": "29369/40000", "eta_f": 0.734225, "Ic": 4.5225626857055164e-08, "nbar": 38.54243755699355, "w": [0.4382, 0.5618], "sec": 3719}
+{"tag": "hpcont38", "eta": "7341/10000", "eta_f": 0.7341, "Ic": 4.713307190425579e-08, "nbar": 38.54530202713668, "w": [0.4382, 0.5618], "sec": 4957}
+Process ForkPoolWorker-2:
 Traceback (most recent call last):
   File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
     put((job, i, result))
@@ -40,7 +44,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
     n = write(self._handle, buf)
 BrokenPipeError: [Errno 32] Broken pipe
-Process ForkPoolWorker-2:
+Process ForkPoolWorker-1:
 Traceback (most recent call last):
   File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
     put((job, i, result))
