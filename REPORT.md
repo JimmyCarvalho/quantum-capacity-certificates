@@ -569,7 +569,13 @@ earlier work is enclosed rigorously as −4.66625545720×10⁻¹² bits); they s
 64 photons. High-precision L-BFGS from the Gaussian plateau state went from −4.67×10⁻¹² to −3.69×10⁻¹²
 in 20 evaluations (stopped). The record code (mean ≈ 56 photons, I_c ≈ 10⁻¹²) therefore has structure
 beyond a Gaussian envelope that we did not find; without the authors' state we can neither confirm nor
-refute their floating-point value.
+refute their floating-point value. A second high-precision optimization at the record point, from a
+skewed-Gaussian start found by a double-precision multi-start, reached I_c = −2.1×10⁻¹⁷ (`dep_hp_ms1`), but
+that state is a plateau state: its I_c is −2.10×10⁻¹⁷, −2.07×10⁻¹⁷, −1.98×10⁻¹⁷ and −1.81×10⁻¹⁷ at
+η = 0.7296, 0.73, 0.731 and 0.733, almost independent of the noise, so being near zero there does not
+mean being near a threshold. The same multi-start shows how floating-point records can mislead: its
+best state had I_c = +1.28×10⁻¹³ in double precision and −8.34×10⁻¹⁴ in 128-bit arithmetic (the optimizer
+had climbed onto rounding error).
 
 **Earlier attempts (double precision).**
 
