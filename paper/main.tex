@@ -60,7 +60,7 @@ evolution in the Dicke basis and two interval-arithmetic certifiers, we certify 
 information of explicit $M$-qubit states at $q=0.126$ for BB84 ($M=240$) and $p=0.1255$ for the
 2-Pauli channel ($M=240$), above the previously reported $0.118371$ and $0.118067$, and at total error
 $0.1977936$ for the depolarizing channel ($M=240$). In the Gaussian limit we certify the emergent
-depolarizing channel at total error $0.199546875$; with the convergence theorem of Ahmed \textit{et al.}\
+depolarizing channel at total error $0.1996640625$; with the convergence theorem of Ahmed \textit{et al.}\
 this is, to our knowledge, the largest depolarizing threshold bound whose final sign is certified (the
 larger $0.2029161$ rests on a floating-point value $\Ic\approx10^{-12}$).
 Transferring the BB84 code to the Gaussian limit, we certify
@@ -149,7 +149,7 @@ channel & hashing & previous best & this work & ceiling\\
 \hline
 BB84 ($q$) & 0.110028 & 0.118371~\cite{agarwal2026symmetry} & 0.126 & 0.146447\\
 2-Pauli ($p$) & 0.113546 & 0.118067~\cite{agarwal2026symmetry} & 0.1255 & 0.146447\\
-depol.\ ($3p$) & 0.189290 & 0.2029161$^{a}$~\cite{ahmed2026choir} & 0.1995469$^{b}$ & 0.219670\\
+depol.\ ($3p$) & 0.189290 & 0.2029161$^{a}$~\cite{ahmed2026choir} & 0.1996641$^{b}$ & 0.219670\\
 AGN ($\sigma^2$) & $1/e$ & $1/e$~\cite{holevo2001evaluating} & $0.4075$ & $1/2$\\
 \end{tabular}
 \end{ruledtabular}
@@ -626,7 +626,7 @@ BB84 & 63/500 & 0.126 & B & 240 & 110 & 3 & [5.54571350, 5.56189889] & \texttt{b
 state (best code per $M$, Table~\ref{tab:certs}). Left: BB84 and 2-Pauli; dashed, the previously reported
 values at $n=30$~\cite{agarwal2026symmetry}; dotted, hashing. Right: depolarizing channel in total error
 $3p$; black dashed, the asymptotic Gaussian-limit value $0.2029161$~\cite{ahmed2026choir} (floating point);
-red dash-dotted, our certified Gaussian-limit value $0.199546875$ (Sec.~\ref{sec:depgauss}); green dashed,
+red dash-dotted, our certified Gaussian-limit value $0.1996640625$ (Sec.~\ref{sec:depgauss}); green dashed,
 the previous certified explicit value $0.194868$ ($n=45$)~\cite{krohn2026certified}; dotted, hashing.}
 \label{fig:thresholds}
 \end{figure*}
@@ -635,7 +635,7 @@ the previous certified explicit value $0.194868$ ($n=45$)~\cite{krohn2026certifi
 $p_{\mathrm{th}}(\text{2-Pauli})\ge0.1255$ ($M=240$), and, for the depolarizing channel, a certified
 explicit-size value $3p=0.1977936$ ($M=240$). The last exceeds the previous explicit certified
 $0.194868$ ($n=45$)~\cite{krohn2026certified} but not the asymptotic $0.2029161$~\cite{ahmed2026choir};
-in the Gaussian limit we certify $0.199546875$ (Sec.~\ref{sec:depgauss}).
+in the Gaussian limit we certify $0.1996640625$ (Sec.~\ref{sec:depgauss}).
 The BB84 and depolarizing families are closed under composition, with the less noisy channel as a
 factor, so $Q>0$ also at every smaller noise. The 2-Pauli family is not ($XZ$ errors appear), so there
 $p_{\mathrm{th}}\ge0.1255$ holds in the sup sense only.
@@ -702,8 +702,12 @@ $\Ic\in[4.69714037,4.72320460]\times10^{-8}$ bits (independent re-implementation
 $0.19933125$; at $\eta=0.7335$, $60$ L-BFGS steps still leave $\Ic=-8.6\times10^{-8}$). Stretching once more (by $1.5$, mean photon number $57.5$) gives a branch that is positive at
 $\eta=11743/16000$, i.e.\ $p=4257/64000$ per Pauli ($3p=0.199546875$; $T=137898049/221944000$,
 $G=27743/23486$): certified $\Ic\in[2.57112611,2.97906949]\times10^{-9}$ bits, independent value
-$2.8369733\times10^{-9}$. Hence $p_{\mathrm{th}}\ge0.199546875$ with Theorem~6 of
-Ref.~\cite{ahmed2026choir}. The gain per stretch shrinks ($\eta\approx0.73467$, $0.7341$, $0.73394$ for
+$2.8369733\times10^{-9}$. Continuing it, the lowest certified point is $\eta=23481/32000$, i.e.\
+$p=8519/128000$ per Pauli ($3p=0.1996640625$; $T=551357361/887696000$, $G=55481/46962$), with
+$\Ic\in[8.36623805,12.0960365]\times10^{-10}$ bits (independent value $1.0813608\times10^{-9}$); a point that
+failed once passed on a second visit from a better state, so the branch is limited by the optimization
+budget. Hence $p_{\mathrm{th}}\ge0.1996640625$ with Theorem~6 of
+Ref.~\cite{ahmed2026choir}. The gain per stretch shrinks ($\eta\approx0.73467$, $0.7341$, $0.7337$ for
 $20$, $38.5$, $57.5$ photons), so stretching alone does not reach $\eta=0.7294452$: the $56$-photon record
 code must have a different structure.
 The coherent information shrinks as the photon number grows, which is the trade-off that leads to the
@@ -978,7 +982,7 @@ $\sigma$ with a nonzero rate for an explicit GKP code reported in Ref.~\cite{lin
 \label{sec:failures}
 
 \paragraph*{The depolarizing record.} We did not beat $3p=0.2029161$; our certified Gaussian-limit value
-is $0.199546875$ (Sec.~\ref{sec:depgauss}), and the symmetry breaking that
+is $0.1996640625$ (Sec.~\ref{sec:depgauss}), and the symmetry breaking that
 helps for the AGN channel did not help here. Full L-BFGS over residue codes
 ($\kappa=2,\dots,6$, ranks 2--3) for the emergent thermal attenuator, in float64, reaches $\Ic>0$ only
 down to $\eta\approx0.737$ ($3p\approx0.197$). The record point $\eta=0.7294452$ needs codes with mean

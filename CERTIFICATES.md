@@ -87,7 +87,10 @@ Commands:
 | thermal attenuator, ν = 2 | η = 8587/10000 (p = 1413/10000) | general rank 2 (k = 1) | `runs/th2_best.npy` | 413fcd7ec3489aac | 160, 360 | [1.14709176e-7, 1.14892934e-7] |
 | thermal attenuator, ν = 3 | η = 1791/2000 (p = 209/2000) | general rank 2 (k = 1) | `runs/th3_best.npy` | 6cd8d3af49f65888 | 160, 360 | [8.31897855e-8, 8.33853440e-8] |
 | thermal attenuator, ν = 5 | η = 7459/8000 (p = 541/8000; T = 7459/10705, G = 2141/1600) | mod 3 {0,1} | `runs/thnu_5_big_best.npy` | 2b85f0323ce13231 | 260, 520 | [1.17390097e-6, 1.17400578e-6] |
-| emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 11743/16000 (p = 4257/64000 per Pauli, 3p = 0.199546875; T = 137898049/221944000, G = 27743/23486) | mod 3 {0,1}, mean 57.5 photons | `../depolarizing-threshold/runs/hpcont57_eta0.7339375.npy` | 609cfc3e72d4bd11 | 240, 360 | [2.57112611e-9, 2.97906949e-9] |
+| emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 23481/32000 (p = 8519/128000 per Pauli, 3p = 0.1996640625; T = 551357361/887696000, G = 55481/46962) | mod 3 {0,1}, mean 57.5 photons | `../depolarizing-threshold/runs/hpcont57_eta0.7337813.npy` | 78fe258b720f161f | 240, 360 | [8.36623805e-10, 1.20960365e-9] |
+| emergent depolarizing | η = 11741/16000 (p = 4259/64000, 3p = 0.199640625; T = 137851081/221928000, G = 27741/23482) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont57_eta0.7338125.npy` | 0d305290c225c092 | 240, 360 | [3.32999404e-10, 7.46110460e-10] |
+| emergent depolarizing | η = 5871/8000 (p = 2129/32000, 3p = 0.19959375; T = 34468641/55484000, G = 13871/11742) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont57_eta0.7338750.npy` | 24c40426445e91a7 | 240, 360 | [1.81914406e-9, 2.22028303e-9] |
+| emergent depolarizing | η = 11743/16000 (p = 4257/64000 per Pauli, 3p = 0.199546875; T = 137898049/221944000, G = 27743/23486) | mod 3 {0,1}, mean 57.5 photons | `../depolarizing-threshold/runs/hpcont57_eta0.7339375.npy` | 609cfc3e72d4bd11 | 240, 360 | [2.57112611e-9, 2.97906949e-9] |
 | emergent depolarizing | η = 367/500 (p = 133/2000, 3p = 0.1995; T = 134689/216750, G = 867/734) | mod 3 {0,1}, mean 57.5 photons | `../depolarizing-threshold/runs/s57_eta0.734_best.npy` | c730e18c56981346 | 240, 360 | [6.64143550e-10, 1.00461950e-9] |
 | emergent depolarizing | η = 7341/10000 (p = 2659/40000 per Pauli, 3p = 0.199425; T = 53890281/86705000, G = 17341/14682) | mod 3 {0,1}, mean 38.5 photons | `../depolarizing-threshold/runs/hpcont38_eta0.7341000.npy` | f389ca632e62cd5f | 240, 360 | [4.69714037e-8, 4.72320460e-8] |
 | emergent depolarizing | η = 29369/40000 (p = 10631/160000, 3p = 0.19933125; T = 862538161/1387380000, G = 69369/58738) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont38_eta0.7342250.npy` | fda1524d3ff1acf3 | 240, 360 | [4.50609099e-8, 4.53214898e-8] |
@@ -119,6 +122,9 @@ Commands:
     python3 certify_limit.py th3 209/2000 runs/th3_best.npy 0,0 1 160 360
     python3 certify_limit.py th5 2693/40000 runs/th5_best.npy 0,1 3 160 360
     python3 certify_limit.py th5 541/8000 runs/thnu_5_big_best.npy 0,1 3 260 520
+    python3 certify_limit.py depol 8519/128000 ../depolarizing-threshold/runs/hpcont57_eta0.7337813.npy 0,1 3 240 360
+    python3 certify_limit.py depol 4259/64000 ../depolarizing-threshold/runs/hpcont57_eta0.7338125.npy 0,1 3 240 360
+    python3 certify_limit.py depol 2129/32000 ../depolarizing-threshold/runs/hpcont57_eta0.7338750.npy 0,1 3 240 360
     python3 certify_limit.py depol 4257/64000 ../depolarizing-threshold/runs/hpcont57_eta0.7339375.npy 0,1 3 240 360
     python3 certify_limit.py depol 133/2000 ../depolarizing-threshold/runs/s57_eta0.734_best.npy 0,1 3 240 360
     python3 certify_limit.py depol 2659/40000 ../depolarizing-threshold/runs/hpcont38_eta0.7341000.npy 0,1 3 240 360
@@ -133,7 +139,8 @@ The AGN entry was checked by an independent agent with its own implementation (d
 repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (README §6.4). The emergent
 depolarizing entries and the ν = 5 entry (η = 7459/8000) were checked by another from-scratch
 implementation with three routes (pure loss then amplifier, thermal master equation, beam splitter with a
-Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 2.8369733×10⁻⁹ (η = 0.7339375), 8.794423×10⁻¹⁰ (0.734), 4.7133075×10⁻⁸ (0.7341), 4.5225625×10⁻⁸ (0.734225),
+Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 1.0813608×10⁻⁹ (η = 0.73378125), 6.061502×10⁻¹⁰ (0.7338125), 2.0771682×10⁻⁹ (0.733875),
+2.8369733×10⁻⁹ (0.7339375), 8.794423×10⁻¹⁰ (0.734), 4.7133075×10⁻⁸ (0.7341), 4.5225625×10⁻⁸ (0.734225),
 2.3876871×10⁻⁸ (0.73435), 1.5376335×10⁻⁸ (0.7346), 1.8455798×10⁻⁸, 1.0787368×10⁻⁷ and 1.1739661×10⁻⁶ bits, routes agreeing to ≤ 7.5×10⁻¹⁴, all inside (README §7, §6.6). Intervals from the
 Weyl/Ostrowski enclosure depend on the float eigenbasis, so another LAPACK build can print slightly
 different (equally valid) endpoints.

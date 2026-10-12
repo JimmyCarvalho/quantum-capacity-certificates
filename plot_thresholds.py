@@ -26,7 +26,7 @@ a.set_title("Q > 0 certified up to")
 
 b.plot(*zip(*DEPOL_3P), "o-", color="C2", label="certified, explicit M (this work)")
 b.axhline(0.2029161, color="k", ls="--", lw=1, label="asymptotic record (Gaussian limit, floating point)")
-b.axhline(0.199546875, color="C3", ls="-.", lw=1, label="Gaussian limit, I_c certified (this work)")
+b.axhline(0.1996640625, color="C3", ls="-.", lw=1, label="Gaussian limit, I_c certified (this work)")
 b.axhline(0.194868, color="C2", ls="--", lw=1, label="previous explicit certified (n = 45)")
 b.axhline(0.18929, color="C2", ls=":", lw=1, label="hashing")
 b.set_xscale("log")
