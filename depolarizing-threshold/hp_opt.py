@@ -1,7 +1,7 @@
 """L-BFGS on residue codes with high-precision I_c and gradient (hp_ic.ic_and_grad).
 For the near-classical plateau of the depolarizing record (|I_c| ~ 1e-12), where double-precision line
 searches stall. usage: python3 hp_opt.py init.npy eta Nin D maxiter tag [scale] [channel]
-channel: depol (default; eta = shrinking factor) or th<nu>/agn as in certify_limit (eta = p there)."""
+Depolarizing emergent channel (eta = shrinking factor). HP_PROCS=n evaluates the charge blocks in parallel."""
 import os
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 import json
@@ -22,7 +22,14 @@ flint.ctx.prec = 128
 if __name__ == "__main__":
     path, eta, Nin, D, maxiter, tag = sys.argv[1], Fraction(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), sys.argv[6]
     scale = float(sys.argv[7]) if len(sys.argv) > 7 else None
-    ch = ArbChannel(eta, Nin, D)
+    procs = int(os.environ.get("HP_PROCS", "1"))
+    if procs > 1:
+        import hp_par
+        par = hp_par.ParIc(procs=procs)
+        icg = lambda X: par(str(eta), Nin, D, X)
+    else:
+        ch = ArbChannel(eta, Nin, D)
+        icg = lambda X: hp_ic.ic_and_grad(ch, X)
     C0 = np.zeros((2, Nin + 1))
     S = np.load(path)
     C0[:, : min(Nin + 1, S.shape[1])] = S[:, : Nin + 1]
@@ -35,7 +42,7 @@ if __name__ == "__main__":
 
     def f(x):
         C = unpack(x, sup, Nin)
-        Ic, g = hp_ic.ic_and_grad(ch, C)
+        Ic, g = icg(C)
         n[0] += 1
         if Ic > best["Ic"]:
             best["Ic"] = Ic

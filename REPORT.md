@@ -24,7 +24,7 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
    agente separado, que tentou quebrá-los e não conseguiu (ver `CERTIFICATES.md`);
 4. para o canal despolarizante, dá o melhor valor certificado com M explícito: 3p = **0,1977936** com
    M = 240 (o melhor certificado anterior era 0,194868 com n = 45; o recorde 0,2029 é assintótico, sem M
-   explícito); no limite gaussiano, com aritmética de 128 bits, certificamos **3p = 0,198984375**, que,
+   explícito); no limite gaussiano, com aritmética de 128 bits, certificamos **3p = 0,19905**, que,
    com o teorema de convergência de Ahmed et al., é o maior limite com sinal final certificado que
    conhecemos (o 0,2029 deles vem de um valor em ponto flutuante, I_c ≈ 10⁻¹²; §7);
 5. no limite gaussiano, códigos de resíduo (tipo gato de 4 componentes) dão positividade **certificada**
@@ -68,7 +68,7 @@ State of the art before this work (all 2026):
 | BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); ≥ 0.122 (mod-4, numerical) | 0.146447 |
 | 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.124 (mod-4 code, I_c certified) | 0.146447 |
 | AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4075, certified** (§6.4) | 1/2 |
-| depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | **0.198984375, I_c certified** (§7); 0.2029 (Ahmed et al., floating point) | 0.219670 |
+| depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | **0.19905, I_c certified** (§7); 0.2029 (Ahmed et al., floating point) | 0.219670 |
 
 Every "certified" entry is an explicit M-qubit state with a rigorous interval for I_c (list, hashes and
 commands in [`CERTIFICATES.md`](CERTIFICATES.md)); none uses a limit theorem.
@@ -500,7 +500,7 @@ that level). From the M = 240 limit state (N_in = 240, D = 360):
 |---|---|---|
 | 0.73525 | 0.1985625 | +1.52×10⁻⁶ |
 | 2939/4000 = 0.73475 | 0.1989375 | **[1.07683723, 1.07994494]×10⁻⁷ certified** |
-| 2351/3200 = 0.7346875 | **0.198984375** | **[1.82651528, 1.85766717]×10⁻⁸ certified** |
+| 2351/3200 = 0.7346875 | 0.198984375 | **[1.82651528, 1.85766717]×10⁻⁸ certified** |
 | 0.73465625 | 0.1990078 | −1.8×10⁻⁸ (optimized) |
 | 0.734625 | 0.19903125 | −1.3×10⁻⁷ (optimized) |
 | 0.7345 | 0.1991250 | −4.1×10⁻⁷ (optimized) |
@@ -512,9 +512,19 @@ thermal master equation by uniformization and by dense expm, and a beam splitter
 thermal environment; output cutoff 420, tail < 3×10⁻⁷⁵) gives 1.0787368×10⁻⁷ and 1.8455798×10⁻⁸, routes
 agreeing to ≤ 7.5×10⁻¹⁴, both inside the intervals; Gaussian inputs are negative at both points
 (log₂(η/(1−η)) − g(ν) = −0.1665, −0.1671). With Theorem 6 of Ahmed et al. (proved for the depolarizing
-channel) this gives **p_th ≥ 0.198984375** in total error for sufficiently large M. The branch has a
+channel) this gives p_th ≥ 0.198984375 in total error for sufficiently large M. The branch has a
 genuine zero crossing between η = 0.73465625 and 0.7346875 (values ~10⁻⁸, far above rounding), with the mean photon number
 staying near 20: it is not the record branch, and high precision was not what limited it.
+
+**A branch with more photons.** Stretching that state by 2 in the residue index (n = 3m + r, m → 2m;
+`stretch_init.py`, mean 38.5 photons) and optimizing at η = 3673/5000 = 0.7346, where the 20-photon branch
+is negative, gives a positive code: **3p = 0.19905** (p = 1327/20000 per Pauli; T = 13490929/21682500,
+G = 8673/7346), certified I_c ∈ **[1.52256332, 1.54665840]×10⁻⁸** bits (`stretch2b_eta0.7346.npy`,
+N_in = 240, D = 360). The independent re-implementation gives 1.5376335×10⁻⁸ (routes agree to 1.5×10⁻¹³;
+output tail beyond 360 photons 1.4×10⁻⁵⁷), and Gaussian inputs are negative there (−0.1678). With
+Theorem 6 of Ahmed et al.: **p_th ≥ 0.19905**. More photons, lower threshold, smaller I_c: the same
+trade-off that leads to the 56-photon record codes. The continuation of this branch is running
+(`runs/hpcont38.log`).
 
 **The record point.** In 128-bit arithmetic (`pauli-emergence/dep_hp_envelope.py`, `dep_hp_scan.py`), mod-3
 codes with Gaussian envelopes are negative at η = 0.7294452 for every mean (40, 56.5, 70), width (2–6)
@@ -530,7 +540,7 @@ refute their floating-point value.
 
 * Gaussian-limit continuation of the M = 240 mod-3 code (`dep_limit_scan.sh`, N_in = 300, D = 600): the
   limit threshold of that family is p = 0.0661875 per Pauli (3p = 0.19856), below the record 0.0676387
-  (superseded by the certified 0.198984375 above).
+  (superseded by the certified 0.19905 above).
   Breaking the residue symmetry, which multiplied I_c by 7 for the AGN channel (§6.4), did not help here:
   from a perturbed start the optimiser did not even recover a positive value at p = 0.066
   (`runs/limdep_gen.log`). The record regime (≈ 56 photons, I_c ≈ 10⁻¹²) stays out of reach.

@@ -87,7 +87,8 @@ Commands:
 | thermal attenuator, ν = 2 | η = 8587/10000 (p = 1413/10000) | general rank 2 (k = 1) | `runs/th2_best.npy` | 413fcd7ec3489aac | 160, 360 | [1.14709176e-7, 1.14892934e-7] |
 | thermal attenuator, ν = 3 | η = 1791/2000 (p = 209/2000) | general rank 2 (k = 1) | `runs/th3_best.npy` | 6cd8d3af49f65888 | 160, 360 | [8.31897855e-8, 8.33853440e-8] |
 | thermal attenuator, ν = 5 | η = 7459/8000 (p = 541/8000; T = 7459/10705, G = 2141/1600) | mod 3 {0,1} | `runs/thnu_5_big_best.npy` | 2b85f0323ce13231 | 260, 520 | [1.17390097e-6, 1.17400578e-6] |
-| emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 2351/3200 (p = 849/12800 per Pauli, 3p = 0.198984375; T = 5527201/8881600, G = 5551/4702) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont_eta0.7346875.npy` | c4f3ae62d4e8ce2b | 240, 360 | [1.82651528e-8, 1.85766717e-8] |
+| emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 3673/5000 (p = 1327/20000 per Pauli, 3p = 0.19905; T = 13490929/21682500, G = 8673/7346) | mod 3 {0,1}, mean 38.5 photons | `../depolarizing-threshold/runs/stretch2b_eta0.7346.npy` | 1b44cc551b74c8c1 | 240, 360 | [1.52256332e-8, 1.54665840e-8] |
+| emergent depolarizing | η = 2351/3200 (p = 849/12800 per Pauli, 3p = 0.198984375; T = 5527201/8881600, G = 5551/4702) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont_eta0.7346875.npy` | c4f3ae62d4e8ce2b | 240, 360 | [1.82651528e-8, 1.85766717e-8] |
 | emergent depolarizing | η = 2939/4000 (p = 1061/16000, 3p = 0.1989375; T = 8637721/13878000, G = 6939/5878) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont_eta0.7347500.npy` | d01d54a7afcd92b9 | 240, 360 | [1.07683723e-7, 1.07994494e-7] |
 | thermal attenuator, ν = 5 (superseded) | η = 37307/40000 (p = 2693/40000) | mod 3 {0,1} | `runs/th5_best.npy` | 3a0ad4e6310ec0cf | 160, 360 | [2.50657502e-6, 2.50662460e-6] |
 | additive Gaussian noise, squeezed cat | σ² = 49/125 | mod 3 {0,1} (residues of D(α)S(r) on vacuum) | `runs/agn_sqcat_sigma2_0.392.npy` | eb13a99ef8255ad0 | 140, 320 | [1.73865751e-6, 1.73880842e-6] |
@@ -113,16 +114,17 @@ Commands:
     python3 certify_limit.py th3 209/2000 runs/th3_best.npy 0,0 1 160 360
     python3 certify_limit.py th5 2693/40000 runs/th5_best.npy 0,1 3 160 360
     python3 certify_limit.py th5 541/8000 runs/thnu_5_big_best.npy 0,1 3 260 520
+    python3 certify_limit.py depol 1327/20000 ../depolarizing-threshold/runs/stretch2b_eta0.7346.npy 0,1 3 240 360
     python3 certify_limit.py depol 849/12800 ../depolarizing-threshold/runs/hpcont_eta0.7346875.npy 0,1 3 240 360
     python3 certify_limit.py depol 1061/16000 ../depolarizing-threshold/runs/hpcont_eta0.7347500.npy 0,1 3 240 360
     python3 certify_limit.py agn 49/125 runs/agn_sqcat_sigma2_0.392.npy 0,1 3 140 320
 
 The AGN entry was checked by an independent agent with its own implementation (diffusion Lindbladian, no
-repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (README §6.4). The two emergent
+repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (README §6.4). The emergent
 depolarizing entries and the ν = 5 entry (η = 7459/8000) were checked by another from-scratch
 implementation with three routes (pure loss then amplifier, thermal master equation, beam splitter with a
-Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 1.8455798×10⁻⁸, 1.0787368×10⁻⁷
-and 1.1739661×10⁻⁶ bits, routes agreeing to ≤ 7.5×10⁻¹⁴, all inside (README §7, §6.6). Intervals from the
+Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 1.5376335×10⁻⁸ (η = 0.7346),
+1.8455798×10⁻⁸, 1.0787368×10⁻⁷ and 1.1739661×10⁻⁶ bits, routes agreeing to ≤ 7.5×10⁻¹⁴, all inside (README §7, §6.6). Intervals from the
 Weyl/Ostrowski enclosure depend on the float eigenbasis, so another LAPACK build can print slightly
 different (equally valid) endpoints.
 

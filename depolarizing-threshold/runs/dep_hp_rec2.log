@@ -1,0 +1,199 @@
+{"tag": "dep_hp_rec2", "eval": 1, "Ic": -3.687372194401975e-12, "best": -3.687372194401975e-12, "sec": 26}
+{"tag": "dep_hp_rec2", "eval": 2, "Ic": -0.06768858663293016, "best": -3.687372194401975e-12, "sec": 39}
+{"tag": "dep_hp_rec2", "eval": 3, "Ic": -8.396394107129062e-10, "best": -3.687372194401975e-12, "sec": 54}
+{"tag": "dep_hp_rec2", "eval": 4, "Ic": -3.638061481224765e-12, "best": -3.638061481224765e-12, "sec": 69}
+{"tag": "dep_hp_rec2", "eval": 5, "Ic": -3.618645712438475e-12, "best": -3.618645712438475e-12, "sec": 85}
+{"tag": "dep_hp_rec2", "eval": 6, "Ic": -3.602771084989177e-12, "best": -3.602771084989177e-12, "sec": 101}
+{"tag": "dep_hp_rec2", "eval": 7, "Ic": -3.5732135672534983e-12, "best": -3.5732135672534983e-12, "sec": 118}
+{"tag": "dep_hp_rec2", "eval": 8, "Ic": -3.5455380313615164e-12, "best": -3.5455380313615164e-12, "sec": 134}
+{"tag": "dep_hp_rec2", "eval": 9, "Ic": -3.5251300493132006e-12, "best": -3.5251300493132006e-12, "sec": 152}
+{"tag": "dep_hp_rec2", "eval": 10, "Ic": -3.495375035049091e-12, "best": -3.495375035049091e-12, "sec": 169}
+{"tag": "dep_hp_rec2", "eval": 11, "Ic": -3.4808334568314615e-12, "best": -3.4808334568314615e-12, "sec": 186}
+{"tag": "dep_hp_rec2", "eval": 12, "Ic": -3.4682820474207755e-12, "best": -3.4682820474207755e-12, "sec": 201}
+{"tag": "dep_hp_rec2", "eval": 13, "Ic": -3.4538474018391836e-12, "best": -3.4538474018391836e-12, "sec": 218}
+{"tag": "dep_hp_rec2", "eval": 14, "Ic": -3.4410388454628814e-12, "best": -3.4410388454628814e-12, "sec": 235}
+{"tag": "dep_hp_rec2", "eval": 15, "Ic": -3.430635919559789e-12, "best": -3.430635919559789e-12, "sec": 252}
+{"tag": "dep_hp_rec2", "eval": 16, "Ic": -3.4200003371971886e-12, "best": -3.4200003371971886e-12, "sec": 268}
+{"tag": "dep_hp_rec2", "eval": 17, "Ic": -3.4007261784865925e-12, "best": -3.4007261784865925e-12, "sec": 286}
+{"tag": "dep_hp_rec2", "eval": 18, "Ic": -3.3833143003379624e-12, "best": -3.3833143003379624e-12, "sec": 302}
+{"tag": "dep_hp_rec2", "eval": 19, "Ic": -3.3704932137226008e-12, "best": -3.3704932137226008e-12, "sec": 319}
+{"tag": "dep_hp_rec2", "eval": 20, "Ic": -3.3548105360063386e-12, "best": -3.3548105360063386e-12, "sec": 337}
+{"tag": "dep_hp_rec2", "eval": 21, "Ic": -3.33681435512554e-12, "best": -3.33681435512554e-12, "sec": 354}
+{"tag": "dep_hp_rec2", "eval": 22, "Ic": -3.310717767307248e-12, "best": -3.310717767307248e-12, "sec": 373}
+{"tag": "dep_hp_rec2", "eval": 23, "Ic": -3.278594570902416e-12, "best": -3.278594570902416e-12, "sec": 390}
+{"tag": "dep_hp_rec2", "eval": 24, "Ic": -3.255075388550757e-12, "best": -3.255075388550757e-12, "sec": 405}
+{"tag": "dep_hp_rec2", "eval": 25, "Ic": -3.2384316715761025e-12, "best": -3.2384316715761025e-12, "sec": 421}
+{"tag": "dep_hp_rec2", "eval": 26, "Ic": -3.2001745956510336e-12, "best": -3.2001745956510336e-12, "sec": 437}
+{"tag": "dep_hp_rec2", "eval": 27, "Ic": -3.1671860762306264e-12, "best": -3.1671860762306264e-12, "sec": 453}
+{"tag": "dep_hp_rec2", "eval": 28, "Ic": -3.116124478248262e-12, "best": -3.116124478248262e-12, "sec": 468}
+{"tag": "dep_hp_rec2", "eval": 29, "Ic": -3.0392200538680303e-12, "best": -3.0392200538680303e-12, "sec": 484}
+{"tag": "dep_hp_rec2", "eval": 30, "Ic": -3.023514930864297e-12, "best": -3.023514930864297e-12, "sec": 500}
+{"tag": "dep_hp_rec2", "eval": 31, "Ic": -2.991400910091391e-12, "best": -2.991400910091391e-12, "sec": 515}
+{"tag": "dep_hp_rec2", "eval": 32, "Ic": -2.964920630369956e-12, "best": -2.964920630369956e-12, "sec": 530}
+{"tag": "dep_hp_rec2", "eval": 33, "Ic": -2.930744202099272e-12, "best": -2.930744202099272e-12, "sec": 546}
+{"tag": "dep_hp_rec2", "eval": 34, "Ic": -2.8859886430113856e-12, "best": -2.8859886430113856e-12, "sec": 563}
+{"tag": "dep_hp_rec2", "eval": 35, "Ic": -2.8703081251712638e-12, "best": -2.8703081251712638e-12, "sec": 577}
+{"tag": "dep_hp_rec2", "eval": 36, "Ic": -2.852147954977033e-12, "best": -2.852147954977033e-12, "sec": 592}
+{"tag": "dep_hp_rec2", "eval": 37, "Ic": -2.806836698461434e-12, "best": -2.806836698461434e-12, "sec": 607}
+{"tag": "dep_hp_rec2", "eval": 38, "Ic": -2.7731222192077185e-12, "best": -2.7731222192077185e-12, "sec": 621}
+{"tag": "dep_hp_rec2", "eval": 39, "Ic": -2.73852501239819e-12, "best": -2.73852501239819e-12, "sec": 636}
+{"tag": "dep_hp_rec2", "eval": 40, "Ic": -2.7028276753763247e-12, "best": -2.7028276753763247e-12, "sec": 652}
+{"tag": "dep_hp_rec2", "eval": 41, "Ic": -2.6864738702932577e-12, "best": -2.6864738702932577e-12, "sec": 668}
+{"tag": "dep_hp_rec2", "eval": 42, "Ic": -2.6621166347225663e-12, "best": -2.6621166347225663e-12, "sec": 683}
+{"tag": "dep_hp_rec2", "eval": 43, "Ic": -2.62625905365757e-12, "best": -2.62625905365757e-12, "sec": 697}
+{"tag": "dep_hp_rec2", "eval": 44, "Ic": -2.5830952676475953e-12, "best": -2.5830952676475953e-12, "sec": 712}
+{"tag": "dep_hp_rec2", "eval": 45, "Ic": -2.5386848376442233e-12, "best": -2.5386848376442233e-12, "sec": 727}
+{"tag": "dep_hp_rec2", "eval": 46, "Ic": -2.5122720722415733e-12, "best": -2.5122720722415733e-12, "sec": 744}
+{"tag": "dep_hp_rec2", "eval": 47, "Ic": -2.482026468799485e-12, "best": -2.482026468799485e-12, "sec": 760}
+{"tag": "dep_hp_rec2", "eval": 48, "Ic": -2.4112244360111024e-12, "best": -2.4112244360111024e-12, "sec": 777}
+{"tag": "dep_hp_rec2", "eval": 49, "Ic": -2.3865452513582983e-12, "best": -2.3865452513582983e-12, "sec": 791}
+{"tag": "dep_hp_rec2", "eval": 50, "Ic": -2.351881778250923e-12, "best": -2.351881778250923e-12, "sec": 805}
+{"tag": "dep_hp_rec2", "eval": 51, "Ic": -2.3283468332888175e-12, "best": -2.3283468332888175e-12, "sec": 820}
+{"tag": "dep_hp_rec2", "eval": 52, "Ic": -2.3124594416488965e-12, "best": -2.3124594416488965e-12, "sec": 834}
+{"tag": "dep_hp_rec2", "eval": 53, "Ic": -2.278029790724288e-12, "best": -2.278029790724288e-12, "sec": 849}
+{"tag": "dep_hp_rec2", "eval": 54, "Ic": -2.2443762045699237e-12, "best": -2.2443762045699237e-12, "sec": 865}
+{"tag": "dep_hp_rec2", "eval": 55, "Ic": -2.216568530480908e-12, "best": -2.216568530480908e-12, "sec": 880}
+{"tag": "dep_hp_rec2", "eval": 56, "Ic": -2.1829480955807846e-12, "best": -2.1829480955807846e-12, "sec": 895}
+{"tag": "dep_hp_rec2", "eval": 57, "Ic": -2.1545566496162675e-12, "best": -2.1545566496162675e-12, "sec": 910}
+{"tag": "dep_hp_rec2", "eval": 58, "Ic": -2.129887440285908e-12, "best": -2.129887440285908e-12, "sec": 925}
+{"tag": "dep_hp_rec2", "eval": 59, "Ic": -2.0921495171060735e-12, "best": -2.0921495171060735e-12, "sec": 941}
+{"tag": "dep_hp_rec2", "eval": 60, "Ic": -2.0797810312205743e-12, "best": -2.0797810312205743e-12, "sec": 956}
+{"tag": "dep_hp_rec2", "eval": 61, "Ic": -2.063933252315752e-12, "best": -2.063933252315752e-12, "sec": 971}
+{"tag": "dep_hp_rec2", "eval": 62, "Ic": -2.0567697722774402e-12, "best": -2.0567697722774402e-12, "sec": 986}
+{"tag": "dep_hp_rec2", "eval": 63, "Ic": -2.0513574408170035e-12, "best": -2.0513574408170035e-12, "sec": 1000}
+{"tag": "dep_hp_rec2", "eval": 64, "Ic": -2.0342551305678063e-12, "best": -2.0342551305678063e-12, "sec": 1016}
+{"tag": "dep_hp_rec2", "eval": 65, "Ic": -2.027117892800797e-12, "best": -2.027117892800797e-12, "sec": 1031}
+{"tag": "dep_hp_rec2", "eval": 66, "Ic": -2.0111071698391267e-12, "best": -2.0111071698391267e-12, "sec": 1046}
+{"tag": "dep_hp_rec2", "eval": 67, "Ic": -2.0052959782757657e-12, "best": -2.0052959782757657e-12, "sec": 1062}
+{"tag": "dep_hp_rec2", "eval": 68, "Ic": -1.998909536071081e-12, "best": -1.998909536071081e-12, "sec": 1078}
+{"tag": "dep_hp_rec2", "eval": 69, "Ic": -1.9884555444579384e-12, "best": -1.9884555444579384e-12, "sec": 1093}
+{"tag": "dep_hp_rec2", "eval": 70, "Ic": -1.9802827654351443e-12, "best": -1.9802827654351443e-12, "sec": 1108}
+{"tag": "dep_hp_rec2", "eval": 71, "Ic": -1.9722436121056685e-12, "best": -1.9722436121056685e-12, "sec": 1123}
+{"tag": "dep_hp_rec2", "eval": 72, "Ic": -1.9672577943534767e-12, "best": -1.9672577943534767e-12, "sec": 1139}
+{"tag": "dep_hp_rec2", "eval": 73, "Ic": -1.9618551213843147e-12, "best": -1.9618551213843147e-12, "sec": 1154}
+{"tag": "dep_hp_rec2", "eval": 74, "Ic": -1.9509676634712647e-12, "best": -1.9509676634712647e-12, "sec": 1171}
+{"tag": "dep_hp_rec2", "eval": 75, "Ic": -1.943494834947511e-12, "best": -1.943494834947511e-12, "sec": 1186}
+{"tag": "dep_hp_rec2", "eval": 76, "Ic": -1.9332175008553676e-12, "best": -1.9332175008553676e-12, "sec": 1202}
+{"tag": "dep_hp_rec2", "eval": 77, "Ic": -1.926345876788421e-12, "best": -1.926345876788421e-12, "sec": 1217}
+{"tag": "dep_hp_rec2", "eval": 78, "Ic": -1.9207173344805206e-12, "best": -1.9207173344805206e-12, "sec": 1232}
+{"tag": "dep_hp_rec2", "eval": 79, "Ic": -1.9166034709118304e-12, "best": -1.9166034709118304e-12, "sec": 1248}
+{"tag": "dep_hp_rec2", "eval": 80, "Ic": -1.9113571978980255e-12, "best": -1.9113571978980255e-12, "sec": 1263}
+{"tag": "dep_hp_rec2", "eval": 81, "Ic": -1.907936687496749e-12, "best": -1.907936687496749e-12, "sec": 1279}
+{"tag": "dep_hp_rec2", "eval": 82, "Ic": -1.9046032276424883e-12, "best": -1.9046032276424883e-12, "sec": 1294}
+{"tag": "dep_hp_rec2", "eval": 83, "Ic": -1.9014389538449853e-12, "best": -1.9014389538449853e-12, "sec": 1309}
+{"tag": "dep_hp_rec2", "eval": 84, "Ic": -1.8976262715802412e-12, "best": -1.8976262715802412e-12, "sec": 1324}
+{"tag": "dep_hp_rec2", "eval": 85, "Ic": -1.8932285318265976e-12, "best": -1.8932285318265976e-12, "sec": 1338}
+{"tag": "dep_hp_rec2", "eval": 86, "Ic": -1.8868429943169204e-12, "best": -1.8868429943169204e-12, "sec": 1355}
+{"tag": "dep_hp_rec2", "eval": 87, "Ic": -1.8814260519793157e-12, "best": -1.8814260519793157e-12, "sec": 1369}
+{"tag": "dep_hp_rec2", "eval": 88, "Ic": -1.871167052922889e-12, "best": -1.871167052922889e-12, "sec": 1384}
+{"tag": "dep_hp_rec2", "eval": 89, "Ic": -1.864648418290385e-12, "best": -1.864648418290385e-12, "sec": 1399}
+{"tag": "dep_hp_rec2", "eval": 90, "Ic": -1.85852738876307e-12, "best": -1.85852738876307e-12, "sec": 1413}
+{"tag": "dep_hp_rec2", "eval": 91, "Ic": -1.8481190264819375e-12, "best": -1.8481190264819375e-12, "sec": 1428}
+{"tag": "dep_hp_rec2", "eval": 92, "Ic": -1.837732310442308e-12, "best": -1.837732310442308e-12, "sec": 1443}
+{"tag": "dep_hp_rec2", "eval": 93, "Ic": -1.8299002439599307e-12, "best": -1.8299002439599307e-12, "sec": 1458}
+{"tag": "dep_hp_rec2", "eval": 94, "Ic": -1.8219434558458124e-12, "best": -1.8219434558458124e-12, "sec": 1473}
+{"tag": "dep_hp_rec2", "eval": 95, "Ic": -1.8185084359580311e-12, "best": -1.8185084359580311e-12, "sec": 1487}
+{"tag": "dep_hp_rec2", "eval": 96, "Ic": -1.8147925626417303e-12, "best": -1.8147925626417303e-12, "sec": 1502}
+{"tag": "dep_hp_rec2", "eval": 97, "Ic": -1.8112384976832351e-12, "best": -1.8112384976832351e-12, "sec": 1517}
+{"tag": "dep_hp_rec2", "eval": 98, "Ic": -1.8078202508834063e-12, "best": -1.8078202508834063e-12, "sec": 1533}
+{"tag": "dep_hp_rec2", "eval": 99, "Ic": -1.8035104846687336e-12, "best": -1.8035104846687336e-12, "sec": 1549}
+{"tag": "dep_hp_rec2", "eval": 100, "Ic": -1.796603591705427e-12, "best": -1.796603591705427e-12, "sec": 1565}
+{"tag": "dep_hp_rec2", "eval": 101, "Ic": -1.7928371275393587e-12, "best": -1.7928371275393587e-12, "sec": 1581}
+{"tag": "dep_hp_rec2", "eval": 102, "Ic": -1.7885126858614899e-12, "best": -1.7885126858614899e-12, "sec": 1596}
+{"tag": "dep_hp_rec2", "eval": 103, "Ic": -1.782589220055826e-12, "best": -1.782589220055826e-12, "sec": 1611}
+{"tag": "dep_hp_rec2", "eval": 104, "Ic": -1.7763283333967906e-12, "best": -1.7763283333967906e-12, "sec": 1628}
+{"tag": "dep_hp_rec2", "eval": 105, "Ic": -1.7719935059979066e-12, "best": -1.7719935059979066e-12, "sec": 1644}
+{"tag": "dep_hp_rec2", "eval": 106, "Ic": -1.7671161463624642e-12, "best": -1.7671161463624642e-12, "sec": 1659}
+{"tag": "dep_hp_rec2", "eval": 107, "Ic": -1.7614163191842434e-12, "best": -1.7614163191842434e-12, "sec": 1674}
+{"tag": "dep_hp_rec2", "eval": 108, "Ic": -1.7552820149583597e-12, "best": -1.7552820149583597e-12, "sec": 1691}
+{"tag": "dep_hp_rec2", "eval": 109, "Ic": -1.7481921329665127e-12, "best": -1.7481921329665127e-12, "sec": 1706}
+{"tag": "dep_hp_rec2", "eval": 110, "Ic": -1.7437244030344407e-12, "best": -1.7437244030344407e-12, "sec": 1722}
+{"tag": "dep_hp_rec2", "eval": 111, "Ic": -1.73920638658457e-12, "best": -1.73920638658457e-12, "sec": 1739}
+{"tag": "dep_hp_rec2", "eval": 112, "Ic": -1.732741301287181e-12, "best": -1.732741301287181e-12, "sec": 1756}
+{"tag": "dep_hp_rec2", "eval": 113, "Ic": -1.7271970404194387e-12, "best": -1.7271970404194387e-12, "sec": 1773}
+{"tag": "dep_hp_rec2", "eval": 114, "Ic": -1.721419649608787e-12, "best": -1.721419649608787e-12, "sec": 1791}
+{"tag": "dep_hp_rec2", "eval": 115, "Ic": -1.7151364595181567e-12, "best": -1.7151364595181567e-12, "sec": 1810}
+Process ForkPoolWorker-2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
