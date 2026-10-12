@@ -23,12 +23,12 @@ def hash_checks(text):
     for line in text.splitlines():
         if not line.startswith("|"):
             continue
-        path = re.search(r"`(runs/[^`]+\.npy)`", line)
+        path = re.search(r"`((?:\.\./depolarizing-threshold/)?runs/[^`]+\.npy)`", line)
         digest = re.search(r"\|\s*([0-9a-f]{16})\s*\|", line)
         if not (path and digest) or path.group(1) in seen:
             continue
         seen.add(path.group(1))
-        full = os.path.join(CODE, path.group(1))
+        full = os.path.normpath(os.path.join(CODE, path.group(1)))
         got = hashlib.sha256(open(full, "rb").read()).hexdigest()[:16] if os.path.exists(full) else "missing"
         ok = got == digest.group(1)
         bad += not ok

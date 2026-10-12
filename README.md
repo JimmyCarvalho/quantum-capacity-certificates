@@ -18,7 +18,7 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 | thermal amplifier, gain 1.1343, 2.906 thermal photons | Gaussian inputs give 0 | **Q > 0** |
 | independent X–Z (BB84) Pauli channel | q_th ≥ 0.118371 (May 2026) | **q_th ≥ 0.126** (explicit 240-qubit state) |
 | 2-Pauli channel | p_th ≥ 0.118067 (May 2026) | **p_th ≥ 0.1255** (explicit 240-qubit state) |
-| depolarizing channel | 3p_th ≥ 0.2029 (asymptotic, floating point); best explicit certified 0.194868 | best explicit certified **0.1977936** (240 qubits); the 0.2029 record is *not* beaten |
+| depolarizing channel | 3p_th ≥ 0.2029 (asymptotic, floating point); best explicit certified 0.194868 | best explicit certified **0.1977936** (240 qubits); in the Gaussian limit **0.198984375 with I_c certified** (with the convergence theorem of Ahmed et al., the largest bound we know whose final sign is certified); the 0.2029 record is *not* beaten |
 
 The additive-Gaussian-noise result also implies Q > 0 for every phase-insensitive Gaussian channel with
 (Y + |1−τ|/2)/τ ≤ 0.4075, which goes beyond the Gaussian-input thresholds of thermal attenuators and

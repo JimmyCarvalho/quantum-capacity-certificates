@@ -59,7 +59,10 @@ phase-covariant cloning, which caps what this route can certify. Using an exact 
 evolution in the Dicke basis and two interval-arithmetic certifiers, we certify positive coherent
 information of explicit $M$-qubit states at $q=0.126$ for BB84 ($M=240$) and $p=0.1255$ for the
 2-Pauli channel ($M=240$), above the previously reported $0.118371$ and $0.118067$, and at total error
-$0.1977936$ for the depolarizing channel ($M=240$), which does not reach the asymptotic value $0.2029161$.
+$0.1977936$ for the depolarizing channel ($M=240$). In the Gaussian limit we certify the emergent
+depolarizing channel at total error $0.198984375$; with the convergence theorem of Ahmed \textit{et al.}\
+this is, to our knowledge, the largest depolarizing threshold bound whose final sign is certified (the
+larger $0.2029161$ rests on a floating-point value $\Ic\approx10^{-12}$).
 Transferring the BB84 code to the Gaussian limit, we certify
 positive coherent information for the AGN channel at noise variance $\sigma^2=163/400$
 ($\sigma\approx0.6384$), hence positive quantum capacity for all $\sigma^2\le0.4075$, beyond
@@ -146,14 +149,16 @@ channel & hashing & previous best & this work & ceiling\\
 \hline
 BB84 ($q$) & 0.110028 & 0.118371~\cite{agarwal2026symmetry} & 0.126 & 0.146447\\
 2-Pauli ($p$) & 0.113546 & 0.118067~\cite{agarwal2026symmetry} & 0.1255 & 0.146447\\
-depol.\ ($3p$) & 0.189290 & 0.2029161$^{a}$~\cite{ahmed2026choir} & 0.1977936$^{b}$ & 0.219670\\
+depol.\ ($3p$) & 0.189290 & 0.2029161$^{a}$~\cite{ahmed2026choir} & 0.1989844$^{b}$ & 0.219670\\
 AGN ($\sigma^2$) & $1/e$ & $1/e$~\cite{holevo2001evaluating} & $0.4075$ & $1/2$\\
 \end{tabular}
 \end{ruledtabular}
 \raggedright\footnotesize
 $^{a}$Gaussian limit with a convergence theorem, $M$ sufficiently large; the best previous certified
 value for an explicit size is $0.194868$ ($n=45$)~\cite{krohn2026certified}.\\
-$^{b}$Explicit $M=240$; below the asymptotic $0.2029161$.
+$^{b}$Gaussian limit with $\Ic$ certified (Sec.~\ref{sec:depgauss}) and the convergence theorem of
+Ref.~\cite{ahmed2026choir}, $M$ sufficiently large; the best explicit-size certificate is $0.1977936$
+($M=240$).
 \end{table}
 
 \paragraph*{Contributions.}
@@ -620,7 +625,8 @@ BB84 & 63/500 & 0.126 & B & 240 & 110 & 3 & [5.54571350, 5.56189889] & \texttt{b
 \caption{Certified lower bounds on $p_{\mathrm{th}}$ versus the number $M$ of qubits of the explicit input
 state (best code per $M$, Table~\ref{tab:certs}). Left: BB84 and 2-Pauli; dashed, the previously reported
 values at $n=30$~\cite{agarwal2026symmetry}; dotted, hashing. Right: depolarizing channel in total error
-$3p$; black dashed, the asymptotic Gaussian-limit value $0.2029161$~\cite{ahmed2026choir}; green dashed,
+$3p$; black dashed, the asymptotic Gaussian-limit value $0.2029161$~\cite{ahmed2026choir} (floating point);
+red dash-dotted, our certified Gaussian-limit value $0.198984375$ (Sec.~\ref{sec:depgauss}); green dashed,
 the previous certified explicit value $0.194868$ ($n=45$)~\cite{krohn2026certified}; dotted, hashing.}
 \label{fig:thresholds}
 \end{figure*}
@@ -628,7 +634,8 @@ the previous certified explicit value $0.194868$ ($n=45$)~\cite{krohn2026certifi
 \paragraph*{Headline numbers.} $p_{\mathrm{th}}(\text{BB84})\ge0.126$ ($M=240$),
 $p_{\mathrm{th}}(\text{2-Pauli})\ge0.1255$ ($M=240$), and, for the depolarizing channel, a certified
 explicit-size value $3p=0.1977936$ ($M=240$). The last exceeds the previous explicit certified
-$0.194868$ ($n=45$)~\cite{krohn2026certified} but not the asymptotic $0.2029161$~\cite{ahmed2026choir}.
+$0.194868$ ($n=45$)~\cite{krohn2026certified} but not the asymptotic $0.2029161$~\cite{ahmed2026choir};
+in the Gaussian limit we certify $0.198984375$ (Sec.~\ref{sec:depgauss}).
 The BB84 and depolarizing families are closed under composition, with the less noisy channel as a
 factor, so $Q>0$ also at every smaller noise. The 2-Pauli family is not ($XZ$ errors appear), so there
 $p_{\mathrm{th}}\ge0.1255$ holds in the sup sense only.
@@ -666,6 +673,23 @@ $r$ & hashing & certified, $M=60$ & certified, larger $M$\\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+
+\subsection{Gaussian limit of the depolarizing channel}
+\label{sec:depgauss}
+We continued the $M=240$ mod-3 code in the Gaussian limit (the thermal attenuator with $\nu=1/(2\eta)$)
+with $\Ic$ and its gradient evaluated in 128-bit ball arithmetic (refined eigenbases, so that line searches
+are not limited by the $\sim3\times10^{-14}$ noise floor of double precision for this problem), at
+$N_{\mathrm{in}}=240$, $D=360$. At $\eta=2351/3200$, i.e.\ $p=849/12800$ per Pauli
+($3p=0.198984375$; $T=5527201/8881600$, $G=5551/4702$), the code has certified
+$\Ic\in[1.82651528,1.85766717]\times10^{-8}$ bits (certifier~L, flag masses $\sim10^{-56}$); at
+$\eta=2939/4000$ ($3p=0.1989375$), $[1.07683723,1.07994494]\times10^{-7}$. An independent
+re-implementation (pure loss then amplifier, the thermal master equation, and a beam splitter with a
+Fock-mixed thermal environment; output cutoff 420 photons) gives $1.8455798\times10^{-8}$ and
+$1.0787368\times10^{-7}$, with the routes agreeing to $10^{-13}$. With Theorem~6 of
+Ref.~\cite{ahmed2026choir} (proved for the depolarizing channel), $p_{\mathrm{th}}\ge0.198984375$ in total
+error, for sufficiently large $M$. The branch ends there for a genuine reason: at $\eta=0.734625$ the
+optimized value is $\Ic=-1.3\times10^{-7}$, far above any rounding error, with the mean photon number
+still near $20$.
 
 \subsection{Gaussian limit of the 2-Pauli channel}
 For the emergent 2-Pauli channel at $p=31/250=0.124$ ($T=94/125$, $G=94/63$), a mod-4 residue code with
@@ -879,7 +903,7 @@ Table~\ref{tab:nu}, and it regenerated the squeezed-cat state from $(\alpha,r,w)
 \begin{table*}[t]
 \caption{Thermal attenuator with $\nu$ thermal photons: certified $Q>0$ at transmissivity $\eta$, with the
 fraction of the open window $(\eta_{\mathrm{AD}},\eta_{\mathrm G})$ it closes. Inputs are rank two,
-symmetry-free ($k=1$, $N_{\mathrm{in}}=160$, $D=360$) except $\nu=5$ (mod~3) and $\nu=1$ ($N_{\mathrm{in}}=120$,
+symmetry-free ($k=1$, $N_{\mathrm{in}}=160$, $D=360$) except $\nu=5$ (mod~3, $N_{\mathrm{in}}=260$, $D=520$) and $\nu=1$ ($N_{\mathrm{in}}=120$,
 $D=300$).}
 \label{tab:nu}
 \begin{ruledtabular}
@@ -891,7 +915,7 @@ $\nu$ & $\eta_{\mathrm{AD}}$ & $\eta_{\mathrm G}$ & certified $\eta$ & $\Ic$ (bi
 1 & 0.75 & 0.8 & 39/50 (40\%) & $[2.12631890,2.16095917]\times10^{-8}$\\
 2 & 0.83333 & 0.87097 & 8587/10000 (33\%) & $[1.14709176,1.14892934]\times10^{-7}$\\
 3 & 0.875 & 0.90459 & 1791/2000 (31\%) & $[8.31897855,8.33853440]\times10^{-8}$\\
-5 & 0.91667 & 0.93723 & 37307/40000 (22\%) & $[2.50657502,2.50662460]\times10^{-6}$\\
+5 & 0.91667 & 0.93723 & 7459/8000 (24\%) & $[1.17390097,1.17400578]\times10^{-6}$\\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
@@ -935,15 +959,20 @@ $\sigma$ with a nonzero rate for an explicit GKP code reported in Ref.~\cite{lin
 \section{What did not work}
 \label{sec:failures}
 
-\paragraph*{The depolarizing record.} We did not beat $3p=0.2029161$. Continuing the $M=240$ mod-3 code
-in the Gaussian limit stops at $p=0.0661875$ per Pauli ($3p=0.19856$), and the symmetry breaking that
+\paragraph*{The depolarizing record.} We did not beat $3p=0.2029161$; our certified Gaussian-limit value
+is $0.198984375$ (Sec.~\ref{sec:depgauss}), and the symmetry breaking that
 helps for the AGN channel did not help here. Full L-BFGS over residue codes
 ($\kappa=2,\dots,6$, ranks 2--3) for the emergent thermal attenuator, in float64, reaches $\Ic>0$ only
 down to $\eta\approx0.737$ ($3p\approx0.197$). The record point $\eta=0.7294452$ needs codes with mean
 photon number $\approx56$~\cite{ahmed2026choir}. In that regime the three phase components are almost
 orthogonal both for Bob and for the environment, and $\Ic\approx0$ with curvature $\approx-0.16$ and
 gradient $\sim10^{-6}$. Only $\sim10^{-11}$ of coherent information is available there, consistent with
-the $10^{-12}$ reported in Ref.~\cite{ahmed2026choir}. Large-amplitude coherent-state cat codes do worse:
+the $10^{-12}$ reported in Ref.~\cite{ahmed2026choir}. In 128-bit arithmetic, mod-3 codes with Gaussian
+envelopes are negative at $\eta=0.7294452$ for every mean photon number ($40$--$70$), width ($2$--$6$)
+and weight ($0.30$--$0.62$) we scanned, with $|\Ic|$ between $10^{-5}$ and $10^{-28}$ (one is enclosed
+rigorously as $-4.66625545720\times10^{-12}$), and they stay negative up to $\eta=0.75$; squeezed-cat
+codes behave the same way. The record code therefore has structure beyond a Gaussian envelope that we
+have not found, and without it we can neither confirm nor refute the floating-point value. Large-amplitude coherent-state cat codes do worse:
 the quantum Chernoff overlap exponents of Bob and of the environment cross at $\eta=0.7757$. With
 explicit $M$, the thresholds saturate (Sec.~\ref{sec:results}): reaching $56$ excitations needs $M$ far
 beyond the $240$ used here.

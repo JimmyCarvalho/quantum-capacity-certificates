@@ -24,7 +24,9 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
    agente separado, que tentou quebrá-los e não conseguiu (ver `CERTIFICATES.md`);
 4. para o canal despolarizante, dá o melhor valor certificado com M explícito: 3p = **0,1977936** com
    M = 240 (o melhor certificado anterior era 0,194868 com n = 45; o recorde 0,2029 é assintótico, sem M
-   explícito);
+   explícito); no limite gaussiano, com aritmética de 128 bits, certificamos **3p = 0,198984375**, que,
+   com o teorema de convergência de Ahmed et al., é o maior limite com sinal final certificado que
+   conhecemos (o 0,2029 deles vem de um valor em ponto flutuante, I_c ≈ 10⁻¹²; §7);
 5. no limite gaussiano, códigos de resíduo (tipo gato de 4 componentes) dão positividade **certificada**
    do canal emergente do 2-Pauli em p = 0,124 (resultado condicional a um teorema de convergência; o
    certificado finito de M = 180, sem teorema algum, já vai além: 0,1251875).
@@ -39,7 +41,8 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
    Lami em jul/2026, que certificaram Q > 0 até η = 0,7841 e estimaram numericamente 0,7818): certificamos
    **Q > 0 até η = 0,78** (§6.6), conferido de forma independente.
 
-O que **não** funcionou está em §7: o recorde assintótico do despolarizante (0,2029) não foi superado.
+O que **não** funcionou está em §7: o recorde assintótico do despolarizante (0,2029) não foi superado; em
+alta precisão, os códigos de envelope gaussiano dão I_c negativo nesse ponto (§7).
 
 ## 1. Problem
 
@@ -65,7 +68,7 @@ State of the art before this work (all 2026):
 | BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); ≥ 0.122 (mod-4, numerical) | 0.146447 |
 | 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.124 (mod-4 code, I_c certified) | 0.146447 |
 | AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4075, certified** (§6.4) | 1/2 |
-| depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | 0.2029 (Ahmed et al.) | 0.219670 |
+| depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | **0.198984375, I_c certified** (§7); 0.2029 (Ahmed et al., floating point) | 0.219670 |
 
 Every "certified" entry is an explicit M-qubit state with a rigorous interval for I_c (list, hashes and
 commands in [`CERTIFICATES.md`](CERTIFICATES.md)); none uses a limit theorem.
@@ -472,21 +475,61 @@ Gaussian inputs all negative (−0.174 at infinite energy). The window 0.75 < η
 | 1 | 0.75 | 0.8 | 39/50 = 0.78 | [2.12631890, 2.16095917]×10⁻⁸ | 40% |
 | 2 | 0.83333 | 0.87097 | 8587/10000 = 0.8587 | [1.14709176, 1.14892934]×10⁻⁷ | 33% |
 | 3 | 0.875 | 0.90459 | 1791/2000 = 0.8955 | [8.31897855, 8.33853440]×10⁻⁸ | 31% |
-| 5 | 0.91667 | 0.93723 | 37307/40000 = 0.932675 | [2.50657502, 2.50662460]×10⁻⁶ | 22% |
+| 5 | 0.91667 | 0.93723 | 7459/8000 = 0.932375 | [1.17390097, 1.17400578]×10⁻⁶ | 24% |
 
-(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 5: mod 3, k = 3.) Since Q is monotone in η at
+(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 5: mod 3, k = 3, N_in = 260, D = 520.) Since Q is monotone in η at
 fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 4.2 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4075)),
 but the direct certificates go further at every ν tried. Independent check (same separate agent, three
 routes per point: A_G ∘ L_T, loss then AGN, thermal master equation): all five new values inside their
 intervals (spread ≤ 2.2×10⁻¹³), all Gaussian inputs negative at each point; it also regenerated the
 squeezed-cat state from (α, r, w) at 80 digits (max deviation 3.6×10⁻¹⁶) and found I_c = 1.7387559×10⁻⁶,
-inside its interval. The ν = 1/4 and ν = 5 states press against N_in = 160, so those thresholds can likely
-move further with a larger cutoff.
+inside its interval. The ν = 1/4 and ν = 5 states pressed against N_in = 160; with N_in = 260 (`nu_scan3.sh`)
+ν = 5 moved from 0.932675 to 0.932375 (certified, 47 s; the independent re-implementation gives 1.1739661×10⁻⁶, inside, routes agreeing to 1.6×10⁻¹⁴), while for ν = 1/4 the symmetry-free continuation did not
+reach a positive value at η = 0.6255 (I_c = −5.8×10⁻⁸), so 0.626 stands there.
 
-## 7. Depolarizing channel: what did not work
+## 7. Depolarizing channel in the Gaussian limit
+
+**Certified value.** `depolarizing-threshold/hp_cont.py` continues the mod-3 code in η with the coherent
+information and its gradient computed in 128-bit ball arithmetic (`hp_ic.py`: Arb channel coefficients,
+eigenbases refined to the working precision, cluster-aware Jacobi rotations; `hp_par.py` runs the six
+charge blocks in parallel). Double precision has a noise floor of ~3×10⁻¹⁴ bits for this problem; 128 bits
+gives values to ~10⁻²⁶ (a rigorous enclosure, `hp_ic.certify_hp`, agreed with the approximate value to
+that level). From the M = 240 limit state (N_in = 240, D = 360):
+
+| η | 3p | I_c (bits) |
+|---|---|---|
+| 0.73525 | 0.1985625 | +1.52×10⁻⁶ |
+| 2939/4000 = 0.73475 | 0.1989375 | **[1.07683723, 1.07994494]×10⁻⁷ certified** |
+| 2351/3200 = 0.7346875 | **0.198984375** | **[1.82651528, 1.85766717]×10⁻⁸ certified** |
+| 0.734625 | 0.19903125 | −1.3×10⁻⁷ (optimized) |
+| 0.7345 | 0.1991250 | −4.1×10⁻⁷ (optimized) |
+| 0.73425 | 0.1993125 | −9.1×10⁻⁷ (optimized) |
+
+Certificates by `certify_limit.py depol` (the reviewed certifier L; flag masses ~10⁻⁵⁶). An independent
+re-implementation written from scratch (pure loss then amplifier with long-double Kraus elements, the
+thermal master equation by uniformization and by dense expm, and a beam splitter with a Fock-mixed
+thermal environment; output cutoff 420, tail < 3×10⁻⁷⁵) gives 1.0787368×10⁻⁷ and 1.8455798×10⁻⁸, routes
+agreeing to ≤ 7.5×10⁻¹⁴, both inside the intervals; Gaussian inputs are negative at both points
+(log₂(η/(1−η)) − g(ν) = −0.1665, −0.1671). With Theorem 6 of Ahmed et al. (proved for the depolarizing
+channel) this gives **p_th ≥ 0.198984375** in total error for sufficiently large M. The branch has a
+genuine zero crossing near η ≈ 0.73469 (values ~10⁻⁷, far above rounding), with the mean photon number
+staying near 20: it is not the record branch, and high precision was not what limited it.
+
+**The record point.** In 128-bit arithmetic (`pauli-emergence/dep_hp_envelope.py`, `dep_hp_scan.py`), mod-3
+codes with Gaussian envelopes are negative at η = 0.7294452 for every mean (40, 56.5, 70), width (2–6)
+and weight (0.30–0.62) scanned, with |I_c| from 10⁻⁵ down to 10⁻²⁸ (the optimized plateau state of
+earlier work is enclosed rigorously as −4.66625545720×10⁻¹² bits); they stay negative at η = 0.735,
+0.74 and 0.75. Squeezed-cat codes D(α)S(r)|0⟩ (α = 5–8, |r| ≤ 0.4) are negative too, down to −10⁻²⁸ at
+64 photons. High-precision L-BFGS from the Gaussian plateau state went from −4.67×10⁻¹² to −3.69×10⁻¹²
+in 20 evaluations (stopped). The record code (mean ≈ 56 photons, I_c ≈ 10⁻¹²) therefore has structure
+beyond a Gaussian envelope that we did not find; without the authors' state we can neither confirm nor
+refute their floating-point value.
+
+**Earlier attempts (double precision).**
 
 * Gaussian-limit continuation of the M = 240 mod-3 code (`dep_limit_scan.sh`, N_in = 300, D = 600): the
-  limit threshold of that family is p = 0.0661875 per Pauli (3p = 0.19856), below the record 0.0676387.
+  limit threshold of that family is p = 0.0661875 per Pauli (3p = 0.19856), below the record 0.0676387
+  (superseded by the certified 0.198984375 above).
   Breaking the residue symmetry, which multiplied I_c by 7 for the AGN channel (§6.4), did not help here:
   from a perturbed start the optimiser did not even recover a positive value at p = 0.066
   (`runs/limdep_gen.log`). The record regime (≈ 56 photons, I_c ≈ 10⁻¹²) stays out of reach.
