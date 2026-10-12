@@ -501,6 +501,7 @@ that level). From the M = 240 limit state (N_in = 240, D = 360):
 | 0.73525 | 0.1985625 | +1.52×10⁻⁶ |
 | 2939/4000 = 0.73475 | 0.1989375 | **[1.07683723, 1.07994494]×10⁻⁷ certified** |
 | 2351/3200 = 0.7346875 | **0.198984375** | **[1.82651528, 1.85766717]×10⁻⁸ certified** |
+| 0.73465625 | 0.1990078 | −1.8×10⁻⁸ (optimized) |
 | 0.734625 | 0.19903125 | −1.3×10⁻⁷ (optimized) |
 | 0.7345 | 0.1991250 | −4.1×10⁻⁷ (optimized) |
 | 0.73425 | 0.1993125 | −9.1×10⁻⁷ (optimized) |
@@ -512,7 +513,7 @@ thermal environment; output cutoff 420, tail < 3×10⁻⁷⁵) gives 1.0787368×
 agreeing to ≤ 7.5×10⁻¹⁴, both inside the intervals; Gaussian inputs are negative at both points
 (log₂(η/(1−η)) − g(ν) = −0.1665, −0.1671). With Theorem 6 of Ahmed et al. (proved for the depolarizing
 channel) this gives **p_th ≥ 0.198984375** in total error for sufficiently large M. The branch has a
-genuine zero crossing near η ≈ 0.73469 (values ~10⁻⁷, far above rounding), with the mean photon number
+genuine zero crossing between η = 0.73465625 and 0.7346875 (values ~10⁻⁸, far above rounding), with the mean photon number
 staying near 20: it is not the record branch, and high precision was not what limited it.
 
 **The record point.** In 128-bit arithmetic (`pauli-emergence/dep_hp_envelope.py`, `dep_hp_scan.py`), mod-3
