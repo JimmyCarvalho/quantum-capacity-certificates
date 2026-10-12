@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # (M, p) of each certified entry; best code per M
 BB84 = [(60, 0.1217188), (120, 0.1249688), (240, 0.126)]
-TWO_PAULI = [(60, 0.1210938), (120, 0.1239688), (180, 0.1251875)]
+TWO_PAULI = [(60, 0.1210938), (120, 0.1239688), (180, 0.1251875), (240, 0.1255)]
 DEPOL_3P = [(60, 0.1956561), (120, 0.1970625), (240, 0.1977936)]
 
 fig, (a, b) = plt.subplots(1, 2, figsize=(10, 4))

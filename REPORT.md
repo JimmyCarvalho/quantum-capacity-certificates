@@ -18,7 +18,7 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
 3. **bate os recordes de maio/2026** (Agarwal et al., arXiv:2605.09138) para o canal X–Z independente
    (BB84) e o canal 2-Pauli, com estados explícitos de M = 60 qubits e **certificado rigoroso**
    (aritmética de bolas, sem usar nenhum teorema de limite):
-   BB84 0,118371 → **0,126** (M = 240); 2-Pauli 0,118067 → **0,1251875** (M = 180), com códigos
+   BB84 0,118371 → **0,126** (M = 240); 2-Pauli 0,118067 → **0,1255** (M = 240), com códigos
    de resíduo mod 3. Os pontos de
    M = 60 (0,1217188 e 0,1210938) foram certificados por dois métodos independentes e revisados por um
    agente separado, que tentou quebrá-los e não conseguiu (ver `CERTIFICATES.md`);
@@ -63,7 +63,7 @@ State of the art before this work (all 2026):
 | channel | hashing | previous record | **this work, certified, M = 60** | **certified, M = 120** | Gaussian limit (this work) | ceiling of the route |
 |---|---|---|---|---|---|---|
 | BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); ≥ 0.122 (mod-4, numerical) | 0.146447 |
-| 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); **0.1251875 at M = 180** | ≥ 0.124 (mod-4 code, I_c certified) | 0.146447 |
+| 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.124 (mod-4 code, I_c certified) | 0.146447 |
 | AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4075, certified** (§6.4) | 1/2 |
 | depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | 0.2029 (Ahmed et al.) | 0.219670 |
 
@@ -244,9 +244,10 @@ Mod-3 residue codes (codewords on k ≡ 0 and 1 mod 3 around the pole) beat pari
 | BB84 | 156211/1250000 = 0.1249688 | 120 | mod 3 | [3.32197192, 3.32992534]×10⁻⁶ |
 | 2-Pauli | 154961/1250000 = 0.1239688 | 120 | mod 3 | [4.05046902, 4.96028384]×10⁻⁶ |
 | 2-Pauli | 2003/16000 = 0.1251875 | 180 | mod 3 (extended precision) | [1.17881571, 1.19653069]×10⁻⁶ |
+| 2-Pauli | 251/2000 = 0.1255 | 240 | mod 3 (extended precision) | [1.88681426, 2.70734623]×10⁻⁶ |
 | BB84 | 63/500 = 0.126 | 240 | mod 3 | [5.54571350, 5.56189889]×10⁻⁶ |
 
-Hence Q > 0 at these points: p_th(BB84) ≥ 0.126, p_th(2-Pauli) ≥ 0.1251875 and, for the depolarizing
+Hence Q > 0 at these points: p_th(BB84) ≥ 0.126, p_th(2-Pauli) ≥ 0.1255 and, for the depolarizing
 channel, 3p_th ≥ 0.1977936 with an explicit M = 240 state (previous best certified explicit value:
 0.194868 at n = 45, Krohn-Grimberghe, arXiv:2608.15870). BB84 and depolarizing are monotone in p
 (composition), so Q > 0 on the whole interval below; for 2-Pauli the bound is in the sup sense.
@@ -350,6 +351,16 @@ the n ≡ 0, 1 (mod 3) codewords and optimising α and the weights gives I_c < 1
 [0.36, 0.39], i.e. nothing. The optimal codewords have a positive main lobe (n ≈ 3–18) followed by a tail
 of alternating sign, with photon-number variance ≈ 2.7 times the Poisson value (`runs/agn_k3_sigma2_0.4.npy`).
 
+A simple physical family explains most of the gain: **three-component squeezed cats**, i.e. the n ≡ 0 and
+n ≡ 1 (mod 3) parts of a displaced *phase-squeezed* state D(α)S(r)|0⟩ (three parameters α, r, w;
+`agn_sqcat.py`). Plain cats (r = 0) give nothing; with squeezing r ≈ −1 and α ≈ 5.7 (⟨n⟩ = α² + sinh²r ≈ 34) the
+input stays positive up to σ² = 0.392, certified at σ² = 49/125:
+
+    I_c ∈ [1.73865751, 1.73880842] × 10⁻⁶ bits      (certify_limit.py agn 49/125, N_in = 140, D = 320)
+
+so about 60% of the gain over 1/e already comes from a state of a kind prepared in optics labs; the fully
+optimised codes (super-Poissonian, with an alternating tail, then a slight Z₃ breaking) add the rest.
+
 At finite M the same symmetry breaking gains little: for BB84 at M = 60 the threshold moves from
 0.1227813 (mod 3) to 0.1228125 (`runs/tbbgen_M60.log`, float). The large effect is specific to the limit.
 
@@ -449,6 +460,28 @@ and breaking the residue symmetry (as in §6.4; `th1_scan2.sh`) keeps a rank-2 i
 so **Q(E_{η,1}) > 0 for every η ≥ 0.78**, below both their certified 0.7841 and their uncertified numerical
 0.7818. Independent check: four routes give 2.150005×10⁻⁸ bits (spread 1.7×10⁻¹³), inside the interval;
 Gaussian inputs all negative (−0.174 at infinite energy). The window 0.75 < η < 0.78 remains open.
+
+**Map over ν** (`nu_scan.sh`, `nu_scan2.sh`, `plot_attenuator_map.py` → `attenuator_map.png`). Mele et al. treat
+ν = 1 only. The same codes (mod 3 {0,1}, then symmetry breaking) certify Q > 0 well inside the open window
+(η_AD, η_G) for every ν tried:
+
+| ν | η_AD (antideg.) | η_G (thermal inputs) | certified η | I_c (bits) | window closed |
+|---|---|---|---|---|---|
+| 1/4 | 0.6 | 0.65147 | 313/500 = 0.626 | [2.48378509, 2.48746745]×10⁻⁷ | 50% |
+| 1/2 | 0.66667 | 0.72207 | 1393/2000 = 0.6965 | [6.31451396, 6.36306427]×10⁻⁸ | 46% |
+| 1 | 0.75 | 0.8 | 39/50 = 0.78 | [2.12631890, 2.16095917]×10⁻⁸ | 40% |
+| 2 | 0.83333 | 0.87097 | 8587/10000 = 0.8587 | [1.14709176, 1.14892934]×10⁻⁷ | 33% |
+| 3 | 0.875 | 0.90459 | 1791/2000 = 0.8955 | [8.31897855, 8.33853440]×10⁻⁸ | 31% |
+| 5 | 0.91667 | 0.93723 | 37307/40000 = 0.932675 | [2.50657502, 2.50662460]×10⁻⁶ | 22% |
+
+(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 5: mod 3, k = 3.) Since Q is monotone in η at
+fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 4.2 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4075)),
+but the direct certificates go further at every ν tried. Independent check (same separate agent, three
+routes per point: A_G ∘ L_T, loss then AGN, thermal master equation): all five new values inside their
+intervals (spread ≤ 2.2×10⁻¹³), all Gaussian inputs negative at each point; it also regenerated the
+squeezed-cat state from (α, r, w) at 80 digits (max deviation 3.6×10⁻¹⁶) and found I_c = 1.7387559×10⁻⁶,
+inside its interval. The ν = 1/4 and ν = 5 states press against N_in = 160, so those thresholds can likely
+move further with a larger cutoff.
 
 ## 7. Depolarizing channel: what did not work
 

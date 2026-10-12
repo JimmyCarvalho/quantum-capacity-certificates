@@ -1,0 +1,10 @@
+  block B c=0 dim=101 eps=1.17e-15 delta=9.35e-15 width(S)=3.50e-12
+  block RB c=0 dim=201 eps=2.13e-15 delta=1.61e-14 width(S)=1.44e-11
+  block B c=1 dim=100 eps=1.55e-15 delta=1.08e-14 width(S)=4.55e-12
+  block RB c=1 dim=200 eps=1.65e-15 delta=1.86e-14 width(S)=1.11e-11
+  block B c=2 dim=100 eps=1.06e-15 delta=1.00e-14 width(S)=3.16e-12
+  block RB c=2 dim=201 eps=2.38e-15 delta=1.58e-14 width(S)=1.60e-11
+  flag mass: [2.158639539584473e-56, 3.472940366268746e-56]
+th0.25 p=2963/8000 T=20148/34963 G=34963/32000
+Ic in [ 7.82176428270057e-6 , 7.82184023627934e-6 ] bits; 7 s
+CERTIFIED POSITIVE

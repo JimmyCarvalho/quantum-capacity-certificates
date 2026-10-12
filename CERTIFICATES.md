@@ -47,6 +47,7 @@ depolarizing); residues mod 2 (parity) or mod 3 as listed, with exact zeros else
 | depolarizing | 41207/625000 | 0.0659312 (3p = 0.1977936) | 240 | 110 | mod 3 {0,1} | `runs/state_dep_M240_thr.npy` | 9dffeb3cd424e413 | big | [1.32046287e-6, 1.33093447e-6] |
 | BB84 | 63/500 | 0.126 | 240 | 110 | mod 3 {0,1} | `runs/state_bb3_M240_q0.126.npy` | b947cad42e44ebca | big | [5.54571350e-6, 5.56189889e-6] |
 | 2-Pauli | 2003/16000 | 0.1251875 | 180 | 90 | mod 3 {0,1} | `runs/state_2p3_M180_thr.npy` | 29f739e0098b53a8 | big, `CERT_LD=1` | [1.17881571e-6, 1.19653069e-6] |
+| 2-Pauli | 251/2000 | 0.1255 | 240 | 110 | mod 3 {0,1} | `runs/state_2p3_M240_p0.1255.npy` | 682e0a3d42e431d1 | big, `CERT_LD=1` | [1.88681426e-6, 2.70734623e-6] |
 
 Logs: `runs/certF_*_M60_thr.log` (Arb exp; these predate the provenance lines, the state files are
 unchanged, see hashes) and `runs/certB_*_M60.log`, `runs/certB_*_M120.log` (with argv, input sha256 and
@@ -68,6 +69,7 @@ Commands:
     python3 certify_big.py depol 41207/625000 runs/state_dep_M240_thr.npy 240 3 0,1
     python3 certify_big.py bb84 63/500 runs/state_bb3_M240_q0.126.npy 240 3 0,1
     CERT_LD=1 CERT_PROCS=4 python3 certify_big.py 2pauli 2003/16000 runs/state_2p3_M180_thr.npy 180 3 0,1
+    CERT_LD=1 CERT_PROCS=4 python3 certify_big.py 2pauli 251/2000 runs/state_2p3_M240_p0.1255.npy 240 3 0,1
 
 ## Gaussian-limit (bosonic) certificates
 
@@ -80,6 +82,12 @@ Commands:
 | additive Gaussian noise | σ² = 81/200 | general rank 2 (k = 1) | `runs/agn_gen_sigma2_0.405.npy` | d9a9371dde9ac4ee | 200, 400 | [4.36362113e-7, 4.37080935e-7] |
 | additive Gaussian noise | σ² = 407/1000 (T = 1000/1407, G = 1407/1000) | general rank 2 (k = 1) | `runs/agn_gen_sigma2_0.407.npy` | cb6c059e736810ac | 200, 400 | [5.43799903e-8, 5.50010769e-8] |
 | additive Gaussian noise | σ² = 163/400 (T = 400/563, G = 563/400) | general rank 2 (k = 1) | `runs/agn_gen_sigma2_0.4075.npy` | 756c07a44641776b | 300, 600 | [5.97733793e-9, 6.88032591e-9] |
+| thermal attenuator, ν = 1/4 | η = 313/500 (p = 187/500) | general rank 2 (k = 1) | `runs/th0.25_best.npy` | 8c1af8b44b2422ca | 160, 360 | [2.48378509e-7, 2.48746745e-7] |
+| thermal attenuator, ν = 1/2 | η = 1393/2000 (p = 607/2000) | general rank 2 (k = 1) | `runs/th0.5_best.npy` | fb26e9b7951cefd0 | 160, 360 | [6.31451396e-8, 6.36306427e-8] |
+| thermal attenuator, ν = 2 | η = 8587/10000 (p = 1413/10000) | general rank 2 (k = 1) | `runs/th2_best.npy` | 413fcd7ec3489aac | 160, 360 | [1.14709176e-7, 1.14892934e-7] |
+| thermal attenuator, ν = 3 | η = 1791/2000 (p = 209/2000) | general rank 2 (k = 1) | `runs/th3_best.npy` | 6cd8d3af49f65888 | 160, 360 | [8.31897855e-8, 8.33853440e-8] |
+| thermal attenuator, ν = 5 | η = 37307/40000 (p = 2693/40000) | mod 3 {0,1} | `runs/th5_best.npy` | 3a0ad4e6310ec0cf | 160, 360 | [2.50657502e-6, 2.50662460e-6] |
+| additive Gaussian noise, squeezed cat | σ² = 49/125 | mod 3 {0,1} (residues of D(α)S(r) on vacuum) | `runs/agn_sqcat_sigma2_0.392.npy` | eb13a99ef8255ad0 | 140, 320 | [1.73865751e-6, 1.73880842e-6] |
 | thermal attenuator, ν = 1 | η = 39/50 (p = 11/50; T = 39/61, G = 61/50) | general rank 2 (k = 1) | `runs/th1_gen_eta0.78.npy` | 6c91dfe91ec43e9f | 120, 300 | [2.12631890e-8, 2.16095917e-8] |
 | thermal attenuator, ν = 1 | η = 3133/4000 (p = 867/4000; T = 3133/4867, G = 4867/4000) | mod 3 {0,1} | `runs/th1_k3_p0.21675.npy` | eff871b4adcf91ce | 80, 240 | [8.27408111e-6, 8.27425105e-6] |
 | thermal amplifier (emergent 2-Pauli) | p = 16/125 (T = 93/125, G = 93/61; τ ≈ 1.1343, N = 93/32) | general rank 2 (k = 1) | `runs/amp_gen_p0.128.npy` | 9fb96e4e40e7e33a | 200, 400 | [1.43395294e-7, 1.43876228e-7] |
@@ -96,6 +104,12 @@ Commands:
     python3 certify_limit.py 2pauli 16/125 runs/amp_gen_p0.128.npy 0,0 1 200 400
     python3 certify_limit.py th1 867/4000 runs/th1_k3_p0.21675.npy 0,1 3 80 240
     python3 certify_limit.py th1 11/50 runs/th1_gen_eta0.78.npy 0,0 1 120 300
+    python3 certify_limit.py th0.25 187/500 runs/th0.25_best.npy 0,0 1 160 360
+    python3 certify_limit.py th0.5 607/2000 runs/th0.5_best.npy 0,0 1 160 360
+    python3 certify_limit.py th2 1413/10000 runs/th2_best.npy 0,0 1 160 360
+    python3 certify_limit.py th3 209/2000 runs/th3_best.npy 0,0 1 160 360
+    python3 certify_limit.py th5 2693/40000 runs/th5_best.npy 0,1 3 160 360
+    python3 certify_limit.py agn 49/125 runs/agn_sqcat_sigma2_0.392.npy 0,1 3 140 320
 
 The AGN entry was checked by an independent agent with its own implementation (diffusion Lindbladian, no
 repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (REPORT.md §6.4). Intervals from the
@@ -137,4 +151,4 @@ table above will be updated when the M = 180/240 runs finish).
 
 Caveat (also from the review): BB84 and depolarizing channels are monotone in p by composition, so
 Q > 0 holds for every smaller p as well. For the 2-Pauli family no such composition exists, so
-"p_th ≥ 0.1251875" holds in the sup sense; it does not by itself show Q > 0 at every smaller p.
+"p_th ≥ 0.1255" holds in the sup sense; it does not by itself show Q > 0 at every smaller p.
