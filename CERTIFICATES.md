@@ -187,9 +187,8 @@ budget would be 4–6× too small, demonstrated); an explicit error instead of a
 continuity-bound range; reject codes with weight off their residues or K > M (the lower bound survives
 such inputs by a twirling argument, the upper end of the interval does not); re-run every certificate with
 the final code so the manifest is reproducible bit for bit (`recertify_all.sh`, logs in `runs/certB_*.log`;
-status: all M = 60 and M = 120 entries and all M = 240 entries (depolarizing, BB84, 2-Pauli with `CERT_LD=1`)
-are done, all still positive, intervals at most ~4×10⁻¹³ wider, and the table above carries the re-run
-intervals; 2-Pauli M = 180 is still running).
+status: all re-runs are done, M = 60 to 240 including both `CERT_LD=1` entries, all still positive,
+intervals at most ~4×10⁻¹³ wider, and the table above carries the re-run intervals).
 
 Caveat (also from the review): BB84 and depolarizing channels are monotone in p by composition, so
 Q > 0 holds for every smaller p as well. For the 2-Pauli family no such composition exists, so
