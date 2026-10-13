@@ -14,7 +14,7 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 |---|---|---|
 | additive Gaussian noise (σ², vacuum variance ½) | Q > 0 for σ² < 1/e = 0.3679 (Holevo–Werner 2001); GKP codes reach σ ≈ 0.598 | **Q > 0 for σ² ≤ 4121/10000 = 0.4121** (σ ≤ 0.6419) |
 | thermal attenuator, ν = 1 thermal photon | Q > 0 for η ≥ 0.7841 (Mele et al., Jul 2026) | **Q > 0 for η ≥ 0.77875** |
-| thermal attenuator, ν = 1/4 … 5 | Gaussian-input thresholds only (ν ≠ 1) | **Q > 0 inside the open window at every ν tried, closing 22–50% of it** (`attenuator_map.png`) |
+| thermal attenuator, ν = 1/4 … 5 | Gaussian-input thresholds only (ν ≠ 1) | **Q > 0 inside the open window at every ν tried, closing 24–50% of it** (`attenuator_map.png`) |
 | thermal amplifier, gain 1.1343, 2.906 thermal photons | Gaussian inputs give 0 | **Q > 0** |
 | independent X–Z (BB84) Pauli channel | q_th ≥ 0.118371 (May 2026) | **q_th ≥ 0.126** (explicit 240-qubit state) |
 | 2-Pauli channel | p_th ≥ 0.118067 (May 2026) | **p_th ≥ 0.1255** (explicit 240-qubit state) |

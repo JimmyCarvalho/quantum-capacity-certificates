@@ -439,7 +439,7 @@ The channel is the thermal amplifier with gain τ = 22201/19600 ≈ 1.13270 and 
 photons. At this gain Gaussian inputs give Q > 0 only for N < 2.6533 (log₂(τ/(τ−1)) − g(N) = −0.1187 at
 N = 149/51), and the channel is antidegradable only for N ≥ 3.768 (Y ≥ τ/2), so the certificate covers
 about a quarter of the open window at this gain. The AGN corollary of §6.4 does not reach this point
-(its AGN-equivalent noise is σ² = 0.459 > 0.4075). No non-Gaussian positivity result for thermal amplifiers
+(its AGN-equivalent noise is σ² = 0.459 > 0.4121). No non-Gaussian positivity result for thermal amplifiers
 was found in the literature check (Mele et al. treat the attenuator).
 
 Independent check (same separate agent as §6.4, no repository code): three routes (the Lindblad
@@ -514,12 +514,12 @@ near 6×10⁻¹⁰ at 0.77875. The window 0.75 < η < 0.77875 remains open.
 | 1/4 | 0.6 | 0.65147 | 313/500 = 0.626 | [2.48378509, 2.48746745]×10⁻⁷ | 50% |
 | 1/2 | 0.66667 | 0.72207 | 1393/2000 = 0.6965 | [6.31451396, 6.36306427]×10⁻⁸ | 46% |
 | 1 | 0.75 | 0.8 | 623/800 = 0.77875 | [2.58920431, 7.64931369]×10⁻¹⁰ | 42% |
-| 2 | 0.83333 | 0.87097 | 8587/10000 = 0.8587 | [1.14709176, 1.14892934]×10⁻⁷ | 33% |
-| 3 | 0.875 | 0.90459 | 1791/2000 = 0.8955 | [8.31897855, 8.33853440]×10⁻⁸ | 31% |
+| 2 | 0.83333 | 0.87097 | 3433/4000 = 0.85825 | [3.83709010, 3.86723241]×10⁻⁸ | 34% |
+| 3 | 0.875 | 0.90459 | 17907/20000 = 0.89535 | [1.42721100, 1.43166597]×10⁻⁷ | 31% |
 | 5 | 0.91667 | 0.93723 | 7459/8000 = 0.932375 | [1.17390097, 1.17400578]×10⁻⁶ | 24% |
 
-(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 5: mod 3, k = 3, N_in = 260, D = 520, and
-ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
+(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 2: N_in = 280, D = 560; ν = 3: N_in = 320,
+D = 640; ν = 5: mod 3, k = 3, N_in = 260, D = 520; and ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
 fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 3.75 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4121)),
 but the direct certificates go further at every ν tried. Independent check (same separate agent, three
 routes per point: A_G ∘ L_T, loss then AGN, thermal master equation): all five new values inside their
@@ -527,7 +527,12 @@ intervals (spread ≤ 2.2×10⁻¹³), all Gaussian inputs negative at each poin
 squeezed-cat state from (α, r, w) at 80 digits (max deviation 3.6×10⁻¹⁶) and found I_c = 1.7387559×10⁻⁶,
 inside its interval. The ν = 1/4 and ν = 5 states pressed against N_in = 160; with N_in = 260 (`nu_scan3.sh`)
 ν = 5 moved from 0.932675 to 0.932375 (certified, 47 s; the independent re-implementation gives 1.1739661×10⁻⁶, inside, routes agreeing to 1.6×10⁻¹⁴), while for ν = 1/4 the symmetry-free continuation did not
-reach a positive value at η = 0.6255 (I_c = −5.8×10⁻⁸), so 0.626 stands there.
+reach a positive value at η = 0.6255 (I_c = −5.8×10⁻⁸), so 0.626 stands there. The ν = 2 and 3 states (64 and 77
+photons) also pressed against N_in = 160 (10% of the ν = 3 weight in the top fifth of the range); with N_in = 280 and
+320 (`runs/thgen2_N280*.log`, `runs/thgen3_N320*.log`) I_c at the old points grows 1.5 and 3.7 times and the
+certificates move to η = 0.85825 and 0.89535 (from 0.8587 and 0.8955), a gain of about 1% of each window. The
+independent re-implementation gives 3.8572287×10⁻⁸ and 1.4302399×10⁻⁷ bits, inside. Stretching the mod-3 states at ν = 1/2
+and 2 does not beat the symmetry-free inputs there (`runs/th05_*`, `runs/thnu2_fine.log`).
 
 ## 7. Depolarizing channel in the Gaussian limit
 

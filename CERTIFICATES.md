@@ -93,6 +93,8 @@ Commands:
 | thermal attenuator, ν = 1/2 | η = 1393/2000 (p = 607/2000) | general rank 2 (k = 1) | `runs/th0.5_best.npy` | fb26e9b7951cefd0 | 160, 360 | [6.31451396e-8, 6.36306427e-8] |
 | thermal attenuator, ν = 2 | η = 8587/10000 (p = 1413/10000) | general rank 2 (k = 1) | `runs/th2_best.npy` | 413fcd7ec3489aac | 160, 360 | [1.14709176e-7, 1.14892934e-7] |
 | thermal attenuator, ν = 3 | η = 1791/2000 (p = 209/2000) | general rank 2 (k = 1) | `runs/th3_best.npy` | 6cd8d3af49f65888 | 160, 360 | [8.31897855e-8, 8.33853440e-8] |
+| thermal attenuator, ν = 2, larger cutoff | η = 3433/4000 (p = 567/4000; T = 3433/5134, G = 2567/2000) | general rank 2 (k = 1) | `runs/thgen2_N280_s0.14175.npy` | e00251e7e14a8da9 | 280, 560 | [3.83709010e-8, 3.86723241e-8] |
+| thermal attenuator, ν = 3, larger cutoff | η = 17907/20000 (p = 2093/20000; T = 17907/26279, G = 26279/20000) | general rank 2 (k = 1) | `runs/thgen3_N320_s0.10465.npy` | b5374ff708ab43e4 | 320, 640 | [1.42721100e-7, 1.43166597e-7] |
 | thermal attenuator, ν = 5 | η = 7459/8000 (p = 541/8000; T = 7459/10705, G = 2141/1600) | mod 3 {0,1} | `runs/thnu_5_big_best.npy` | 2b85f0323ce13231 | 260, 520 | [1.17390097e-6, 1.17400578e-6] |
 | emergent depolarizing (thermal attenuator, ν = 1/(2η)) | η = 3756117/5120000 (p = 1363883/20480000 per Pauli, 3p = 0.199787548828125; T = 14108414917689/22722859520000, G = 8876117/7512234) | mod 3 {0,1}, mean 57.5 photons | `../depolarizing-threshold/runs/hpcont57b_eta0.7336166.npy` | 8d735c0f9da97002 | 240, 360 | [4.99212570e-10, 8.85924622e-10] |
 | emergent depolarizing | η = 939063/1280000 (p = 340937/5120000, 3p = 0.1997677734375) | mod 3 {0,1} | `../depolarizing-threshold/runs/hpcont57b_eta0.7336430.npy` | bdb0a58f083b0bdb | 240, 360 | [4.03487761e-10, 7.45272255e-10] |
@@ -143,6 +145,8 @@ Commands:
     python3 certify_limit.py th0.5 607/2000 runs/th0.5_best.npy 0,0 1 160 360
     python3 certify_limit.py th2 1413/10000 runs/th2_best.npy 0,0 1 160 360
     python3 certify_limit.py th3 209/2000 runs/th3_best.npy 0,0 1 160 360
+    python3 certify_limit.py th2 567/4000 runs/thgen2_N280_s0.14175.npy 0,0 1 280 560
+    python3 certify_limit.py th3 2093/20000 runs/thgen3_N320_s0.10465.npy 0,0 1 320 640
     python3 certify_limit.py th5 2693/40000 runs/th5_best.npy 0,1 3 160 360
     python3 certify_limit.py th5 541/8000 runs/thnu_5_big_best.npy 0,1 3 260 520
     python3 certify_limit.py depol 1363883/20480000 ../depolarizing-threshold/runs/hpcont57b_eta0.7336166.npy 0,1 3 240 360
@@ -167,7 +171,8 @@ The AGN entry was checked by an independent agent with its own implementation (d
 repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (README §6.4). The seven stretched AGN
 entries were checked by another from-scratch implementation with five routes (loss then amplifier, amplifier
 then loss, the diffusion semigroup by uniformization and by expm, unitary dilations; cutoffs 600–800):
-9.6074153×10⁻⁸, 1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹, 1.2180839×10⁻⁹, 4.9355320×10⁻¹⁰ and 2.7278801×10⁻¹⁰ bits, all inside. The two stretched ν = 1 entries
+9.6074153×10⁻⁸, 1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹, 1.2180839×10⁻⁹, 4.9355320×10⁻¹⁰ and 2.7278801×10⁻¹⁰ bits, all inside. The larger-cutoff ν = 2 and ν = 3 entries give 3.8572287×10⁻⁸ and 1.4302399×10⁻⁷ bits with the same code, inside.
+The two stretched ν = 1 entries
 were checked with the same code (four routes, including the thermal beam splitter and the thermal master
 equation): 2.7722611×10⁻⁹ and 6.3155836×10⁻¹⁰ bits, inside. The emergent
 depolarizing entries and the ν = 5 entry (η = 7459/8000) were checked by another from-scratch
