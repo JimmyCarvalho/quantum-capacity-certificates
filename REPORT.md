@@ -511,14 +511,14 @@ near 6×10⁻¹⁰ at 0.77875. The window 0.75 < η < 0.77875 remains open.
 
 | ν | η_AD (antideg.) | η_G (thermal inputs) | certified η | I_c (bits) | window closed |
 |---|---|---|---|---|---|
-| 1/4 | 0.6 | 0.65147 | 313/500 = 0.626 | [2.48378509, 2.48746745]×10⁻⁷ | 50% |
-| 1/2 | 0.66667 | 0.72207 | 1393/2000 = 0.6965 | [6.31451396, 6.36306427]×10⁻⁸ | 46% |
+| 1/4 | 0.6 | 0.65147 | 1251/2000 = 0.6255 | [4.73283428, 4.89118794]×10⁻⁸ | 50% |
+| 1/2 | 0.66667 | 0.72207 | 6961/10000 = 0.6961 | [0.979254604, 1.05297073]×10⁻⁸ | 47% |
 | 1 | 0.75 | 0.8 | 623/800 = 0.77875 | [2.58920431, 7.64931369]×10⁻¹⁰ | 42% |
 | 2 | 0.83333 | 0.87097 | 3433/4000 = 0.85825 | [3.83709010, 3.86723241]×10⁻⁸ | 34% |
 | 3 | 0.875 | 0.90459 | 17907/20000 = 0.89535 | [1.42721100, 1.43166597]×10⁻⁷ | 31% |
 | 5 | 0.91667 | 0.93723 | 14913/16000 = 0.9320625 | [4.44226553, 4.46329925]×10⁻⁸ | 25% |
 
-(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 2: N_in = 280, D = 560; ν = 3: N_in = 320,
+(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 1/4: N_in = 400, D = 800; ν = 1/2: N_in = 240, D = 480; ν = 2: N_in = 280, D = 560; ν = 3: N_in = 320,
 D = 640; ν = 5: mod 3, k = 3, N_in = 360, D = 720; and ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
 fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 3.75 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4121)),
 but the direct certificates go further at every ν tried. Independent check (same separate agent, three
@@ -527,7 +527,9 @@ intervals (spread ≤ 2.2×10⁻¹³), all Gaussian inputs negative at each poin
 squeezed-cat state from (α, r, w) at 80 digits (max deviation 3.6×10⁻¹⁶) and found I_c = 1.7387559×10⁻⁶,
 inside its interval. The ν = 1/4 and ν = 5 states pressed against N_in = 160; with N_in = 260 (`nu_scan3.sh`)
 ν = 5 moved from 0.932675 to 0.932375 (certified, 47 s; the independent re-implementation gives 1.1739661×10⁻⁶, inside, routes agreeing to 1.6×10⁻¹⁴), while for ν = 1/4 the symmetry-free continuation did not
-reach a positive value at η = 0.6255 (I_c = −5.8×10⁻⁸), so 0.626 stands there. The ν = 2 and 3 states (64 and 77
+reach a positive value at η = 0.6255 (I_c = −5.8×10⁻⁸). With N_in = 400 and D = 800 (`runs/thgen025_N400.log`; the
+state has 100 photons and each point takes 90 min) it does: I_c = 6.4×10⁻⁷ at 0.626 and a certificate at
+η = 1251/2000 = 0.6255 (T = 5004/8749, G = 8749/8000); independent value 4.8512689×10⁻⁸ bits, inside. The ν = 2 and 3 states (64 and 77
 photons) also pressed against N_in = 160 (10% of the ν = 3 weight in the top fifth of the range); with N_in = 280 and
 320 (`runs/thgen2_N280*.log`, `runs/thgen3_N320*.log`) I_c at the old points grows 1.5 and 3.7 times and the
 certificates move to η = 0.85825 and 0.89535 (from 0.8587 and 0.8955), a gain of about 1% of each window. The
@@ -535,7 +537,9 @@ independent re-implementation gives 3.8572287×10⁻⁸ and 1.4302399×10⁻⁷ 
 and 2 does not beat the symmetry-free inputs there (`runs/th05_*`, `runs/thnu2_fine.log`). The ν = 5 continuation
 had stopped at I_c = 1.2×10⁻⁶ (the default margin of `threshold_limit.py`); with a margin of 2×10⁻⁹ and N_in = 360
 (`runs/thnu5_N360.log`) it is certified at η = 14913/16000 = 0.9320625 (T = 4971/7145, G = 4287/3200), and the
-independent re-implementation gives 4.4564070×10⁻⁸ bits, inside.
+independent re-implementation gives 4.4564070×10⁻⁸ bits, inside. The same rerun at ν = 1/2 (margin 2×10⁻⁹,
+N_in = 240; `runs/thgen05_N240.log`) moves that point from 0.6965 to η = 6961/10000 (T = 13922/23039,
+G = 23039/20000); independent value 1.0321304×10⁻⁸ bits, inside.
 
 ## 7. Depolarizing channel in the Gaussian limit
 
