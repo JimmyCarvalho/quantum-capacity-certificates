@@ -32,8 +32,8 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
    certificado finito de M = 180, sem teorema algum, já vai além: 0,1251875).
 
 6. **canal de ruído gaussiano aditivo** (deslocamento aleatório gaussiano, o modelo básico de ruído de luz e
-   micro-ondas): o limite do BB84 é exatamente esse canal. Certificamos **Q > 0 para σ² ≤ 0,4111875
-   (σ ≤ 0,6412)**, além de σ = 1/√e ≈ 0,6065, onde a informação coerente gaussiana (Holevo–Werner, 2001)
+   micro-ondas): o limite do BB84 é exatamente esse canal. Certificamos **Q > 0 para σ² ≤ 0,4121
+   (σ ≤ 0,6419)**, além de σ = 1/√e ≈ 0,6065, onde a informação coerente gaussiana (Holevo–Werner, 2001)
    se anula e onde os códigos GKP param (≈ 0,598; PRA 111, 052445 (2025), que trata a faixa
    1/√e ≤ σ < 1/√2 como aberta). Conferido por uma implementação independente (§6.4).
 
@@ -67,7 +67,7 @@ State of the art before this work (all 2026):
 |---|---|---|---|---|---|---|
 | BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); ≥ 0.122 (mod-4, numerical) | 0.146447 |
 | 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.124 (mod-4 code, I_c certified) | 0.146447 |
-| AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4111875, certified** (§6.4) | 1/2 |
+| AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4121, certified** (§6.4) | 1/2 |
 | depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | **0.1997875, I_c certified** (§7); 0.2029 (Ahmed et al., floating point) | 0.219670 |
 
 Every "certified" entry is an explicit M-qubit state with a rigorous interval for I_c (list, hashes and
@@ -361,28 +361,30 @@ input stays positive up to σ² = 0.392, certified at σ² = 49/125:
 
     I_c ∈ [1.73865751, 1.73880842] × 10⁻⁶ bits      (certify_limit.py agn 49/125, N_in = 140, D = 320)
 
-so more than half (56%) of the gain over 1/e already comes from a state of a kind prepared in optics labs; the
+so more than half (55%) of the gain over 1/e already comes from a state of a kind prepared in optics labs; the
 fully optimised codes (super-Poissonian, with an alternating tail, a slight Z₃ breaking, more photons) add the
 rest.
 
 **More photons (13 Oct).** The stretching trick of §7 also works here. Stretching the 15.4-photon mod-3 state
-in the residue index (n = 3m + r, m → λm, `depolarizing-threshold/stretch_init.py`) by λ = 1.5 and 2 (22.1 and
-29.3 photons) and continuing in σ² (`threshold_limit.py`, `agn_polish.py`, `runs/agn_stretch*.log`):
+in the residue index (n = 3m + r, m → λm, `depolarizing-threshold/stretch_init.py`) by λ = 1.5, 2 and 2.4 (22.1,
+29.3 and 34.9 photons) and continuing in σ² (`threshold_limit.py`, `agn_polish.py`, `runs/agn_stretch*.log`):
 
     22 photons, σ² = 51/125:      I_c ∈ [9.57696812, 9.62308372] × 10⁻⁸ bits
     22 photons, σ² = 41/100:      I_c ∈ [1.85979392, 1.92549153] × 10⁻⁸ bits
     29 photons, σ² = 411/1000:    I_c ∈ [1.17506701, 1.58865651] × 10⁻⁹ bits
     29 photons, σ² = 3289/8000:   I_c ∈ [1.00509101, 1.40751494] × 10⁻⁹ bits
-    29 photons, σ² = 6579/16000:  I_c ∈ [0.961014601, 1.32820991] × 10⁻⁹ bits   (all N_in = 300, D = 600)
+    29 photons, σ² = 6579/16000:  I_c ∈ [0.961014601, 1.32820991] × 10⁻⁹ bits
+    29 photons, σ² = 823/2000:    I_c ∈ [2.47918646, 6.12580391] × 10⁻¹⁰ bits
+    35 photons, σ² = 4121/10000:  I_c ∈ [0.228227285, 3.70100931] × 10⁻¹⁰ bits  (all N_in = 300, D = 600)
 
-hence **Q(N_σ) > 0 for every σ² ≤ 6579/16000 = 0.4111875, i.e. σ ≤ 0.6412**. At σ² = 0.4075 the 22-photon
+hence **Q(N_σ) > 0 for every σ² ≤ 4121/10000 = 0.4121, i.e. σ ≤ 0.6419**. At σ² = 0.4075 the 22-photon
 code has I_c = 1.25×10⁻⁷, twenty times the symmetry-free state; the 29-photon code overtakes it near 0.411
-(more photons, higher threshold, smaller margin, as for the depolarizing channel). The optimization budget
-sets the last digits: a longer polish at 0.4115 climbs from −2.5×10⁻⁹ to −2×10⁻¹². The independent
+(more photons, higher threshold, smaller margin, as for the depolarizing channel). The optimization sets the
+last digits: a longer polish at 0.4115 climbs from −2.5×10⁻⁹ to +4.9×10⁻¹⁰ (certified), and the 34.9-photon code (the 0.4115 state stretched by 1.2) reaches 2.7×10⁻¹⁰ at 0.4121. There the double-precision optimizer stalls: a central finite difference along the computed gradient gives a slope four times smaller than the gradient predicts (logarithms of near-zero output eigenvalues), so L-BFGS stops; 41- and 46-photon codes stall near −4×10⁻¹⁰ at σ² = 0.4125. The 128-bit gradient of §7 removes that limit at several times the cost. The independent
 re-implementation (five routes: loss then amplifier, amplifier then loss, diffusion semigroup by
-uniformization and by dense expm, unitary dilations; cutoffs 600–800, tails < 1e−92) gives 9.6074153×10⁻⁸,
-1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹ and 1.2180839×10⁻⁹ bits, all inside, routes agreeing to
-10⁻¹³; Gaussian inputs give 0 at all five points.
+uniformization and by dense expm, unitary dilations; cutoffs 600–800, tails beyond 700 photons < 1e−91) gives 9.6074153×10⁻⁸,
+1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹, 1.2180839×10⁻⁹, 4.9355320×10⁻¹⁰ and 2.7278801×10⁻¹⁰ bits, all
+inside, routes agreeing to 10⁻¹³; Gaussian inputs give 0 at all seven points.
 
 At finite M the same symmetry breaking gains little: for BB84 at M = 60 the threshold moves from
 0.1227813 (mod 3) to 0.1228125 (`runs/tbbgen_M60.log`, float). The large effect is specific to the limit.
@@ -402,10 +404,10 @@ arXiv:2609.39747): no prior or concurrent result for any of the claims in this r
 Corollary (all phase-insensitive channels). A phase-insensitive Gaussian channel with transmissivity or
 gain τ and added noise Y becomes N_σ with σ² = (Y + |1−τ|/2)/τ after a quantum-limited amplifier of gain
 1/τ (τ < 1) or a pure loss of transmissivity 1/τ (τ > 1), i.e. N_σ is a degraded version of it; hence
-Q > 0 whenever (Y + |1−τ|/2)/τ ≤ 0.4111875. For the thermal attenuator (Y = (1−η)(N+½)) this reads
-(1−η)(N+1)/η ≤ 0.4111875, and for the thermal amplifier (Y = (τ−1)(N+½)) it reads (τ−1)(N+1)/τ ≤ 0.4111875.
-Both go beyond the Holevo–Werner (Gaussian-input) thresholds when the environment has N > 3.84 thermal
-photons: e.g. at N = 10 the new windows are η ∈ [0.96397, 0.96614) and τ ∈ (1.03632, 1.03883]. (Mele et
+Q > 0 whenever (Y + |1−τ|/2)/τ ≤ 0.4121. For the thermal attenuator (Y = (1−η)(N+½)) this reads
+(1−η)(N+1)/η ≤ 0.4121, and for the thermal amplifier (Y = (τ−1)(N+½)) it reads (τ−1)(N+1)/τ ≤ 0.4121.
+Both go beyond the Holevo–Werner (Gaussian-input) thresholds when the environment has N > 3.75 thermal
+photons: e.g. at N = 10 the new windows are η ∈ [0.96389, 0.96614) and τ ∈ (1.03632, 1.03892]. (Mele et
 al. treat N = 1, where this corollary gives nothing new; conversely their ν = 1, η = 0.7841 point implies
 AGN positivity only at σ² = (1−η)ν/η ≈ 0.275 < 1/e, via E = L_η ∘ N_σ.)
 

@@ -5,7 +5,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-S2_AGN = 0.4111875  # Q > 0 certified for the additive Gaussian noise channel up to this variance
+S2_AGN = 0.4121  # Q > 0 certified for the additive Gaussian noise channel up to this variance
 
 # (nu, smallest certified eta) from direct certificates
 CERTIFIED = [(0.25, 0.626), (0.5, 0.6965), (1.0, 0.78), (2.0, 0.8587), (3.0, 0.8955), (5.0, 0.932375)]
