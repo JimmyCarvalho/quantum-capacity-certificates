@@ -516,10 +516,10 @@ near 6×10⁻¹⁰ at 0.77875. The window 0.75 < η < 0.77875 remains open.
 | 1 | 0.75 | 0.8 | 623/800 = 0.77875 | [2.58920431, 7.64931369]×10⁻¹⁰ | 42% |
 | 2 | 0.83333 | 0.87097 | 3433/4000 = 0.85825 | [3.83709010, 3.86723241]×10⁻⁸ | 34% |
 | 3 | 0.875 | 0.90459 | 17907/20000 = 0.89535 | [1.42721100, 1.43166597]×10⁻⁷ | 31% |
-| 5 | 0.91667 | 0.93723 | 7459/8000 = 0.932375 | [1.17390097, 1.17400578]×10⁻⁶ | 24% |
+| 5 | 0.91667 | 0.93723 | 14913/16000 = 0.9320625 | [4.44226553, 4.46329925]×10⁻⁸ | 25% |
 
 (k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 2: N_in = 280, D = 560; ν = 3: N_in = 320,
-D = 640; ν = 5: mod 3, k = 3, N_in = 260, D = 520; and ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
+D = 640; ν = 5: mod 3, k = 3, N_in = 360, D = 720; and ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
 fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 3.75 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4121)),
 but the direct certificates go further at every ν tried. Independent check (same separate agent, three
 routes per point: A_G ∘ L_T, loss then AGN, thermal master equation): all five new values inside their
@@ -532,7 +532,10 @@ photons) also pressed against N_in = 160 (10% of the ν = 3 weight in the top fi
 320 (`runs/thgen2_N280*.log`, `runs/thgen3_N320*.log`) I_c at the old points grows 1.5 and 3.7 times and the
 certificates move to η = 0.85825 and 0.89535 (from 0.8587 and 0.8955), a gain of about 1% of each window. The
 independent re-implementation gives 3.8572287×10⁻⁸ and 1.4302399×10⁻⁷ bits, inside. Stretching the mod-3 states at ν = 1/2
-and 2 does not beat the symmetry-free inputs there (`runs/th05_*`, `runs/thnu2_fine.log`).
+and 2 does not beat the symmetry-free inputs there (`runs/th05_*`, `runs/thnu2_fine.log`). The ν = 5 continuation
+had stopped at I_c = 1.2×10⁻⁶ (the default margin of `threshold_limit.py`); with a margin of 2×10⁻⁹ and N_in = 360
+(`runs/thnu5_N360.log`) it is certified at η = 14913/16000 = 0.9320625 (T = 4971/7145, G = 4287/3200), and the
+independent re-implementation gives 4.4564070×10⁻⁸ bits, inside.
 
 ## 7. Depolarizing channel in the Gaussian limit
 

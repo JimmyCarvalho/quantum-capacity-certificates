@@ -8,7 +8,7 @@ import numpy as np
 S2_AGN = 0.4121  # Q > 0 certified for the additive Gaussian noise channel up to this variance
 
 # (nu, smallest certified eta) from direct certificates
-CERTIFIED = [(0.25, 0.626), (0.5, 0.6965), (1.0, 0.77875), (2.0, 0.85825), (3.0, 0.89535), (5.0, 0.932375)]
+CERTIFIED = [(0.25, 0.626), (0.5, 0.6965), (1.0, 0.77875), (2.0, 0.85825), (3.0, 0.89535), (5.0, 0.9320625)]
 MELE = (1.0, 0.7841)
 
 
