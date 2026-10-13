@@ -1,7 +1,7 @@
 """Continuation in eta with high-precision L-BFGS (hp_ic.ic_and_grad) for mod-3 residue codes of the
 depolarizing emergent channel. At each eta: optimise from the previous state; if I_c > 0 keep it and step
 down, otherwise halve the step. Saves runs/{tag}_eta{eta}.npy for every positive point.
-usage: python3 hp_cont.py init.npy eta0 step min_step Nin D iters tag [procs]
+usage: python3 hp_cont.py init.npy eta0 step min_step Nin D iters tag [procs] [grow]
 With procs > 1 the six charge blocks are evaluated in parallel (hp_par)."""
 import os
 os.environ.setdefault("OMP_NUM_THREADS", "1")
@@ -42,6 +42,8 @@ if __name__ == "__main__":
     path, eta, step, min_step = sys.argv[1], Fraction(sys.argv[2]), Fraction(sys.argv[3]), Fraction(sys.argv[4])
     Nin, D, iters, tag = int(sys.argv[5]), int(sys.argv[6]), int(sys.argv[7]), sys.argv[8]
     procs = int(sys.argv[9]) if len(sys.argv) > 9 else 1
+    grow = float(sys.argv[10]) if len(sys.argv) > 10 else 1.0
+    max_step = step
     par = None
     if procs > 1:
         import hp_par
@@ -70,6 +72,7 @@ if __name__ == "__main__":
             good = (eta, Ic)
             C = Cn
             np.save(f"runs/{tag}_eta{float(eta):.7f}.npy", Cn)
+            step = min(step * grow, max_step)  # grow back after a success (grow = 1: fixed/halving only)
             eta -= step
         else:
             eta += step

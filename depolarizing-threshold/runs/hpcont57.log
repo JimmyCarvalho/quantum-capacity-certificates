@@ -6,3 +6,130 @@
 {"tag": "hpcont57", "eta": "11741/16000", "eta_f": 0.7338125, "Ic": 6.061483810462043e-10, "nbar": 57.488081398855016, "w": [0.4382, 0.5618], "sec": 4524}
 {"tag": "hpcont57", "eta": "587/800", "eta_f": 0.73375, "Ic": -1.2790938183577965e-09, "nbar": 57.48888981486543, "w": [0.4382, 0.5618], "sec": 5230}
 {"tag": "hpcont57", "eta": "23481/32000", "eta_f": 0.73378125, "Ic": 1.0813615091139965e-09, "nbar": 57.488813571218884, "w": [0.4382, 0.5618], "sec": 5918}
+{"tag": "hpcont57", "eta": "587/800", "eta_f": 0.73375, "Ic": 1.3148739269361097e-09, "nbar": 57.48946100648583, "w": [0.4382, 0.5618], "sec": 6660}
+Process ForkPoolWorker-4:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process ForkPoolWorker-3:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 205, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 432, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/connection.py", line 389, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
