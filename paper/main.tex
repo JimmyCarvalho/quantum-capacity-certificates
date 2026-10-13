@@ -68,7 +68,7 @@ positive coherent information for the AGN channel at noise variance $\sigma^2=41
 ($\sigma\approx0.6419$), hence positive quantum capacity for all $\sigma^2\le0.4121$, beyond
 $\sigma^2=1/e$ where the Gaussian-input coherent information vanishes; this refutes the 2001
 speculation that the Gaussian-input coherent information is the capacity of this channel. For the thermal attenuator we certify $Q>0$ well inside the open window at every temperature tried
-(e.g.\ $\eta\ge0.78$ with one thermal photon, below the recently certified $0.7841$).
+(e.g.\ $\eta\ge0.77875$ with one thermal photon, below the recently certified $0.7841$).
 All results are computer-assisted; human verification is pending.
 \end{abstract}
 
@@ -856,7 +856,9 @@ optimization, not the code, sets the last digits: a longer optimization at $0.41
 $-2.5\times10^{-9}$ to $+4.9\times10^{-10}$. Near $\Ic\sim10^{-10}$ the double-precision gradient is no longer
 accurate (a central finite difference along it gives a slope four times smaller, because of logarithms of
 near-zero output eigenvalues) and L-BFGS stalls; $41$- and $46$-photon codes stop near $-4\times10^{-10}$ at
-$\sigma^2=0.4125$. The 128-bit gradient of Sec.~\ref{sec:depgauss} removes that limit at several times the cost. The independent re-implementation (five routes: loss then
+$\sigma^2=0.4125$. The 128-bit gradient of Sec.~\ref{sec:depgauss} is accurate here (it agrees with finite
+differences), but L-BFGS then gains only $\sim1.5\times10^{-13}$ bits per evaluation at $0.4125$: the landscape is
+badly conditioned, not only noisy. The independent re-implementation (five routes: loss then
 amplifier, amplifier then loss, the diffusion semigroup by uniformization and by dense exponentiation,
 and unitary dilations; cutoffs 600--800) gives $9.6074153\times10^{-8}$, $1.9038668\times10^{-8}$,
 $1.4606876\times10^{-9}$, $1.2823360\times10^{-9}$, $1.2180839\times10^{-9}$, $4.9355320\times10^{-10}$ and
@@ -938,9 +940,15 @@ $\Ic=8.2742014\times10^{-6}$ bits, inside the interval; thermal and squeezed-the
 negative at this point. Breaking the residue symmetry goes further: a rank-two input stays positive to
 $\eta=0.78$ (file \texttt{th1\_gen\_eta0.78.npy}, sha256 \texttt{6c91dfe91ec43e9f}\dots, $N_{\mathrm{in}}=120$,
 $D=300$), where $\Ic\in[2.12631890,2.16095917]\times10^{-8}$ bits; the independent re-implementation gives
-$2.150005\times10^{-8}$. Hence $Q(\mathcal E_{\eta,1})>0$ for all $\eta\ge0.78$, below both the certified
-$0.7841$ and the uncertified numerical $0.7818$ of Ref.~\cite{mele2026thermal}; the window
-$0.75<\eta<0.78$ remains open.
+$2.150005\times10^{-8}$. Stretching the mod-3 state from $20.3$ to $30.0$ photons (as in Sec.~\ref{sec:depgauss}) gives five times
+more coherent information at $\eta=0.78$ ($1.16\times10^{-7}$ bits) and certificates at $\eta=12461/16000$
+($[2.44659596,2.90742624]\times10^{-9}$ bits; $N_{\mathrm{in}}=240$, $D=480$) and at $\eta=623/800=0.77875$
+(file \texttt{th1\_s15N32\_eta0.77875.npy}, sha256 \texttt{bcd0016475563bc1}\dots, $N_{\mathrm{in}}=320$,
+$D=640$), where $\Ic\in[2.58920431,7.64931369]\times10^{-10}$ bits. The independent re-implementation,
+which also checks $\Amp_G\circ\Loss_T$ against the thermal beam splitter entry by entry, gives
+$2.7722611\times10^{-9}$ and $6.3155836\times10^{-10}$. Hence $Q(\mathcal E_{\eta,1})>0$ for all $\eta\ge0.77875$,
+below both the certified $0.7841$ and the uncertified numerical $0.7818$ of Ref.~\cite{mele2026thermal};
+the window $0.75<\eta<0.77875$ remains open.
 
 \paragraph*{All temperatures.} Ref.~\cite{mele2026thermal} treats $\nu=1$ only. The same codes certify $Q>0$
 inside the open window $(\eta_{\mathrm{AD}},\eta_{\mathrm G})$, with $\eta_{\mathrm{AD}}=(\nu+\frac12)/(\nu+1)$
@@ -952,8 +960,8 @@ Table~\ref{tab:nu}, and it regenerated the squeezed-cat state from $(\alpha,r,w)
 \begin{table*}[t]
 \caption{Thermal attenuator with $\nu$ thermal photons: certified $Q>0$ at transmissivity $\eta$, with the
 fraction of the open window $(\eta_{\mathrm{AD}},\eta_{\mathrm G})$ it closes. Inputs are rank two,
-symmetry-free ($k=1$, $N_{\mathrm{in}}=160$, $D=360$) except $\nu=5$ (mod~3, $N_{\mathrm{in}}=260$, $D=520$) and $\nu=1$ ($N_{\mathrm{in}}=120$,
-$D=300$).}
+symmetry-free ($k=1$, $N_{\mathrm{in}}=160$, $D=360$) except $\nu=5$ (mod~3, $N_{\mathrm{in}}=260$, $D=520$) and $\nu=1$ (stretched mod~3,
+$N_{\mathrm{in}}=320$, $D=640$).}
 \label{tab:nu}
 \begin{ruledtabular}
 \begin{tabular}{lllll}
@@ -961,7 +969,7 @@ $\nu$ & $\eta_{\mathrm{AD}}$ & $\eta_{\mathrm G}$ & certified $\eta$ & $\Ic$ (bi
 \hline
 1/4 & 0.6 & 0.65147 & 313/500 (50\%) & $[2.48378509,2.48746745]\times10^{-7}$\\
 1/2 & 0.66667 & 0.72207 & 1393/2000 (46\%) & $[6.31451396,6.36306427]\times10^{-8}$\\
-1 & 0.75 & 0.8 & 39/50 (40\%) & $[2.12631890,2.16095917]\times10^{-8}$\\
+1 & 0.75 & 0.8 & 623/800 (42\%) & $[2.58920431,7.64931369]\times10^{-10}$\\
 2 & 0.83333 & 0.87097 & 8587/10000 (33\%) & $[1.14709176,1.14892934]\times10^{-7}$\\
 3 & 0.875 & 0.90459 & 1791/2000 (31\%) & $[8.31897855,8.33853440]\times10^{-8}$\\
 5 & 0.91667 & 0.93723 & 7459/8000 (24\%) & $[1.17390097,1.17400578]\times10^{-6}$\\
@@ -1096,8 +1104,8 @@ python3 certify_limit.py 2pauli 16/125 \
     runs/amp_gen_p0.128.npy 0,0 1 200 400
 python3 certify_limit.py th1 867/4000 \
     runs/th1_k3_p0.21675.npy 0,1 3 80 240
-python3 certify_limit.py th1 11/50 \
-    runs/th1_gen_eta0.78.npy 0,0 1 120 300
+python3 certify_limit.py th1 177/800 \
+    runs/th1_s15N32_eta0.77875.npy 0,1 3 320 640
 python3 certify_limit.py agn 49/125 \
     runs/agn_sqcat_sigma2_0.392.npy 0,1 3 140 320
 # nu = 1/4, 1/2, 2, 3, 5: see CERTIFICATES.md

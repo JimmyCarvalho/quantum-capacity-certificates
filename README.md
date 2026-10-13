@@ -13,7 +13,7 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 | channel | previously known | certified here |
 |---|---|---|
 | additive Gaussian noise (σ², vacuum variance ½) | Q > 0 for σ² < 1/e = 0.3679 (Holevo–Werner 2001); GKP codes reach σ ≈ 0.598 | **Q > 0 for σ² ≤ 4121/10000 = 0.4121** (σ ≤ 0.6419) |
-| thermal attenuator, ν = 1 thermal photon | Q > 0 for η ≥ 0.7841 (Mele et al., Jul 2026) | **Q > 0 for η ≥ 0.78** |
+| thermal attenuator, ν = 1 thermal photon | Q > 0 for η ≥ 0.7841 (Mele et al., Jul 2026) | **Q > 0 for η ≥ 0.77875** |
 | thermal attenuator, ν = 1/4 … 5 | Gaussian-input thresholds only (ν ≠ 1) | **Q > 0 inside the open window at every ν tried, closing 22–50% of it** (`attenuator_map.png`) |
 | thermal amplifier, gain 1.1343, 2.906 thermal photons | Gaussian inputs give 0 | **Q > 0** |
 | independent X–Z (BB84) Pauli channel | q_th ≥ 0.118371 (May 2026) | **q_th ≥ 0.126** (explicit 240-qubit state) |
@@ -47,7 +47,7 @@ interval of each claim. Single certificates, e.g.
 
     cd pauli-emergence
     python3 certify_limit.py agn 4121/10000 runs/agn_k3s24_sigma2_0.4121.npy 0,1 3 300 600
-    python3 certify_limit.py th1 11/50 runs/th1_gen_eta0.78.npy 0,0 1 120 300
+    python3 certify_limit.py th1 177/800 runs/th1_s15N32_eta0.77875.npy 0,1 3 320 640
 
 Layout: `pauli-emergence/` (finite-M Dicke-basis evolution, optimisers, certifiers `certify_finite.py`,
 `certify_big.py`, `certify_limit.py`, input states and logs in `runs/`), `depolarizing-threshold/`

@@ -114,6 +114,8 @@ Commands:
 | additive Gaussian noise, squeezed cat | σ² = 49/125 | mod 3 {0,1} (residues of D(α)S(r) on vacuum) | `runs/agn_sqcat_sigma2_0.392.npy` | eb13a99ef8255ad0 | 140, 320 | [1.73865751e-6, 1.73880842e-6] |
 | thermal attenuator, ν = 1 | η = 39/50 (p = 11/50; T = 39/61, G = 61/50) | general rank 2 (k = 1) | `runs/th1_gen_eta0.78.npy` | 6c91dfe91ec43e9f | 120, 300 | [2.12631890e-8, 2.16095917e-8] |
 | thermal attenuator, ν = 1 | η = 3133/4000 (p = 867/4000; T = 3133/4867, G = 4867/4000) | mod 3 {0,1} | `runs/th1_k3_p0.21675.npy` | eff871b4adcf91ce | 80, 240 | [8.27408111e-6, 8.27425105e-6] |
+| thermal attenuator, ν = 1, stretched mod 3 (30 photons) | η = 12461/16000 (p = 3539/16000; T = 12461/19539, G = 19539/16000) | mod 3 {0,1} | `runs/th1_s15_eta0.7788125.npy` | d974f5456576354b | 240, 480 | [2.44659596e-9, 2.90742624e-9] |
+| thermal attenuator, ν = 1, stretched mod 3 (30 photons) | η = 623/800 (p = 177/800; T = 623/977, G = 977/800) | mod 3 {0,1} | `runs/th1_s15N32_eta0.77875.npy` | bcd0016475563bc1 | 320, 640 | [2.58920431e-10, 7.64931369e-10] |
 | thermal amplifier (emergent 2-Pauli) | p = 16/125 (T = 93/125, G = 93/61; τ ≈ 1.1343, N = 93/32) | general rank 2 (k = 1) | `runs/amp_gen_p0.128.npy` | 9fb96e4e40e7e33a | 200, 400 | [1.43395294e-7, 1.43876228e-7] |
 | thermal amplifier (emergent 2-Pauli) | p = 51/400 (T = 149/200, G = 149/98; τ ≈ 1.1327, N = 149/51) | mod 3 {0,1} | `runs/amp_2p3_p0.1275.npy` | 57ba63a1717f0653 | 140, 320 | [9.10836870e-7, 9.11017611e-7] |
 | emergent 2-Pauli channel | p = 31/250 (T = 94/125, G = 94/63) | mod 4 {0,2} | `runs/2p_k4_p0.124.npy` | b7ffd6aa8ad2f999 | 160, 280 | [1.96141999e-4, 1.96142031e-4] |
@@ -135,6 +137,8 @@ Commands:
     python3 certify_limit.py 2pauli 16/125 runs/amp_gen_p0.128.npy 0,0 1 200 400
     python3 certify_limit.py th1 867/4000 runs/th1_k3_p0.21675.npy 0,1 3 80 240
     python3 certify_limit.py th1 11/50 runs/th1_gen_eta0.78.npy 0,0 1 120 300
+    python3 certify_limit.py th1 3539/16000 runs/th1_s15_eta0.7788125.npy 0,1 3 240 480
+    python3 certify_limit.py th1 177/800 runs/th1_s15N32_eta0.77875.npy 0,1 3 320 640
     python3 certify_limit.py th0.25 187/500 runs/th0.25_best.npy 0,0 1 160 360
     python3 certify_limit.py th0.5 607/2000 runs/th0.5_best.npy 0,0 1 160 360
     python3 certify_limit.py th2 1413/10000 runs/th2_best.npy 0,0 1 160 360
@@ -163,7 +167,9 @@ The AGN entry was checked by an independent agent with its own implementation (d
 repository code): I_c = 3.3572969×10⁻⁶ bits, inside the interval (README §6.4). The seven stretched AGN
 entries were checked by another from-scratch implementation with five routes (loss then amplifier, amplifier
 then loss, the diffusion semigroup by uniformization and by expm, unitary dilations; cutoffs 600–800):
-9.6074153×10⁻⁸, 1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹, 1.2180839×10⁻⁹, 4.9355320×10⁻¹⁰ and 2.7278801×10⁻¹⁰ bits, all inside. The emergent
+9.6074153×10⁻⁸, 1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹, 1.2180839×10⁻⁹, 4.9355320×10⁻¹⁰ and 2.7278801×10⁻¹⁰ bits, all inside. The two stretched ν = 1 entries
+were checked with the same code (four routes, including the thermal beam splitter and the thermal master
+equation): 2.7722611×10⁻⁹ and 6.3155836×10⁻¹⁰ bits, inside. The emergent
 depolarizing entries and the ν = 5 entry (η = 7459/8000) were checked by another from-scratch
 implementation with three routes (pure loss then amplifier, thermal master equation, beam splitter with a
 Fock-mixed thermal environment; output cutoffs 420/560, tails < 3×10⁻⁷⁵): 7.472121×10⁻¹⁰ (η = 3756117/5120000), 6.313772×10⁻¹⁰ (939063/1280000),

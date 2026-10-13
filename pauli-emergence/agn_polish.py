@@ -1,5 +1,7 @@
 """Multi-round L-BFGS polish of a mod-3 residue code on the AGN channel (double precision).
-usage: python3 agn_polish.py sigma2 init.npy out.npy Nin D maxiter_per_round [rounds=6]"""
+usage: python3 agn_polish.py sigma2 init.npy out.npy Nin D maxiter_per_round [rounds=6]
+Other phase-insensitive limits: give channel:p as the first argument (e.g. th1:0.22 for the thermal
+attenuator with one thermal photon at loss p = 1 - eta; see limit_codes.emergent_TG)."""
 import os, sys, json
 os.environ["OMP_NUM_THREADS"]="1"
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "depolarizing-threshold"))
@@ -8,9 +10,10 @@ import numpy as np
 from gausschan import EmergentChannel, charge_blocks, coherent_info
 from optimize import optimise, supports
 from limit_codes import emergent_TG
-s2, path, out, Nin, D, iters = float(sys.argv[1]), sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
+spec, path, out, Nin, D, iters = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
 rounds = int(sys.argv[7]) if len(sys.argv) > 7 else 6
-T, G = emergent_TG("agn", s2)
+name, p = spec.split(":") if ":" in spec else ("agn", spec)
+T, G = emergent_TG(name, float(p))
 ch = EmergentChannel(0.5, Nin, D, T=T, G=G)
 bl = charge_blocks([0,1], 3, D); sup = supports([0,1], 3, Nin)
 C = np.load(path)[:, :Nin+1]

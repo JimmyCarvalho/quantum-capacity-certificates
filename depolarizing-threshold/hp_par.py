@@ -21,7 +21,11 @@ def _channel(eta, Nin, D):
     key = (eta, Nin, D)
     if key not in _CH:
         _CH.clear()
-        _CH[key] = ArbChannel(Fraction(eta), Nin, D)
+        if eta.startswith("agn:"):  # additive Gaussian noise sigma^2 = s: T = 1/(1+s), G = 1+s
+            s = Fraction(eta[4:])
+            _CH[key] = ArbChannel(None, Nin, D, T=1 / (1 + s), G=1 + s)
+        else:
+            _CH[key] = ArbChannel(Fraction(eta), Nin, D)
     return _CH[key]
 
 

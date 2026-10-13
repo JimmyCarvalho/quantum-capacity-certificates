@@ -39,7 +39,7 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
 
 7. **atenuador térmico com 1 fóton térmico** (o caso estudado por Mele, Catalano, Fanizza, Giovannetti e
    Lami em jul/2026, que certificaram Q > 0 até η = 0,7841 e estimaram numericamente 0,7818): certificamos
-   **Q > 0 até η = 0,78** (§6.6), conferido de forma independente.
+   **Q > 0 até η = 0,77875** (§6.6), conferido de forma independente.
 
 O que **não** funcionou está em §7: o recorde assintótico do despolarizante (0,2029) não foi superado; em
 alta precisão, os códigos de envelope gaussiano dão I_c negativo nesse ponto (§7).
@@ -380,7 +380,9 @@ in the residue index (n = 3m + r, m → λm, `depolarizing-threshold/stretch_ini
 hence **Q(N_σ) > 0 for every σ² ≤ 4121/10000 = 0.4121, i.e. σ ≤ 0.6419**. At σ² = 0.4075 the 22-photon
 code has I_c = 1.25×10⁻⁷, twenty times the symmetry-free state; the 29-photon code overtakes it near 0.411
 (more photons, higher threshold, smaller margin, as for the depolarizing channel). The optimization sets the
-last digits: a longer polish at 0.4115 climbs from −2.5×10⁻⁹ to +4.9×10⁻¹⁰ (certified), and the 34.9-photon code (the 0.4115 state stretched by 1.2) reaches 2.7×10⁻¹⁰ at 0.4121. There the double-precision optimizer stalls: a central finite difference along the computed gradient gives a slope four times smaller than the gradient predicts (logarithms of near-zero output eigenvalues), so L-BFGS stops; 41- and 46-photon codes stall near −4×10⁻¹⁰ at σ² = 0.4125. The 128-bit gradient of §7 removes that limit at several times the cost. The independent
+last digits: a longer polish at 0.4115 climbs from −2.5×10⁻⁹ to +4.9×10⁻¹⁰ (certified), and the 34.9-photon code (the 0.4115 state stretched by 1.2) reaches 2.7×10⁻¹⁰ at 0.4121. There the double-precision optimizer stalls: a central finite difference along the computed gradient gives a slope four times smaller than the gradient predicts (logarithms of near-zero output eigenvalues), so L-BFGS stops; 41- and 46-photon codes stall near −4×10⁻¹⁰ at σ² = 0.4125. The 128-bit gradient of §7 (`agn_hp_polish.py`) is accurate here (it agrees with finite differences), but
+L-BFGS then gains only ~1.5×10⁻¹³ bits per evaluation (80 s each) at 0.4125: the landscape is badly conditioned,
+not only noisy, so 0.4121 is where we stop. The independent
 re-implementation (five routes: loss then amplifier, amplifier then loss, diffusion semigroup by
 uniformization and by dense expm, unitary dilations; cutoffs 600–800, tails beyond 700 photons < 1e−91) gives 9.6074153×10⁻⁸,
 1.9038668×10⁻⁸, 1.4606876×10⁻⁹, 1.2823360×10⁻⁹, 1.2180839×10⁻⁹, 4.9355320×10⁻¹⁰ and 2.7278801×10⁻¹⁰ bits, all
@@ -484,7 +486,24 @@ and breaking the residue symmetry (as in §6.4; `th1_scan2.sh`) keeps a rank-2 i
 
 so **Q(E_{η,1}) > 0 for every η ≥ 0.78**, below both their certified 0.7841 and their uncertified numerical
 0.7818. Independent check: four routes give 2.150005×10⁻⁸ bits (spread 1.7×10⁻¹³), inside the interval;
-Gaussian inputs all negative (−0.174 at infinite energy). The window 0.75 < η < 0.78 remains open.
+Gaussian inputs all negative (−0.174 at infinite energy).
+
+**More photons (13 Oct).** Stretching the 20.3-photon mod-3 state (`runs/th1_k3_big_best.npy`) by 1.5 in the
+residue index (30.0 photons, `depolarizing-threshold/stretch_init.py`) and continuing in η (`threshold_limit.py`,
+`agn_polish.py th1:p`) gives five times the coherent information of the rank-2 input at η = 0.78
+(1.16×10⁻⁷ against 2.15×10⁻⁸ bits) and stays positive further. Certified at η = 12461/16000 = 0.7788125
+(T = 12461/19539, G = 19539/16000; N_in = 240, D = 480) and, with room for a longer tail (N_in = 320,
+D = 640; at N_in = 240 this point is −3.3×10⁻⁹), at η = 623/800 = 0.77875 (T = 623/977, G = 977/800):
+
+    η = 12461/16000:  I_c ∈ [2.44659596, 2.90742624] × 10⁻⁹ bits
+    η = 623/800:      I_c ∈ [2.58920431, 7.64931369] × 10⁻¹⁰ bits
+
+so **Q(E_{η,1}) > 0 for every η ≥ 0.77875**. Independent check (from-scratch code; it also confirms entry by
+entry, to 7×10⁻¹⁶, that A_G ∘ L_T with these T, G is the thermal beam splitter with a ν = 1 environment, and
+uses that beam splitter and the thermal master equation as further routes): 2.7722611×10⁻⁹ and 6.3155836×10⁻¹⁰ bits,
+inside, routes agreeing to 10⁻¹³; thermal inputs give −0.184 at infinite energy and are negative at every energy
+tried. A 40-photon stretch (λ = 2) stalls at −3.2×10⁻⁹ at η = 0.78, and the double-precision optimizer stops
+near 6×10⁻¹⁰ at 0.77875. The window 0.75 < η < 0.77875 remains open.
 
 **Map over ν** (`nu_scan.sh`, `nu_scan2.sh`, `plot_attenuator_map.py` → `attenuator_map.png`). Mele et al. treat
 ν = 1 only. The same codes (mod 3 {0,1}, then symmetry breaking) certify Q > 0 well inside the open window
@@ -494,13 +513,14 @@ Gaussian inputs all negative (−0.174 at infinite energy). The window 0.75 < η
 |---|---|---|---|---|---|
 | 1/4 | 0.6 | 0.65147 | 313/500 = 0.626 | [2.48378509, 2.48746745]×10⁻⁷ | 50% |
 | 1/2 | 0.66667 | 0.72207 | 1393/2000 = 0.6965 | [6.31451396, 6.36306427]×10⁻⁸ | 46% |
-| 1 | 0.75 | 0.8 | 39/50 = 0.78 | [2.12631890, 2.16095917]×10⁻⁸ | 40% |
+| 1 | 0.75 | 0.8 | 623/800 = 0.77875 | [2.58920431, 7.64931369]×10⁻¹⁰ | 42% |
 | 2 | 0.83333 | 0.87097 | 8587/10000 = 0.8587 | [1.14709176, 1.14892934]×10⁻⁷ | 33% |
 | 3 | 0.875 | 0.90459 | 1791/2000 = 0.8955 | [8.31897855, 8.33853440]×10⁻⁸ | 31% |
 | 5 | 0.91667 | 0.93723 | 7459/8000 = 0.932375 | [1.17390097, 1.17400578]×10⁻⁶ | 24% |
 
-(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 5: mod 3, k = 3, N_in = 260, D = 520.) Since Q is monotone in η at
-fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 3.8 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4111875)),
+(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 5: mod 3, k = 3, N_in = 260, D = 520, and
+ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
+fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 3.75 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4121)),
 but the direct certificates go further at every ν tried. Independent check (same separate agent, three
 routes per point: A_G ∘ L_T, loss then AGN, thermal master equation): all five new values inside their
 intervals (spread ≤ 2.2×10⁻¹³), all Gaussian inputs negative at each point; it also regenerated the
