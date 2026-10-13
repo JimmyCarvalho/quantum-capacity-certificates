@@ -12,7 +12,7 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 
 | channel | previously known | certified here |
 |---|---|---|
-| additive Gaussian noise (σ², vacuum variance ½) | Q > 0 for σ² < 1/e = 0.3679 (Holevo–Werner 2001); GKP codes reach σ ≈ 0.598 | **Q > 0 for σ² ≤ 163/400 = 0.4075** (σ ≤ 0.6384) |
+| additive Gaussian noise (σ², vacuum variance ½) | Q > 0 for σ² < 1/e = 0.3679 (Holevo–Werner 2001); GKP codes reach σ ≈ 0.598 | **Q > 0 for σ² ≤ 6579/16000 = 0.4111875** (σ ≤ 0.6412) |
 | thermal attenuator, ν = 1 thermal photon | Q > 0 for η ≥ 0.7841 (Mele et al., Jul 2026) | **Q > 0 for η ≥ 0.78** |
 | thermal attenuator, ν = 1/4 … 5 | Gaussian-input thresholds only (ν ≠ 1) | **Q > 0 inside the open window at every ν tried, closing 22–50% of it** (`attenuator_map.png`) |
 | thermal amplifier, gain 1.1343, 2.906 thermal photons | Gaussian inputs give 0 | **Q > 0** |
@@ -21,10 +21,10 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 | depolarizing channel | 3p_th ≥ 0.2029 (asymptotic, floating point); best explicit certified 0.194868 | best explicit certified **0.1977936** (240 qubits); in the Gaussian limit **0.1997875 with I_c certified** (with the convergence theorem of Ahmed et al., the largest bound we know whose final sign is certified); the 0.2029 record is *not* beaten |
 
 The additive-Gaussian-noise result also implies Q > 0 for every phase-insensitive Gaussian channel with
-(Y + |1−τ|/2)/τ ≤ 0.4075, which goes beyond the Gaussian-input thresholds of thermal attenuators and
-amplifiers with more than 4.23 thermal photons.
+(Y + |1−τ|/2)/τ ≤ 0.4111875, which goes beyond the Gaussian-input thresholds of thermal attenuators and
+amplifiers with more than 3.84 thermal photons.
 
-Physical picture: about 60% of the gain over 1/e on the additive-noise channel already comes from a
+Physical picture: more than half of the gain over 1/e on the additive-noise channel already comes from a
 three-parameter **squeezed cat** (the n ≡ 0, 1 mod 3 parts of a displaced phase-squeezed state), certified up
 to σ² = 0.392.
 
@@ -46,7 +46,7 @@ The script checks the SHA-256 of each state file against `CERTIFICATES.md` and p
 interval of each claim. Single certificates, e.g.
 
     cd pauli-emergence
-    python3 certify_limit.py agn 163/400 runs/agn_gen_sigma2_0.4075.npy 0,0 1 300 600
+    python3 certify_limit.py agn 6579/16000 runs/agn_k3s2_sigma2_0.4111875.npy 0,1 3 300 600
     python3 certify_limit.py th1 11/50 runs/th1_gen_eta0.78.npy 0,0 1 120 300
 
 Layout: `pauli-emergence/` (finite-M Dicke-basis evolution, optimisers, certifiers `certify_finite.py`,

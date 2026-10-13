@@ -64,8 +64,8 @@ depolarizing channel at total error $0.1997875$; with the convergence theorem of
 this is, to our knowledge, the largest depolarizing threshold bound whose final sign is certified (the
 larger $0.2029161$ rests on a floating-point value $\Ic\approx10^{-12}$).
 Transferring the BB84 code to the Gaussian limit, we certify
-positive coherent information for the AGN channel at noise variance $\sigma^2=163/400$
-($\sigma\approx0.6384$), hence positive quantum capacity for all $\sigma^2\le0.4075$, beyond
+positive coherent information for the AGN channel at noise variance $\sigma^2=6579/16000$
+($\sigma\approx0.6412$), hence positive quantum capacity for all $\sigma^2\le0.4111875$, beyond
 $\sigma^2=1/e$ where the Gaussian-input coherent information vanishes; this refutes the 2001
 speculation that the Gaussian-input coherent information is the capacity of this channel. For the thermal attenuator we certify $Q>0$ well inside the open window at every temperature tried
 (e.g.\ $\eta\ge0.78$ with one thermal photon, below the recently certified $0.7841$).
@@ -150,7 +150,7 @@ channel & hashing & previous best & this work & ceiling\\
 BB84 ($q$) & 0.110028 & 0.118371~\cite{agarwal2026symmetry} & 0.126 & 0.146447\\
 2-Pauli ($p$) & 0.113546 & 0.118067~\cite{agarwal2026symmetry} & 0.1255 & 0.146447\\
 depol.\ ($3p$) & 0.189290 & 0.2029161$^{a}$~\cite{ahmed2026choir} & 0.1997875$^{b}$ & 0.219670\\
-AGN ($\sigma^2$) & $1/e$ & $1/e$~\cite{holevo2001evaluating} & $0.4075$ & $1/2$\\
+AGN ($\sigma^2$) & $1/e$ & $1/e$~\cite{holevo2001evaluating} & $0.4111875$ & $1/2$\\
 \end{tabular}
 \end{ruledtabular}
 \raggedright\footnotesize
@@ -168,7 +168,7 @@ that its complete positivity is the nonnegativity of a Gram determinant, and ide
 $\lperp\le1/\sqrt2$ (Sec.~\ref{sec:ceiling}). (iii) We describe an exact finite-$M$ method
 (Sec.~\ref{sec:finite}) and two rigorous certifiers based on ball arithmetic (Sec.~\ref{sec:certify}).
 (iv) We certify thresholds for the BB84, 2-Pauli and depolarizing channels and for a family between the
-last two (Sec.~\ref{sec:results}). (v) We certify $Q(\Nsig)>0$ for $\sigma^2\le0.4075$
+last two (Sec.~\ref{sec:results}). (v) We certify $Q(\Nsig)>0$ for $\sigma^2\le0.4111875$
 (Sec.~\ref{sec:agn}). Section~\ref{sec:failures} lists what did not work, Sec.~\ref{sec:open} open
 problems and Sec.~\ref{sec:repro} how to reproduce every certificate.
 
@@ -769,7 +769,13 @@ $n\le300$) satisfies, at $\sigma^2=163/400$,
 \begin{equation}
   \Ic(\rho''',\mathcal T_{600}\circ\Nsig)\in[5.97733793,\ 6.88032591]\times10^{-9}\ \text{bits},
 \end{equation}
-so $Q(\Nsig)>0$ for every $\sigma^2\le163/400$, i.e.\ $\sigma\le0.6384$.
+so $Q(\Nsig)>0$ for every $\sigma^2\le163/400$. Finally, the mod-3 state $\rho''''$ obtained by stretching
+$\rho'$ to a mean photon number of $29.3$ (\texttt{agn\_k3s2\_sigma2\_0.4111875.npy}, sha256
+\texttt{c7b1356a3fdff992}\dots, $n\le300$) satisfies, at $\sigma^2=6579/16000$,
+\begin{equation}
+  \Ic(\rho'''',\mathcal T_{600}\circ\Nsig)\in[9.61014601,\ 13.2820991]\times10^{-10}\ \text{bits},
+\end{equation}
+so $Q(\Nsig)>0$ for every $\sigma^2\le6579/16000=0.4111875$, i.e.\ $\sigma\le0.6412$.
 \end{theorem}
 
 \begin{proof}[Certificate]
@@ -830,12 +836,28 @@ alternating sign, with photon-number variance about $2.7$ times the Poisson valu
 gain: \emph{squeezed cats}, the $n\equiv0$ and $n\equiv1\pmod3$ parts of a displaced phase-squeezed state
 $D(\alpha)S(r)\ket0$ with weights $w,1-w$. With $\alpha\approx5.71$, $r\approx-1.03$, $w\approx0.452$ it is positive
 up to $\sigma^2=0.392$; at $\sigma^2=49/125$ (file \texttt{agn\_sqcat\_sigma2\_0.392.npy}, sha256
-\texttt{eb13a99ef8255ad0}\dots) we certify $\Ic\in[1.73865751,1.73880842]\times10^{-6}$ bits. So about $60\%$ of
+\texttt{eb13a99ef8255ad0}\dots) we certify $\Ic\in[1.73865751,1.73880842]\times10^{-6}$ bits. So more than half ($56\%$) of
 the improvement over $1/e$ comes from a state of a kind already prepared in optical experiments. The independent
 re-implementation, with full matrices and two different purifications, gives $4.3682405\times10^{-7}$ and
 $5.4779650\times10^{-8}$ bits for the two symmetry-free states, and $6.58088\times10^{-9}$ bits (three routes) for
 the fourth, all inside the certified intervals.
-The interval $0.4075<\sigma^2<1/2$ remains open.
+
+\paragraph*{More photons.} The trick that moved the depolarizing branch (Sec.~\ref{sec:depgauss}) also
+works here. Stretching the mod-3 state $\rho'$ ($15.4$ photons) in the residue index ($n=3m+r$,
+$m\to\lambda m$, amplitudes interpolated) by $\lambda=1.5$ and $2$ gives mean photon numbers $22.1$ and $29.3$,
+and continuation in $\sigma^2$ keeps both positive well beyond the symmetry-free states: the $22$-photon
+code is certified at $\sigma^2=51/125$ ($[9.57696812,9.62308372]\times10^{-8}$ bits) and $41/100$
+($[1.85979392,1.92549153]\times10^{-8}$), and the $29$-photon code, which overtakes it near $0.411$, at
+$411/1000$ ($[1.17506701,1.58865651]\times10^{-9}$), $3289/8000$ and $6579/16000$ (Theorem~\ref{thm:agn}).
+At $\sigma^2=0.4075$ the $22$-photon code has $\Ic=1.25\times10^{-7}$, twenty times the symmetry-free state.
+As for the depolarizing channel, more photons give a higher threshold with a smaller margin, and the
+optimization budget, not the code, sets the last digits (a longer optimization at $0.4115$ climbs from
+$-2.5\times10^{-9}$ to $-2\times10^{-12}$). The independent re-implementation (five routes: loss then
+amplifier, amplifier then loss, the diffusion semigroup by uniformization and by dense exponentiation,
+and unitary dilations; cutoffs 600--800) gives $9.6074153\times10^{-8}$, $1.9038668\times10^{-8}$,
+$1.4606876\times10^{-9}$, $1.2823360\times10^{-9}$ and $1.2180839\times10^{-9}$ bits for the five
+certified points, all inside the intervals, with the routes agreeing to $10^{-13}$.
+The interval $0.4111875<\sigma^2<1/2$ remains open.
 
 \paragraph*{Consequences.} At $\sigma^2=2/5$ the coherent information optimized over Gaussian inputs is
 zero, while $Q(\Nsig)\ge3.357\times10^{-6}$. Hence the Gaussian-optimized one-shot coherent
@@ -858,18 +880,18 @@ identities connect it to $\Nsig$:
 The first identity shows that the result of Mele \textit{et al.}~\cite{mele2026thermal} implies
 positivity for $\mathcal N_{\sigma'}$ only. At their point $\nu=1$, $\eta=0.7841$ this is
 $\sigma'^2=0.275<1/e$, so it does not imply Theorem~\ref{thm:agn}. Conversely, the second identity and
-Theorem~\ref{thm:agn} give $Q(\mathcal E_{\eta,\nu})>0$ whenever $(1-\eta)(\nu+1)/\eta\le0.4075$. For
-$\nu>4.23$ this region extends below the Holevo--Werner thermal-state threshold
+Theorem~\ref{thm:agn} give $Q(\mathcal E_{\eta,\nu})>0$ whenever $(1-\eta)(\nu+1)/\eta\le0.4111875$. For
+$\nu>3.84$ this region extends below the Holevo--Werner thermal-state threshold
 $\log_2\frac{\eta}{1-\eta}=g(\nu)$, with $g(\nu)=(\nu+1)\log_2(\nu+1)-\nu\log_2\nu$; for example, at
-$\nu=10$ it covers $\eta\in[0.96428,0.96614)$. We have not compared this with the non-Gaussian results of
+$\nu=10$ it covers $\eta\in[0.96397,0.96614)$. We have not compared this with the non-Gaussian results of
 Ref.~\cite{mele2026thermal} away from $\nu=1$.
 The same argument applies to the thermal amplifier $\mathcal A_{\tau,\nu}$ ($X=\sqrt\tau\,\mathbb 1$,
 $Y=(\tau-1)(\nu+\frac12)\mathbb 1$, $\tau>1$): $\Loss_{1/\tau}\circ\mathcal A_{\tau,\nu}=\mathcal N_{\sigma'''}$ with
-$\sigma'''^2=(\tau-1)(\nu+1)/\tau$, so $Q(\mathcal A_{\tau,\nu})>0$ whenever $(\tau-1)(\nu+1)/\tau\le0.4075$. In
+$\sigma'''^2=(\tau-1)(\nu+1)/\tau$, so $Q(\mathcal A_{\tau,\nu})>0$ whenever $(\tau-1)(\nu+1)/\tau\le0.4111875$. In
 general, a phase-insensitive channel with transmissivity or gain $\tau$ and added noise $Y$ has $Q>0$
-whenever $(Y+|1-\tau|/2)/\tau\le0.4075$. For both families the new region lies beyond the Gaussian-input
-threshold exactly when $2^{g(\nu)}>(\nu+1)/0.4075$, i.e.\ for $\nu>4.23$; at $\nu=10$ the amplifier
-window is $\tau\in(1.03632,1.03847]$.
+whenever $(Y+|1-\tau|/2)/\tau\le0.4111875$. For both families the new region lies beyond the Gaussian-input
+threshold exactly when $2^{g(\nu)}>(\nu+1)/0.4111875$, i.e.\ for $\nu>3.84$; at $\nu=10$ the amplifier
+window is $\tau\in(1.03632,1.03883]$.
 
 \paragraph*{A thermal amplifier at low noise.} The emergent channel of the 2-Pauli family,
 $\Amp_G\circ\Loss_T$ with $T=1-2p$ and $G=(1-2p)/(1-4p)$, is a thermal amplifier, and the corollary above
@@ -882,7 +904,7 @@ gives, at $p=51/400$, i.e.\ $T=149/200$ and $G=149/98$,
 This channel is the thermal amplifier with gain $\tau=22201/19600\approx1.1327$ and $\nu=149/51\approx2.922$
 thermal photons. At this gain thermal inputs give positive coherent information only for $\nu<2.6533$
 ($\log_2\frac{\tau}{\tau-1}-g(\nu)=-0.1187$ at $\nu=149/51$), and the channel is antidegradable only for
-$\nu\ge3.768$ ($Y\ge\tau/2$). Its additive-noise equivalent has $\sigma^2=0.459>0.4075$, so this is not a
+$\nu\ge3.768$ ($Y\ge\tau/2$). Its additive-noise equivalent has $\sigma^2=0.459>0.4111875$, so this is not a
 consequence of Theorem~\ref{thm:agn}. We know of no earlier non-Gaussian positivity result for thermal
 amplifiers. The same independent re-implementation (three routes: the Lindblad semigroup with gain and loss
 rates, $\Loss_{T'}\circ\Amp_{G'}$, and $\Amp_G\circ\Loss_T$) gives $\Ic=9.109425\times10^{-7}$ bits, inside
@@ -965,7 +987,7 @@ Ref.~\cite{mele2026thermal}.}
   \node at (0.6698,0.225) {open};
   \node[font=\scriptsize] at (0.7161,0.225) {$Q{=}0$};
   \draw[->] (0.56,-0.1) -- (0.73,-0.1) node[right] {$\sigma$};
-  \foreach \s/\l in {0.60653/{$1/\sqrt e$}, 0.63836/{$\sqrt{0.4075}$}, 0.70711/{$1/\sqrt2$}} {
+  \foreach \s/\l in {0.60653/{$1/\sqrt e$}, 0.64124/{$\sqrt{0.4112}$}, 0.70711/{$1/\sqrt2$}} {
     \draw (\s,-0.16) -- (\s,-0.04);
     \node[below] at (\s,-0.16) {\l};
   }
@@ -1015,10 +1037,10 @@ precision.
 phase-covariant Pauli channels, for instance along Remark~\ref{rem:mechanism}, and for general Pauli
 channels with Eq.~\eqref{eq:XY}.
 \item Find the optimal Gaussian-limit codes and turn them into finite-$M$ thresholds. The certified Gaussian-limit
-values correspond to $q\approx0.1289$ for BB84 ($\sigma^2=0.4075$) and $p=0.128$ for the 2-Pauli channel (the
+values correspond to $q\approx0.1296$ for BB84 ($\sigma^2=0.4111875$) and $p=0.128$ for the 2-Pauli channel (the
 thermal-amplifier certificate); a convergence theorem for these channels would make them thresholds of the
 qubit channels. Multi-mode (degenerate) codes are unexplored here. The ceiling is $0.146447$.
-\item Close the AGN window $0.4075<\sigma^2<1/2$: is $Q(\Nsig)>0$ for every $\sigma^2<1/2$?
+\item Close the AGN window $0.4111875<\sigma^2<1/2$: is $Q(\Nsig)>0$ for every $\sigma^2<1/2$?
 \item Push explicit $M$ further: thresholds still rise with $M$, and certifier~B scales like the float
 computation itself.
 \item Depolarizing: an explicit-$M$ certificate approaching $0.2029$ needs states with $\sim56$
@@ -1060,6 +1082,8 @@ python3 certify_limit.py agn 407/1000 \
     runs/agn_gen_sigma2_0.407.npy 0,0 1 200 400
 python3 certify_limit.py agn 163/400 \
     runs/agn_gen_sigma2_0.4075.npy 0,0 1 300 600
+python3 certify_limit.py agn 6579/16000 \
+    runs/agn_k3s2_sigma2_0.4111875.npy 0,1 3 300 600
 python3 certify_limit.py 2pauli 31/250 \
     runs/2p_k4_p0.124.npy 0,2 4 160 280
 python3 certify_limit.py 2pauli 51/400 \
