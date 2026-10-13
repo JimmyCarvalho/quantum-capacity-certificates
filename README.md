@@ -22,7 +22,7 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 
 The additive-Gaussian-noise result also implies Q > 0 for every phase-insensitive Gaussian channel with
 (Y + |1−τ|/2)/τ ≤ 0.4121, which goes beyond the Gaussian-input thresholds of thermal attenuators and
-amplifiers with more than 3.75 thermal photons.
+amplifiers with more than 3.751 thermal photons.
 
 Physical picture: more than half of the gain over 1/e on the additive-noise channel already comes from a
 three-parameter **squeezed cat** (the n ≡ 0, 1 mod 3 parts of a displaced phase-squeezed state), certified up

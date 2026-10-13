@@ -16,7 +16,7 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
    limite da clonagem *covariante de fase*; para o despolarizante isso dá p ≤ 0,2197, e para BB84 e
    2-Pauli dá 0,1464;
 3. **bate os recordes de maio/2026** (Agarwal et al., arXiv:2605.09138) para o canal X–Z independente
-   (BB84) e o canal 2-Pauli, com estados explícitos de M = 60 qubits e **certificado rigoroso**
+   (BB84) e o canal 2-Pauli, com estados explícitos de M = 60 a 240 qubits e **certificado rigoroso**
    (aritmética de bolas, sem usar nenhum teorema de limite):
    BB84 0,118371 → **0,126** (M = 240); 2-Pauli 0,118067 → **0,1255** (M = 240), com códigos
    de resíduo mod 3. Os pontos de
@@ -29,7 +29,7 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
    conhecemos (o 0,2029 deles vem de um valor em ponto flutuante, I_c ≈ 10⁻¹²; §7);
 5. no limite gaussiano, códigos de resíduo (tipo gato de 4 componentes) dão positividade **certificada**
    do canal emergente do 2-Pauli em p = 0,124 (resultado condicional a um teorema de convergência; o
-   certificado finito de M = 180, sem teorema algum, já vai além: 0,1251875).
+   certificado finito de M = 240, sem teorema algum, já vai além: 0,1255).
 
 6. **canal de ruído gaussiano aditivo** (deslocamento aleatório gaussiano, o modelo básico de ruído de luz e
    micro-ondas): o limite do BB84 é exatamente esse canal. Certificamos **Q > 0 para σ² ≤ 0,4121
@@ -65,8 +65,8 @@ State of the art before this work (all 2026):
 
 | channel | hashing | previous record | **this work, certified, M = 60** | **certified, M = 120** | Gaussian limit (this work) | ceiling of the route |
 |---|---|---|---|---|---|---|
-| BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); ≥ 0.122 (mod-4, numerical) | 0.146447 |
-| 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.124 (mod-4 code, I_c certified) | 0.146447 |
+| BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); q ≈ 0.1298 from the AGN certificate (σ² = 0.4121, I_c certified) | 0.146447 |
+| 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.128 (thermal-amplifier code, I_c certified, §6.5) | 0.146447 |
 | AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4121, certified** (§6.4) | 1/2 |
 | depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | **0.1997875, I_c certified** (§7); 0.2029 (Ahmed et al., floating point) | 0.219670 |
 
@@ -203,7 +203,8 @@ need ~56 excitations, out of reach of explicit M here.
 
 The sequence M = 30 → 60 → 120 (BB84 0.1185 → 0.1217 → 0.1239; 2-Pauli 0.1180 → 0.1211 → 0.1232)
 still rises with roughly geometric increments (ratio ≈ 0.7), which would extrapolate to ≈ 0.128–0.129,
-above the Gaussian-limit codes found so far. The best limit codes are therefore not yet known.
+close to the Gaussian-limit values certified later (q ≈ 0.1298 for BB84 via the AGN channel, §6.4; p = 0.128
+for 2-Pauli, §6.5).
 
 States: `pauli-emergence/runs/cert_2p_M60_p0.1210938.npy`, `runs/cert_bb_M60_thr.npy`,
 `runs/cert_dep_M60_thr.npy` (rows = the two unnormalised codewords in the excitation basis of the Dicke
@@ -223,7 +224,7 @@ ladder of the pole: y for BB84/2-Pauli, z for depolarizing).
   For 2-Pauli the dephasing rate of the generator is negative and μ₁ grows linearly with M (≈ 3.2, 6.8,
   10, 14 at M = 60, 120, 180, 240), so float64 rounding errors can be amplified by up to e^{μ₁}. With
   `CERT_LD=1` the band integration runs in x87 extended precision (u = 2⁻⁶⁴): at M = 60 its interval
-  [4.4142155, 4.4142560]×10⁻⁶ is 1000× tighter than in float64 and contains the Arb-exp interval; it is
+  [4.4142155, 4.4142561]×10⁻⁶ is about 500× tighter than in float64 and contains the Arb-exp interval; it is
   ~7× slower. A self-audit found that the first version of this mode formed the Taylor step scalar h/n
   as a float64 quotient (error 2⁻⁵⁴, not covered by the 2⁻⁶⁴ budget); it is now formed in extended
   precision, the M = 60 check was repeated with the same interval, and the two M = 180 runs started
@@ -248,7 +249,7 @@ Mod-3 residue codes (codewords on k ≡ 0 and 1 mod 3 around the pole) beat pari
 | 2-Pauli | 154961/1250000 = 0.1239688 | 120 | mod 3 | [4.05046902, 4.96028384]×10⁻⁶ |
 | 2-Pauli | 2003/16000 = 0.1251875 | 180 | mod 3 (extended precision) | [1.17881571, 1.19653069]×10⁻⁶ |
 | 2-Pauli | 251/2000 = 0.1255 | 240 | mod 3 (extended precision) | [1.88681426, 2.70734623]×10⁻⁶ |
-| BB84 | 63/500 = 0.126 | 240 | mod 3 | [5.54571350, 5.56189889]×10⁻⁶ |
+| BB84 | 63/500 = 0.126 | 240 | mod 3 | [5.54571320, 5.56189919]×10⁻⁶ |
 
 Hence Q > 0 at these points: p_th(BB84) ≥ 0.126, p_th(2-Pauli) ≥ 0.1255 and, for the depolarizing
 channel, 3p_th ≥ 0.1977936 with an explicit M = 240 state (previous best certified explicit value:
@@ -263,7 +264,7 @@ fail-safe NaN case in the enclosure, provenance of logs) are fixed. A second age
 `certify_big.py`, on which every M ≥ 120 entry rests (error budget line by line, a new brute force for
 M ≤ 10, true integration errors against Arb references, at most 1% of the bound). Verdict: sound; its
 robustness suggestions (platform check for extended precision, explicit errors, input validation) were
-applied, and all certificates are being re-run with the final code (`CERTIFICATES.md`).
+applied, and all certificates were re-run with the final code (`CERTIFICATES.md`; all still positive).
 
 ### 6.2 A family between 2-Pauli and depolarizing
 
@@ -273,13 +274,13 @@ mod-3 codes found so far):
 
 | r | hashing | certified threshold (M = 60) | code | I_c (bits) |
 |---|---|---|---|---|
-| 0 | 0.227092 | 0.2421876 parity; 0.2438124 mod 3 (M = 120: 0.2479376) | | see §6.1 |
+| 0 | 0.227092 | 0.2421876 parity; 0.2438124 mod 3 (M = 120: 0.2479376; M = 240: 0.251) | | see §6.1 |
 | 0.25 | 0.199895 | 0.2228375 = 17827/80000 | mod 3 | [1.32667, 1.33010]×10⁻⁶ |
 | 0.5 | 0.192599 | 0.2099375 = 3359/16000 | mod 3 | [3.73849, 3.74093]×10⁻⁶ |
 | 0.75 | 0.189926 | 0.2015875 = 16127/80000 | mod 3 | [1.63392, 1.63633]×10⁻⁶ |
 | 1 | 0.189290 | 0.1956561 (M = 120: 0.1970625) | mod 3 | see §6.1 |
 
-The gain over hashing is 0.006–0.023 across the family and the certified thresholds decrease
+The gain over hashing is 0.006–0.024 across the family and the certified thresholds decrease
 monotonically from 2-Pauli to depolarizing. (A first mod-3 run at r = 0.5 lost the state at one step and
 gave only 0.1987; parity gave 0.201725 = 8069/40000, also certified; the retry gave 0.2099375.) No point-by-point records for the
 interior of this family were found in the literature (Bausch–Leditzky 2021 cover the Pauli simplex with
@@ -297,7 +298,7 @@ graph-state codes; we did not compare point by point).
   **I_c ∈ [1.96141999×10⁻⁴, 1.96142031×10⁻⁴] bits, certified** (`certify_limit.py`; output truncated at
   D = 280 with a flag state, flag mass 2×10⁻¹⁷; T = 94/125, G = 94/63 exact).
   Turning this into p_th(2-Pauli) ≥ 0.124 would need the convergence theorem of Ahmed et al. extended from
-  the depolarizing channel to this channel (§8); the explicit M = 180 certificate (0.1251875) makes that
+  the depolarizing channel to this channel (§8); the explicit M = 240 certificate (0.1255) makes that
   step unnecessary for the record.
 
 ### 6.4 The additive Gaussian noise channel: Q > 0 beyond σ = 1/√e
@@ -341,7 +342,8 @@ coherent information: 4.37×10⁻⁷ instead of 6.4×10⁻⁸ at σ² = 0.405. C
 
 hence **Q(N_σ) > 0 for every σ² ≤ 0.4075, i.e. σ ≤ 0.6384**. A second continuation from the high-energy
 mod-4 {0,2} state (≈ 77 photons) with its symmetry broken stops at 0.406 (`runs/agnB.log`), so for
-single-mode rank-2 inputs the frontier found is σ² ≈ 0.4075–0.408. The same independent agent recomputed both
+symmetry-free rank-2 inputs at this energy the frontier found is σ² ≈ 0.4075–0.408 (stretched residue codes go
+further, below). The same independent agent recomputed both
 symmetry-free states with full matrices (no symmetry assumed) and two different purifications:
 4.3682405×10⁻⁷ and 5.4779650×10⁻⁸ bits, inside the intervals (and 6.58088×10⁻⁹ for the σ² = 163/400
 state, by three routes); it audited the general flag bound
@@ -408,7 +410,7 @@ gain τ and added noise Y becomes N_σ with σ² = (Y + |1−τ|/2)/τ after a q
 1/τ (τ < 1) or a pure loss of transmissivity 1/τ (τ > 1), i.e. N_σ is a degraded version of it; hence
 Q > 0 whenever (Y + |1−τ|/2)/τ ≤ 0.4121. For the thermal attenuator (Y = (1−η)(N+½)) this reads
 (1−η)(N+1)/η ≤ 0.4121, and for the thermal amplifier (Y = (τ−1)(N+½)) it reads (τ−1)(N+1)/τ ≤ 0.4121.
-Both go beyond the Holevo–Werner (Gaussian-input) thresholds when the environment has N > 3.75 thermal
+Both go beyond the Holevo–Werner (Gaussian-input) thresholds when the environment has N > 3.751 thermal
 photons: e.g. at N = 10 the new windows are η ∈ [0.96389, 0.96614) and τ ∈ (1.03632, 1.03892]. (Mele et
 al. treat N = 1, where this corollary gives nothing new; conversely their ν = 1, η = 0.7841 point implies
 AGN positivity only at σ² = (1−η)ν/η ≈ 0.275 < 1/e, via E = L_η ∘ N_σ.)
@@ -431,7 +433,7 @@ this one by degradation ((1−η)ν < ησ² there).
 
 The emergent channel of the 2-Pauli family is A_G ∘ L_T with T = 1−2p, G = (1−2p)/(1−4p): a thermal
 amplifier. The mod-3 code transferred from M = 240 (§6.4, `runs/lim_2p3_fromM240.log`) and continued in
-the limit up to p = 0.12725 gives, at p = 51/400 (T = 149/200, G = 149/98):
+the limit (to p = 0.1274375 with a 10⁻⁶ margin, then polished at p = 0.1275) gives, at p = 51/400 (T = 149/200, G = 149/98):
 
     I_c ∈ [9.10836870, 9.11017611] × 10⁻⁷ bits      (certify_limit.py 2pauli 51/400, N_in = 140, D = 320)
 
@@ -513,14 +515,14 @@ near 6×10⁻¹⁰ at 0.77875. The window 0.75 < η < 0.77875 remains open.
 |---|---|---|---|---|---|
 | 1/4 | 0.6 | 0.65147 | 1251/2000 = 0.6255 | [4.73283428, 4.89118794]×10⁻⁸ | 50% |
 | 1/2 | 0.66667 | 0.72207 | 6961/10000 = 0.6961 | [0.979254604, 1.05297073]×10⁻⁸ | 47% |
-| 1 | 0.75 | 0.8 | 623/800 = 0.77875 | [2.58920431, 7.64931369]×10⁻¹⁰ | 42% |
+| 1 | 0.75 | 0.8 | 623/800 = 0.77875 | [2.58920431, 7.64931369]×10⁻¹⁰ | 43% |
 | 2 | 0.83333 | 0.87097 | 3433/4000 = 0.85825 | [3.83709010, 3.86723241]×10⁻⁸ | 34% |
 | 3 | 0.875 | 0.90459 | 17907/20000 = 0.89535 | [1.42721100, 1.43166597]×10⁻⁷ | 31% |
 | 5 | 0.91667 | 0.93723 | 14913/16000 = 0.9320625 | [4.44226553, 4.46329925]×10⁻⁸ | 25% |
 
-(k = 1 symmetry-free inputs with N_in = 160, D = 360, except ν = 1/4: N_in = 400, D = 800; ν = 1/2: N_in = 240, D = 480; ν = 2: N_in = 280, D = 560; ν = 3: N_in = 320,
+(k = 1 symmetry-free inputs with ν = 1/4: N_in = 400, D = 800; ν = 1/2: N_in = 240, D = 480; ν = 2: N_in = 280, D = 560; ν = 3: N_in = 320,
 D = 640; ν = 5: mod 3, k = 3, N_in = 360, D = 720; and ν = 1: stretched mod 3, N_in = 320, D = 640.) Since Q is monotone in η at
-fixed ν, each row gives Q > 0 for all larger η. For ν ≳ 3.75 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4121)),
+fixed ν, each row gives Q > 0 for all larger η. For ν > 3.751 the AGN corollary also applies (η ≥ (ν+1)/(ν+1.4121)),
 but the direct certificates go further at every ν tried. Independent check (same separate agent, three
 routes per point: A_G ∘ L_T, loss then AGN, thermal master equation): all five new values inside their
 intervals (spread ≤ 2.2×10⁻¹³), all Gaussian inputs negative at each point; it also regenerated the
@@ -622,7 +624,7 @@ the optimization budget, not yet by its shape. The independent re-implementation
 8.794423×10⁻¹⁰, 2.0771682×10⁻⁹, 6.061502×10⁻¹⁰ and 1.0813608×10⁻⁹ for the five certified 57-photon
 points (routes agree to ≤ 5×10⁻¹⁴; tails beyond 360 photons ≤ 6.4×10⁻⁵⁸; Gaussian inputs negative,
 −0.173 to −0.175), all inside their intervals. The gain per stretch shrinks (20 → 38 → 57 photons:
-η ≈ 0.73467 → 0.7341 → 0.7337), so stretching alone will not reach the record point 0.7294452: the 56-photon record code must
+η ≈ 0.73467 → 0.7341 → 0.7336), so stretching alone will not reach the record point 0.7294452: the 56-photon record code must
 have a different structure, which our local optimizations did not find.
 
 **The record point.** In 128-bit arithmetic (`pauli-emergence/dep_hp_envelope.py`, `dep_hp_scan.py`), mod-3
@@ -680,9 +682,9 @@ had climbed onto rounding error).
 ## 9. Open problems
 
 * Prove the convergence theorem (Ahmed et al., Thm. 6) for phase-covariant Pauli channels (no longer
-  needed for the 2-Pauli record, which the explicit M = 180 certificate already exceeds).
-* Find the optimal Gaussian-limit codes: the finite-M trend points to ≈ 0.128 for BB84 and 2-Pauli, and the
-  ceiling is 0.146447.
+  needed for the 2-Pauli record, which the explicit M = 240 certificate already exceeds).
+* Find the optimal Gaussian-limit codes: the certified limit values are q ≈ 0.1298 (BB84, via AGN) and
+  p = 0.128 (2-Pauli), and the ceiling is 0.146447.
 * Larger M: thresholds keep rising (M = 240 runs in `runs/t*_M240.log`); `certify_big.py` scales as the
   float computation does.
 * Depolarizing: an explicit-M certificate approaching 0.2029 needs states with ~56 excitations, i.e.

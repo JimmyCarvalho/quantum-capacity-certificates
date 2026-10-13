@@ -42,7 +42,7 @@ positive capacity of the additive Gaussian noise channel beyond $1/\sqrt{e}$}
 \author{Jimmy Kelvyn Estevam Carvalho}
 \affiliation{RCO Tecnologia Ltda.}
 
-\date{Draft of October 12, 2026}
+\date{Draft of October 13, 2026}
 
 \begin{abstract}
 A qubit Pauli channel acting on permutation-symmetric states of $M$ qubits with a bounded number of
@@ -517,7 +517,7 @@ $8.0\times10^3$\,s (BB84) of wall time on a 4-core x86-64 machine.
 \paragraph*{Extended precision and a self-found bug.} With \texttt{CERT\_LD=1} the integration runs in
 x87 extended precision ($u=2^{-64}$). The certifier refuses this mode unless
 \texttt{numpy.longdouble} has a 64-bit mantissa. At $M=60$ this mode gives
-$[4.4142155,4.4142560]\times10^{-6}$ for the 2-Pauli state, about $10^3$ times tighter than float64 and
+$[4.4142155,4.4142561]\times10^{-6}$ for the 2-Pauli state, about 500 times tighter than float64 and
 containing the Arb-exponential interval. A self-audit found that the first version of this mode formed
 the Taylor step scalar $h/n$ as a float64 quotient. That rounding, of relative size up to $2^{-53}$, was
 not covered by the $2^{-64}$ budget. The scalar is now formed in extended precision, and the fix was made
@@ -566,7 +566,7 @@ re-run of the certificates with the final code.
 
 \paragraph*{Trust assumptions.} The remaining assumptions are: correctness of the certifier code;
 correctness of python-flint/Arb; IEEE 754 round-to-nearest and SciPy's CSR product semantics (no
-duplicate entries); x87 extended precision for the one entry computed with \texttt{CERT\_LD=1} (checked at
+duplicate entries); x87 extended precision for the two entries computed with \texttt{CERT\_LD=1} (checked at
 run time); and the PIQS coefficient formulas~\cite{shammah2018piqs}, checked against brute force for
 $M\le10$ and against an exact Schur--Weyl formula at $M=60$.
 
@@ -578,11 +578,6 @@ Table~\ref{tab:certs} lists every certificate. Each row is an explicit permutati
 state on $M$ qubits with a rigorous, outward-rounded interval for $\Ic(\rho,\mathcal N^{\otimes M})$,
 hence $Q\ge\Ic/M>0$ and $p_{\mathrm{th}}\ge p$. No limit theorem is used. Figure~\ref{fig:thresholds}
 shows the best certified value per $M$.
-% PENDING: the M = 180 and M = 240 rows were produced by earlier revisions of certify_big.py (float64
-% mode reviewed as sound including the older code; the M = 180 extended-precision run is after the
-% step-scalar fix). Their re-run with the final code (recertify_all.sh) is in progress, as is a
-% 2-Pauli M = 240 certificate at p = 251/2000 = 0.1255. Update this table and the headline numbers if
-% these finish.
 
 \begin{table*}[t]
 \caption{Certificate manifest. Codes are rank two with residues $\{0,1\}\bmod\kappa$, and $K$ is the
@@ -612,8 +607,8 @@ BB84 & 156211/1250000 & 0.1249688 & B & 120 & 90 & 3 & [3.32197192, 3.32992534] 
 family $r=1/4$ & 17827/80000 & 0.2228375 & B & 60 & 60 & 3 & [1.32667340, 1.33009405] & \texttt{1546bd790432b60b}\\
 family $r=1/2$ & 3359/16000 & 0.2099375 & B & 60 & 60 & 3 & [3.73849269, 3.74092802] & \texttt{3a05874737beccad}\\
 family $r=3/4$ & 16127/80000 & 0.2015875 & B & 60 & 60 & 3 & [1.63392704, 1.63632317] & \texttt{0ea6c8003a9478ba}\\
-depolarizing & 41207/625000 & 0.0659312 & B & 240 & 110 & 3 & [1.32046287, 1.33093447] & \texttt{9dffeb3cd424e413}\\
-BB84 & 63/500 & 0.126 & B & 240 & 110 & 3 & [5.54571350, 5.56189889] & \texttt{b947cad42e44ebca}\\
+depolarizing & 41207/625000 & 0.0659312 & B & 240 & 110 & 3 & [1.32046252, 1.33093482] & \texttt{9dffeb3cd424e413}\\
+BB84 & 63/500 & 0.126 & B & 240 & 110 & 3 & [5.54571320, 5.56189919] & \texttt{b947cad42e44ebca}\\
 2-Pauli & 2003/16000 & 0.1251875 & B-LD & 180 & 90 & 3 & [1.17881571, 1.19653069] & \texttt{29f739e0098b53a8}\\
 2-Pauli & 251/2000 & 0.1255 & B-LD & 240 & 110 & 3 & [1.88681426, 2.70734623] & \texttt{682e0a3d42e431d1}\\
 \end{tabular}
@@ -651,7 +646,7 @@ These sequences are bisection values, certified only where listed in Table~\ref{
 \label{sec:family}
 Let $(p_X,p_Y,p_Z)=p\,(1,1,r)/(2+r)$ with total error $p$ and the pole on $z$. $r=0$ is the 2-Pauli
 channel with $p=2p_{\mathrm{2P}}$ (up to relabeling), and $r=1$ is the depolarizing channel with $p=3p_{\mathrm{dep}}$.
-Table~\ref{tab:family} lists the certified points. The gain over hashing is $0.006$--$0.023$ across the
+Table~\ref{tab:family} lists the certified points. The gain over hashing is $0.006$--$0.024$ across the
 family, and the certified thresholds decrease monotonically from 2-Pauli to depolarizing. We found no
 point-by-point records for the interior of this family in the literature. Bausch and
 Leditzky~\cite{bausch2021pauli} cover the Pauli simplex with graph-state codes; we did not compare point
@@ -665,7 +660,7 @@ unless noted).}
 \begin{tabular}{llll}
 $r$ & hashing & certified, $M=60$ & certified, larger $M$\\
 \hline
-0 & 0.227092 & 0.2421876 (parity) & 0.2479376 ($M=120$)\\
+0 & 0.227092 & 0.2421876 (parity) & 0.251 ($M=240$)\\
 1/4 & 0.199895 & 0.2228375 & \\
 1/2 & 0.192599 & 0.2099375 & \\
 3/4 & 0.189926 & 0.2015875 & \\
@@ -708,18 +703,16 @@ $G=8876117/7512234$), with $\Ic\in[4.99212570,8.85924622]\times10^{-10}$ bits (i
 $7.472121\times10^{-10}$); points that failed once
 passed on a later visit from a better state, so the branch is limited by the optimization budget (we
 stopped at $\sim2\times10^{-5}$ in $3p$ per 12-minute step). Hence $p_{\mathrm{th}}\ge0.1997875$ with Theorem~6 of
-Ref.~\cite{ahmed2026choir}. The gain per stretch shrinks ($\eta\approx0.73467$, $0.7341$, $0.7337$ for
+Ref.~\cite{ahmed2026choir}. The gain per stretch shrinks ($\eta\approx0.73467$, $0.7341$, $0.7336$ for
 $20$, $38.5$, $57.5$ photons), so stretching alone does not reach $\eta=0.7294452$: the $56$-photon record
 code must have a different structure.
-The coherent information shrinks as the photon number grows, which is the trade-off that leads to the
-$56$-photon codes of the floating-point record.
 
 \subsection{Gaussian limit of the 2-Pauli channel}
 For the emergent 2-Pauli channel at $p=31/250=0.124$ ($T=94/125$, $G=94/63$), a mod-4 residue code with
 codewords on $n\equiv0,2\pmod4$ ($N_{\mathrm{in}}=160$, $D=280$, flag mass $2\times10^{-17}$) has
 certified $\Ic\in[1.96141999,1.96142031]\times10^{-4}$ bits (certifier~L). Transferring this to the qubit
 channel would require extending the convergence theorem of Ref.~\cite{ahmed2026choir} to the 2-Pauli
-channel. The explicit $M=180$ certificate ($0.1251875$) makes that step unnecessary for the record.
+channel. The explicit $M=240$ certificate ($0.1255$) makes that step unnecessary for the record.
 
 % =====================================================================================================
 \section{The additive Gaussian noise channel beyond $\sigma^2=1/e$}
@@ -758,7 +751,7 @@ $n\le300$) satisfies, at $\sigma^2=81/200$,
 \begin{equation}
   \Ic(\rho',\mathcal T_{600}\circ\Nsig)\in[6.33597116,\ 6.40767279]\times10^{-8}\ \text{bits},
 \end{equation}
-so $Q(\Nsig)>0$ for every $\sigma^2\le81/200$. Finally, the rank-two input $\rho''$ without residue
+so $Q(\Nsig)>0$ for every $\sigma^2\le81/200$. Next, the rank-two input $\rho''$ without residue
 structure stored in \texttt{agn\_gen\_sigma2\_0.407.npy} (sha256 \texttt{cb6c059e736810ac}\dots, $n\le200$)
 satisfies, at $\sigma^2=407/1000$,
 \begin{equation}
@@ -775,7 +768,7 @@ $\rho'$ to a mean photon number of $34.9$ (\texttt{agn\_k3s24\_sigma2\_0.4121.np
 \begin{equation}
   \Ic(\rho'''',\mathcal T_{600}\circ\Nsig)\in[0.228227285,\ 3.70100931]\times10^{-10}\ \text{bits},
 \end{equation}
-so $Q(\Nsig)>0$ for every $\sigma^2\le4121/10000=0.4121$, i.e.\ $\sigma\le0.6419$.
+so $Q(\Nsig)>0$ for every $\sigma^2\le4121/10000=0.4121$, i.e.\ $\sigma\le0.6419$ (Fig.~\ref{fig:agn}).
 \end{theorem}
 
 \begin{proof}[Certificate]
@@ -828,8 +821,8 @@ with broken symmetry stops at $0.406$. Without residue structure
 the output of $\mathrm R\otimes\mathrm B$ is certified as a single $802\times802$ block, and the flag block
 of $\mathrm R\otimes\mathrm B$ is no longer diagonal: its entropy is enclosed by $[h(t),h(t)+t\ln2]$, with
 $t$ the total flag mass ($\approx7\times10^{-44}$), which holds for any $2\times2$ positive matrix of
-trace $t$. So the residue codes are not local maxima in the full input space, and the true threshold of
-single-mode rank-two inputs is somewhat above what residue families suggest. The optimal codewords
+trace $t$. So the low-energy residue codes are not local maxima in the full input space; with more photons the
+residue codes overtake the symmetry-free states again (\emph{More photons} below). The optimal codewords
 are not three-component cat codes, which give $\Ic<10^{-12}$ for every $\sigma^2\in[0.36,0.39]$ after
 optimizing the amplitude and weights; they have a positive main lobe at $n\approx3$--$18$ and a tail of
 alternating sign, with photon-number variance about $2.7$ times the Poisson value. A three-parameter physical family explains most of the
@@ -845,7 +838,7 @@ the fourth, all inside the certified intervals.
 \paragraph*{More photons.} The trick that moved the depolarizing branch (Sec.~\ref{sec:depgauss}) also
 works here. Stretching the mod-3 state $\rho'$ ($15.4$ photons) in the residue index ($n=3m+r$,
 $m\to\lambda m$, amplitudes interpolated) by $\lambda=1.5$, $2$ and $2.4$ gives mean photon numbers $22.1$, $29.3$ and $34.9$,
-and continuation in $\sigma^2$ keeps both positive well beyond the symmetry-free states: the $22$-photon
+and continuation in $\sigma^2$ keeps all three positive well beyond the symmetry-free states: the $22$-photon
 code is certified at $\sigma^2=51/125$ ($[9.57696812,9.62308372]\times10^{-8}$ bits) and $41/100$
 ($[1.85979392,1.92549153]\times10^{-8}$), and the $29$-photon code, which overtakes it near $0.411$, at
 $411/1000$ ($[1.17506701,1.58865651]\times10^{-9}$), $3289/8000$, $6579/16000$ and $823/2000$
@@ -887,7 +880,7 @@ The first identity shows that the result of Mele \textit{et al.}~\cite{mele2026t
 positivity for $\mathcal N_{\sigma'}$ only. At their point $\nu=1$, $\eta=0.7841$ this is
 $\sigma'^2=0.275<1/e$, so it does not imply Theorem~\ref{thm:agn}. Conversely, the second identity and
 Theorem~\ref{thm:agn} give $Q(\mathcal E_{\eta,\nu})>0$ whenever $(1-\eta)(\nu+1)/\eta\le0.4121$. For
-$\nu>3.75$ this region extends below the Holevo--Werner thermal-state threshold
+$\nu>3.751$ this region extends below the Holevo--Werner thermal-state threshold
 $\log_2\frac{\eta}{1-\eta}=g(\nu)$, with $g(\nu)=(\nu+1)\log_2(\nu+1)-\nu\log_2\nu$; for example, at
 $\nu=10$ it covers $\eta\in[0.96389,0.96614)$. We have not compared this with the non-Gaussian results of
 Ref.~\cite{mele2026thermal} away from $\nu=1$.
@@ -896,13 +889,13 @@ $Y=(\tau-1)(\nu+\frac12)\mathbb 1$, $\tau>1$): $\Loss_{1/\tau}\circ\mathcal A_{\
 $\sigma'''^2=(\tau-1)(\nu+1)/\tau$, so $Q(\mathcal A_{\tau,\nu})>0$ whenever $(\tau-1)(\nu+1)/\tau\le0.4121$. In
 general, a phase-insensitive channel with transmissivity or gain $\tau$ and added noise $Y$ has $Q>0$
 whenever $(Y+|1-\tau|/2)/\tau\le0.4121$. For both families the new region lies beyond the Gaussian-input
-threshold exactly when $2^{g(\nu)}>(\nu+1)/0.4121$, i.e.\ for $\nu>3.75$; at $\nu=10$ the amplifier
+threshold exactly when $2^{g(\nu)}>(\nu+1)/0.4121$, i.e.\ for $\nu>3.751$; at $\nu=10$ the amplifier
 window is $\tau\in(1.03632,1.03892]$.
 
 \paragraph*{A thermal amplifier at low noise.} The emergent channel of the 2-Pauli family,
 $\Amp_G\circ\Loss_T$ with $T=1-2p$ and $G=(1-2p)/(1-4p)$, is a thermal amplifier, and the corollary above
 does not reach the relevant parameters. The mod-3 code transferred from $M=240$ and continued in the
-Gaussian limit to $p=0.12725$ (file \texttt{amp\_2p3\_p0.1275.npy}, sha256 \texttt{57ba63a1717f0653}\dots)
+Gaussian limit (to $p=0.1274375$ with a $10^{-6}$ margin, then polished at $p=0.1275$; file \texttt{amp\_2p3\_p0.1275.npy}, sha256 \texttt{57ba63a1717f0653}\dots)
 gives, at $p=51/400$, i.e.\ $T=149/200$ and $G=149/98$,
 \begin{equation}
   \Ic\in[9.10836870,\ 9.11017611]\times10^{-7}\ \text{bits}.
@@ -954,13 +947,13 @@ the window $0.75<\eta<0.77875$ remains open.
 inside the open window $(\eta_{\mathrm{AD}},\eta_{\mathrm G})$, with $\eta_{\mathrm{AD}}=(\nu+\frac12)/(\nu+1)$
 and $\eta_{\mathrm G}=2^{g(\nu)}/(1+2^{g(\nu)})$, at every $\nu$ we tried (Table~\ref{tab:nu} and
 Fig.~\ref{fig:numap}); for $\nu\gtrsim3.75$ the AGN corollary also applies but the direct certificates go
-further. Since $Q$ is monotone in $\eta$ at fixed $\nu$, each row certifies $Q>0$ for all larger $\eta$. The independent re-implementation (three routes per point) gives values inside every interval of
+further. Since $Q$ is monotone in $\eta$ at fixed $\nu$, each row certifies $Q>0$ for all larger $\eta$. The independent re-implementation (three to five routes per point) gives values inside every interval of
 Table~\ref{tab:nu}, and it regenerated the squeezed-cat state from $(\alpha,r,w)$ to $4\times10^{-16}$.
 
 \begin{table*}[t]
 \caption{Thermal attenuator with $\nu$ thermal photons: certified $Q>0$ at transmissivity $\eta$, with the
 fraction of the open window $(\eta_{\mathrm{AD}},\eta_{\mathrm G})$ it closes. Inputs are rank two,
-symmetry-free ($k=1$, $N_{\mathrm{in}}=160$, $D=360$; for $\nu=1/4$, $1/2$, $2$ and $3$, $N_{\mathrm{in}}=400$, $240$, $280$ and $320$ with
+symmetry-free ($k=1$; $N_{\mathrm{in}}=400$, $240$, $280$ and $320$ for $\nu=1/4$, $1/2$, $2$ and $3$, with
 $D=2N_{\mathrm{in}}$) except $\nu=5$ (mod~3, $N_{\mathrm{in}}=360$, $D=720$) and $\nu=1$ (stretched mod~3,
 $N_{\mathrm{in}}=320$, $D=640$).}
 \label{tab:nu}
@@ -970,7 +963,7 @@ $\nu$ & $\eta_{\mathrm{AD}}$ & $\eta_{\mathrm G}$ & certified $\eta$ & $\Ic$ (bi
 \hline
 1/4 & 0.6 & 0.65147 & 1251/2000 (50\%) & $[4.73283428,4.89118794]\times10^{-8}$\\
 1/2 & 0.66667 & 0.72207 & 6961/10000 (47\%) & $[0.979254604,1.05297073]\times10^{-8}$\\
-1 & 0.75 & 0.8 & 623/800 (42\%) & $[2.58920431,7.64931369]\times10^{-10}$\\
+1 & 0.75 & 0.8 & 623/800 (43\%) & $[2.58920431,7.64931369]\times10^{-10}$\\
 2 & 0.83333 & 0.87097 & 3433/4000 (34\%) & $[3.83709010,3.86723241]\times10^{-8}$\\
 3 & 0.875 & 0.90459 & 17907/20000 (31\%) & $[1.42721100,1.43166597]\times10^{-7}$\\
 5 & 0.91667 & 0.93723 & 14913/16000 (25\%) & $[4.44226553,4.46329925]\times10^{-8}$\\
@@ -992,12 +985,12 @@ Ref.~\cite{mele2026thermal}.}
 \centering
 \begin{tikzpicture}[x=46cm,y=1cm,font=\footnotesize]
   \fill[gray!30] (0.56,0) rectangle (0.60653,0.45);
-  \fill[blue!35] (0.60653,0) rectangle (0.63836,0.45);
+  \fill[blue!35] (0.60653,0) rectangle (0.64195,0.45);
   \fill[red!25] (0.70711,0) rectangle (0.725,0.45);
   \draw (0.56,0) rectangle (0.725,0.45);
   \node[font=\scriptsize,align=center] at (0.5833,0.225) {Gaussian\\[-2pt]inputs};
-  \node[font=\scriptsize] at (0.6195,0.225) {Thm.~\ref{thm:agn}};
-  \node at (0.6698,0.225) {open};
+  \node[font=\scriptsize] at (0.6242,0.225) {Thm.~\ref{thm:agn}};
+  \node at (0.6745,0.225) {open};
   \node[font=\scriptsize] at (0.7161,0.225) {$Q{=}0$};
   \draw[->] (0.56,-0.1) -- (0.73,-0.1) node[right] {$\sigma$};
   \foreach \s/\l in {0.60653/{$1/\sqrt e$}, 0.64195/{$\sqrt{0.4121}$}, 0.70711/{$1/\sqrt2$}} {
@@ -1087,6 +1080,9 @@ python3 certify_big.py depol 41207/625000 \
 CERT_LD=1 CERT_PROCS=4 python3 certify_big.py \
     2pauli 2003/16000 \
     runs/state_2p3_M180_thr.npy 180 3 0,1
+CERT_LD=1 CERT_PROCS=4 python3 certify_big.py \
+    2pauli 251/2000 \
+    runs/state_2p3_M240_p0.1255.npy 240 3 0,1
 python3 certify_limit.py agn 2/5 \
     runs/agn_k3_sigma2_0.4.npy 0,1 3 140 320
 python3 certify_limit.py agn 81/200 \
@@ -1120,7 +1116,8 @@ Table~\ref{tab:certs}, in order: \texttt{cert\_2p\_M60\_p0.1210938.npy}, \texttt
 \texttt{state\_dep\_M120\_thr.npy}, \texttt{state\_bb3\_M120\_thr.npy}, \texttt{state\_2p3\_M120\_thr.npy},
 \texttt{state\_pr0.25\_k3\_M60\_thr.npy}, \texttt{state\_pr0.5\_k3b\_M60\_thr.npy},
 \texttt{state\_pr0.75\_k3\_M60\_thr.npy}, \texttt{state\_dep\_M240\_thr.npy},
-\texttt{state\_bb3\_M240\_q0.126.npy}, \texttt{state\_2p3\_M180\_thr.npy} (all under \texttt{runs/}). Each
+\texttt{state\_bb3\_M240\_q0.126.npy}, \texttt{state\_2p3\_M180\_thr.npy},
+\texttt{state\_2p3\_M240\_p0.1255.npy} (all under \texttt{runs/}). Each
 log in \texttt{runs/certB\_*.log} records the command line, the input sha256 and the python-flint version.
 The AGN log (\texttt{runs/certL\_agn\_k3\_0.4.log}) does not record the command line; the parameters
 above were confirmed by re-running it.\par}
