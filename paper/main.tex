@@ -57,7 +57,7 @@ channel; for the 2-Pauli channel it is a quantum-limited amplifier after pure lo
 channel is antidegradable if and only if $\lperp\le 1/\sqrt2$, the shrinking factor of optimal
 phase-covariant cloning, which caps what this route can certify. Using an exact band-decomposed
 evolution in the Dicke basis and two interval-arithmetic certifiers, we certify positive coherent
-information of explicit $M$-qubit states at $q=0.126$ for BB84 ($M=240$) and $p=0.1255$ for the
+information of explicit $M$-qubit states at $q=0.12675$ for BB84 ($M=240$) and $p=0.1255$ for the
 2-Pauli channel ($M=240$), above the previously reported $0.118371$ and $0.118067$, and at total error
 $0.1977936$ for the depolarizing channel ($M=240$). In the Gaussian limit we certify the emergent
 depolarizing channel at total error $0.1997875$; with the convergence theorem of Ahmed \textit{et al.}\
@@ -147,7 +147,7 @@ Gaussian-input value.}
 \begin{tabular}{lllll}
 channel & hashing & previous best & this work & ceiling\\
 \hline
-BB84 ($q$) & 0.110028 & 0.118371~\cite{agarwal2026symmetry} & 0.126 & 0.146447\\
+BB84 ($q$) & 0.110028 & 0.118371~\cite{agarwal2026symmetry} & 0.12675 & 0.146447\\
 2-Pauli ($p$) & 0.113546 & 0.118067~\cite{agarwal2026symmetry} & 0.1255 & 0.146447\\
 depol.\ ($3p$) & 0.189290 & 0.2029161$^{a}$~\cite{ahmed2026choir} & 0.1997875$^{b}$ & 0.219670\\
 AGN ($\sigma^2$) & $1/e$ & $1/e$~\cite{holevo2001evaluating} & $0.4121$ & $1/2$\\
@@ -609,6 +609,7 @@ family $r=1/2$ & 3359/16000 & 0.2099375 & B & 60 & 60 & 3 & [3.73849269, 3.74092
 family $r=3/4$ & 16127/80000 & 0.2015875 & B & 60 & 60 & 3 & [1.63392704, 1.63632317] & \texttt{0ea6c8003a9478ba}\\
 depolarizing & 41207/625000 & 0.0659312 & B & 240 & 110 & 3 & [1.32046252, 1.33093482] & \texttt{9dffeb3cd424e413}\\
 BB84 & 63/500 & 0.126 & B & 240 & 110 & 3 & [5.54571320, 5.56189919] & \texttt{b947cad42e44ebca}\\
+BB84 & 507/4000 & 0.12675 & B & 240 & 110 & 3 & [0.04084358, 0.05636656] & \texttt{321dfc3aa85ecc0e}\\
 2-Pauli & 2003/16000 & 0.1251875 & B-LD & 180 & 90 & 3 & [1.17881571, 1.19653069] & \texttt{29f739e0098b53a8}\\
 2-Pauli & 251/2000 & 0.1255 & B-LD & 240 & 110 & 3 & [1.88681426, 2.70734623] & \texttt{682e0a3d42e431d1}\\
 \end{tabular}
@@ -626,7 +627,7 @@ the previous certified explicit value $0.194868$ ($n=45$)~\cite{krohn2026certifi
 \label{fig:thresholds}
 \end{figure*}
 
-\paragraph*{Headline numbers.} $p_{\mathrm{th}}(\text{BB84})\ge0.126$ ($M=240$),
+\paragraph*{Headline numbers.} $p_{\mathrm{th}}(\text{BB84})\ge0.12675$ ($M=240$),
 $p_{\mathrm{th}}(\text{2-Pauli})\ge0.1255$ ($M=240$), and, for the depolarizing channel, a certified
 explicit-size value $3p=0.1977936$ ($M=240$). The last exceeds the previous explicit certified
 $0.194868$ ($n=45$)~\cite{krohn2026certified} but not the asymptotic $0.2029161$~\cite{ahmed2026choir};
@@ -1073,8 +1074,8 @@ $\kappa$, $N_{\mathrm{in}}$ and $D$ (L):
 cd pauli-emergence
 python3 certify_finite.py bb84 304297/2500000 \
     runs/cert_bb_M60_thr.npy 60 2 0,1
-python3 certify_big.py bb84 63/500 \
-    runs/state_bb3_M240_q0.126.npy 240 3 0,1
+python3 certify_big.py bb84 507/4000 \
+    runs/state_bb3_M240_q0.12675.npy 240 3 0,1
 python3 certify_big.py depol 41207/625000 \
     runs/state_dep_M240_thr.npy 240 3 0,1
 CERT_LD=1 CERT_PROCS=4 python3 certify_big.py \
@@ -1116,7 +1117,7 @@ Table~\ref{tab:certs}, in order: \texttt{cert\_2p\_M60\_p0.1210938.npy}, \texttt
 \texttt{state\_dep\_M120\_thr.npy}, \texttt{state\_bb3\_M120\_thr.npy}, \texttt{state\_2p3\_M120\_thr.npy},
 \texttt{state\_pr0.25\_k3\_M60\_thr.npy}, \texttt{state\_pr0.5\_k3b\_M60\_thr.npy},
 \texttt{state\_pr0.75\_k3\_M60\_thr.npy}, \texttt{state\_dep\_M240\_thr.npy},
-\texttt{state\_bb3\_M240\_q0.126.npy}, \texttt{state\_2p3\_M180\_thr.npy},
+\texttt{state\_bb3\_M240\_q0.126.npy}, \texttt{state\_bb3\_M240\_q0.12675.npy}, \texttt{state\_2p3\_M180\_thr.npy},
 \texttt{state\_2p3\_M240\_p0.1255.npy} (all under \texttt{runs/}). Each
 log in \texttt{runs/certB\_*.log} records the command line, the input sha256 and the python-flint version.
 The AGN log (\texttt{runs/certL\_agn\_k3\_0.4.log}) does not record the command line; the parameters

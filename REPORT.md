@@ -18,7 +18,7 @@ simétricos de muitos qubits, se torna um canal gaussiano bosônico. Este trabal
 3. **bate os recordes de maio/2026** (Agarwal et al., arXiv:2605.09138) para o canal X–Z independente
    (BB84) e o canal 2-Pauli, com estados explícitos de M = 60 a 240 qubits e **certificado rigoroso**
    (aritmética de bolas, sem usar nenhum teorema de limite):
-   BB84 0,118371 → **0,126** (M = 240); 2-Pauli 0,118067 → **0,1255** (M = 240), com códigos
+   BB84 0,118371 → **0,12675** (M = 240); 2-Pauli 0,118067 → **0,1255** (M = 240), com códigos
    de resíduo mod 3. Os pontos de
    M = 60 (0,1217188 e 0,1210938) foram certificados por dois métodos independentes e revisados por um
    agente separado, que tentou quebrá-los e não conseguiu (ver `CERTIFICATES.md`);
@@ -65,7 +65,7 @@ State of the art before this work (all 2026):
 
 | channel | hashing | previous record | **this work, certified, M = 60** | **certified, M = 120** | Gaussian limit (this work) | ceiling of the route |
 |---|---|---|---|---|---|---|
-| BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.126 at M = 240** | ≥ 0.1205 (Gaussian inputs); q ≈ 0.1298 from the AGN certificate (σ² = 0.4121, I_c certified) | 0.146447 |
+| BB84 (q) | 0.110028 | 0.118371 | 0.1217188 | 0.1249688 (mod 3); **0.12675 at M = 240** | ≥ 0.1205 (Gaussian inputs); q ≈ 0.1298 from the AGN certificate (σ² = 0.4121, I_c certified) | 0.146447 |
 | 2-Pauli (p) | 0.113546 | 0.118067 | 0.1210938 | 0.1239688 (mod 3); 0.1251875 at M = 180; **0.1255 at M = 240** | ≥ 0.128 (thermal-amplifier code, I_c certified, §6.5) | 0.146447 |
 | AGN channel (σ², Gaussian limit of BB84) | 1/e = 0.367879 (Gaussian inputs) | 1/e | — | — | **Q > 0 for σ² ≤ 0.4121, certified** (§6.4) | 1/2 |
 | depolarizing (3p) | 0.18929 | 0.2029161 (asymptotic, M not explicit); explicit certified 0.194868 (n = 45) | 0.1956561 | 0.1970625; **0.1977936 at M = 240** (best explicit finite-size value) | **0.1997875, I_c certified** (§7); 0.2029 (Ahmed et al., floating point) | 0.219670 |
@@ -250,8 +250,14 @@ Mod-3 residue codes (codewords on k ≡ 0 and 1 mod 3 around the pole) beat pari
 | 2-Pauli | 2003/16000 = 0.1251875 | 180 | mod 3 (extended precision) | [1.17881571, 1.19653069]×10⁻⁶ |
 | 2-Pauli | 251/2000 = 0.1255 | 240 | mod 3 (extended precision) | [1.88681426, 2.70734623]×10⁻⁶ |
 | BB84 | 63/500 = 0.126 | 240 | mod 3 | [5.54571320, 5.56189919]×10⁻⁶ |
+| BB84 | 507/4000 = 0.12675 | 240 | mod 3 (13 Oct) | [4.08435876, 5.63665548]×10⁻⁸ |
 
-Hence Q > 0 at these points: p_th(BB84) ≥ 0.126, p_th(2-Pauli) ≥ 0.1255 and, for the depolarizing
+The M = 240 continuations first stopped at the default margin I_c > 10⁻⁶ of `threshold_M.py`; with a margin of
+3×10⁻⁸ the BB84 code stays positive to q = 0.12675 (negative at 0.127; `runs/tbb3_M240b.log`), certified in 40 min
+(`runs/certB_bb3_M240_q0.12675.log`). The 2-Pauli code stays positive to p = 0.12575 (I_c = 5.4×10⁻⁷, float), but its
+extended-precision certificate was interrupted by a machine restart and not repeated.
+
+Hence Q > 0 at these points: p_th(BB84) ≥ 0.12675, p_th(2-Pauli) ≥ 0.1255 and, for the depolarizing
 channel, 3p_th ≥ 0.1977936 with an explicit M = 240 state (previous best certified explicit value:
 0.194868 at n = 45, Krohn-Grimberghe, arXiv:2608.15870). BB84 and depolarizing are monotone in p
 (composition), so Q > 0 on the whole interval below; for 2-Pauli the bound is in the sup sense.

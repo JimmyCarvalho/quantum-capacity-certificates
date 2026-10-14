@@ -45,8 +45,9 @@ depolarizing); residues mod 2 (parity) or mod 3 as listed, with exact zeros else
 | family r = 1/2 | 3359/16000 | 0.2099375 (total) | 60 | 60 | mod 3 {0,1} | `runs/state_pr0.5_k3b_M60_thr.npy` | 3a05874737beccad | big | [3.73849269e-6, 3.74092802e-6] |
 | family r = 3/4 | 16127/80000 | 0.2015875 (total) | 60 | 60 | mod 3 {0,1} | `runs/state_pr0.75_k3_M60_thr.npy` | 0ea6c8003a9478ba | big | [1.63392704e-6, 1.63632317e-6] |
 | depolarizing | 41207/625000 | 0.0659312 (3p = 0.1977936) | 240 | 110 | mod 3 {0,1} | `runs/state_dep_M240_thr.npy` | 9dffeb3cd424e413 | big | [1.32046252e-6, 1.33093482e-6] |
-| BB84 | 63/500 | 0.126 | 240 | 110 | mod 3 {0,1} | `runs/state_bb3_M240_q0.126.npy` | b947cad42e44ebca | big | [5.54571320e-6, 5.56189919e-6] |
+| BB84 (superseded) | 63/500 | 0.126 | 240 | 110 | mod 3 {0,1} | `runs/state_bb3_M240_q0.126.npy` | b947cad42e44ebca | big | [5.54571320e-6, 5.56189919e-6] |
 | 2-Pauli | 2003/16000 | 0.1251875 | 180 | 90 | mod 3 {0,1} | `runs/state_2p3_M180_thr.npy` | 29f739e0098b53a8 | big, `CERT_LD=1` | [1.17881571e-6, 1.19653069e-6] |
+| BB84 | 507/4000 | 0.12675 | 240 | 110 | mod 3 {0,1} | `runs/state_bb3_M240_q0.12675.npy` | 321dfc3aa85ecc0e | big | [4.08435876e-8, 5.63665548e-8] |
 | 2-Pauli | 251/2000 | 0.1255 | 240 | 110 | mod 3 {0,1} | `runs/state_2p3_M240_p0.1255.npy` | 682e0a3d42e431d1 | big, `CERT_LD=1` | [1.88681426e-6, 2.70734623e-6] |
 
 Logs: `runs/certF_*_M60_thr.log` (Arb exp; these predate the provenance lines, the state files are
@@ -68,6 +69,7 @@ Commands:
     python3 certify_big.py pr0.75 16127/80000 runs/state_pr0.75_k3_M60_thr.npy 60 3 0,1
     python3 certify_big.py depol 41207/625000 runs/state_dep_M240_thr.npy 240 3 0,1
     python3 certify_big.py bb84 63/500 runs/state_bb3_M240_q0.126.npy 240 3 0,1
+    python3 certify_big.py bb84 507/4000 runs/state_bb3_M240_q0.12675.npy 240 3 0,1
     CERT_LD=1 CERT_PROCS=4 python3 certify_big.py 2pauli 2003/16000 runs/state_2p3_M180_thr.npy 180 3 0,1
     CERT_LD=1 CERT_PROCS=4 python3 certify_big.py 2pauli 251/2000 runs/state_2p3_M240_p0.1255.npy 240 3 0,1
 

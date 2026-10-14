@@ -16,7 +16,7 @@ Every certificate, with exact parameters, state file, SHA-256 and command: [`CER
 | thermal attenuator, ν = 1 thermal photon | Q > 0 for η ≥ 0.7841 (Mele et al., Jul 2026) | **Q > 0 for η ≥ 0.77875** |
 | thermal attenuator, ν = 1/4 … 5 | Gaussian-input thresholds only (ν ≠ 1) | **Q > 0 inside the open window at every ν tried, closing 25–50% of it** (`attenuator_map.png`) |
 | thermal amplifier, gain 1.1343, 2.906 thermal photons | Gaussian inputs give 0 | **Q > 0** |
-| independent X–Z (BB84) Pauli channel | q_th ≥ 0.118371 (May 2026) | **q_th ≥ 0.126** (explicit 240-qubit state) |
+| independent X–Z (BB84) Pauli channel | q_th ≥ 0.118371 (May 2026) | **q_th ≥ 0.12675** (explicit 240-qubit state) |
 | 2-Pauli channel | p_th ≥ 0.118067 (May 2026) | **p_th ≥ 0.1255** (explicit 240-qubit state) |
 | depolarizing channel | 3p_th ≥ 0.2029 (asymptotic, floating point); best explicit certified 0.194868 | best explicit certified **0.1977936** (240 qubits); in the Gaussian limit **0.1997875 with I_c certified** (with the convergence theorem of Ahmed et al., the largest bound we know whose final sign is certified); the 0.2029 record is *not* beaten |
 
